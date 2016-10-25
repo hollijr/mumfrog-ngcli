@@ -1,3 +1,26 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container-fluid">
+  <div class="masthead clearfix">
+    <div class="navbar-header container">
+      <div class="col-xs-12"> <!-- styling so hamburger menu lines up with content container -->
+        <!-- make it responsive -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>  <!-- for screen readers -->
+          <!-- draw the drawer indicator -->
+          <span class="icon-bar"></span>  
+          <span class="icon-bar"></span> 
+          <span class="icon-bar"></span>  
+        </button>
+        </div>
+    </div>
+    <nav id="navbar" class="collapse navbar-collapse">
+      <!-- <img class="navbar-brand hidden-xs" src="images/frog64x64.png"> -->
+      <ul class="nav masthead-nav">
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
+        <li><a routerLink="/artworks" routerLinkActive="active">Artsy Stuff</a></li>
+        <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<router-outlet></router-outlet>

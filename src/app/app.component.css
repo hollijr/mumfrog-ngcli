@@ -1,0 +1,22 @@
+/* need to change the breakpoints that are set in 
+   bootstrap
+*/
+@media (max-width: 768px) {
+  .container-fluid {
+    margin-bottom: 0;
+  }
+  .masthead {
+    padding: 0;
+    background-color: #fff;
+    position: relative;
+  }
+}
+
+@media (max-width: 500px) {
+  .masthead li {
+    display: block;
+  }
+  .masthead-nav > li + li {
+    margin-left: 0px;
+  }
+}
