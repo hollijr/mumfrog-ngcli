@@ -1,0 +1,14 @@
+<div class="container clearfix">
+  <h2 class="dashboard">Favorite Projects</h2>
+  <div class="row grid grid-pad">
+    <div *ngFor="let project of favorites" (click)="goToDetail(project)" class="col-xs-6 col-sm-3">
+      <div class="project-wrapper">
+        <div class="project-panel">
+          <img [src]="project.img" width="200" height="200"     class="img-responsive img-rounded" alt="Generic placeholder thumbnail">
+          <h4>{{project.title}}</h4>
+          <span class="text-muted">{{project.summary}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
