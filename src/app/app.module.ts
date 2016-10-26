@@ -11,13 +11,15 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { ProjectsComponent } from './projects/projects.component';
 
 import { ProjectService } from './services/project.service';
+import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DashboardComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ProjectDetailComponent
   ],
   imports: [
     BrowserModule,
