@@ -13,6 +13,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectService } from './services/project.service';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { GaugeComponent } from './projects/demo/gauge/gauge.component';
+import { DclWrapperComponent } from './common/dcl-wrapper/dcl-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GaugeComponent } from './projects/demo/gauge/gauge.component';
     DashboardComponent,
     ProjectsComponent,
     ProjectDetailComponent,
-    GaugeComponent
+    GaugeComponent,
+    DclWrapperComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { GaugeComponent } from './projects/demo/gauge/gauge.component';
   providers: [
     ProjectService
   ],
+  entryComponents: [ GaugeComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
