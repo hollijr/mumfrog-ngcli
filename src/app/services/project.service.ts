@@ -3,15 +3,15 @@ import { Injectable } from '@angular/core';
 import { Project } from '../projects/project';
 import { PROJECTS } from '../api/mock-projects';
 
+// dynamic components
+import { GaugeComponent } from '../projects/demo/gauge/gauge.component';
+
 @Injectable()
 export class ProjectService {
 
   // properties
-
-  favoriteIds = [11,23,24,12]; 
-
   componentTable = {
-    //'GaugeDemoComponent': GaugeDemoComponent
+    'GaugeComponent': GaugeComponent
   };
 
   // structural methods

@@ -8,7 +8,7 @@ export const PROJECTS:Project[] = [
     summary: 'A JavaScript object that runs in the HTML5 canvas', 
     description: "<p>The gauge control is a JavaScript object that draws to an HTML Canvas.  The canvas element is included as a property in the parameters object that is passed to the Gauge control object at construction.  This object was my first work working with the HTML5 canvas.</p>", 
     img: 'assets/images/gauge.png', 
-    componentName: 'GaugeDemoComponent',
+    componentName: 'GaugeComponent',
     component: null,
     demo: `<p>This demo contains a gauge control that runs in the HTML canvas.  There are three ways to see how the gauge works:</p>
     <ul>

@@ -1,3 +1,29 @@
-<p>
-  project-detail works!
-</p>
+<div *ngIf="project" class="container">
+  <div class="row project-detail"> 
+    <div class='col-xs-12 col-sm-8 content'>
+      <h1>{{project.title}}</h1>
+      <div [innerHTML]="project.description" class='desc'></div>
+    </div>
+    <div class='col-xs-12 col-sm-4 sidebar'>
+      <div>
+        <button (click)="goBack()" class="btn btn-primary">Back</button>
+      </div>
+      <h3>Technology</h3>
+      <ul>
+        <li *ngFor="let tech of project.technology" class="technology">{{tech}}</li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class='row demo'>
+    <div *ngIf="project.demoLink">
+      <a [href]="project.demoLink" target="_blank">View Demo</a>
+    </div>
+    <div *ngIf="project.demo">
+      <div [innerHTML]="project.demo" class="demo-content"></div>
+    </div>
+    <div *ngIf="project.component">
+      <dcl-wrapper [type]="project.component"></dcl-wrapper>
+    </div>
+  </div>
+</div>
