@@ -12,6 +12,7 @@ import { ProjectsComponent } from './projects/projects.component';
 
 import { ProjectService } from './services/project.service';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
+import { GaugeComponent } from './projects/demo/gauge/gauge.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProjectDetailComponent } from './projects/project-detail/project-detail
     HomeComponent,
     DashboardComponent,
     ProjectsComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    GaugeComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { ProjectDetailComponent } from './projects/project-detail/project-detail
 //import { ArtworksComponent } from './artworks.component';
 //import { ArtworkDetailComponent } from './artwork-detail.component';
 //import { AboutComponent } from './about.component';
+import { GaugeComponent } from './projects/demo/gauge/gauge.component';
 
 const appRoutes:Routes = [
   {
@@ -35,10 +36,11 @@ const appRoutes:Routes = [
     path: 'artwork/:id',
     component: ArtworkDetailComponent
   },
+  */
   {
     path: 'about',
-    component: AboutComponent
-  },*/
+    component: GaugeComponent
+  },
   {
     // redirect
     path: '',

@@ -1,0 +1,34 @@
+.project {
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 5px;
+}
+.project-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 5px;
+  background-color: transparent;
+  padding-bottom: 140%;  /* maintain aspect ratio with regard to width */
+}
+.project-panel {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  text-align: center;
+  background-color: #eee;
+  background: -moz-radial-gradient(white, white, white, #f3f3f3, #eee);
+  background: radial-gradient(white, white, white, #f3f3f3, #eee);
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  border: solid 4px transparent;
+  outline: solid 1px #cccccc;
+}
+.project-panel:hover {
+  border-color: #b4e19e;
+  color: #419427;
+}
+.project-panel img {
+  width: 100%;
+}
