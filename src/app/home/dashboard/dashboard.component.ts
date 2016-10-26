@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { ProjectService } from '../../services/project.service';
 import { Project } from '../../projects/project';
 
 @Component({
@@ -9,11 +11,17 @@ import { Project } from '../../projects/project';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private projectService:ProjectService,
+    private router:Router
+  ) { }
 
   ngOnInit() {
+    this.projectService.getFavorites()
+          .then(projects => this.favorites = projects);
   }
 
   favorites:Project[] = [];
+  
 
 }

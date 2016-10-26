@@ -12,4 +12,5 @@ export class Project {
   demoLink:string;  // placed in anchor element
   codeRepo:string;
   img:string;
+  isFavorite:boolean;
 }

@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { ProjectsComponent } from './projects/projects.component';
 
+import { ProjectService } from './services/project.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { ProjectsComponent } from './projects/projects.component';
     HttpModule, 
     ROUTING
   ],
-  providers: [],
+  providers: [
+    ProjectService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
