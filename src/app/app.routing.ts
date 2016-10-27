@@ -6,7 +6,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { ArtworksComponent } from './artworks/artworks.component';
-//import { ArtworkDetailComponent } from './artwork-detail.component';
+import { ArtworkDetailComponent } from './artworks/artwork-detail/artwork-detail.component';
 import { AboutComponent } from './about/about.component';
 import { GaugeComponent } from './projects/demo/gauge/gauge.component';
 
@@ -31,11 +31,10 @@ const appRoutes:Routes = [
     path: 'artworks',
     component: ArtworksComponent
   },
-  /*
   {
     path: 'artwork/:id',
     component: ArtworkDetailComponent
-  },*/
+  },
   {
     path: 'about',
     component: AboutComponent

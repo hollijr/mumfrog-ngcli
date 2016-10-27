@@ -18,6 +18,7 @@ import { ArtworksComponent } from './artworks/artworks.component';
 import { ProjectService } from './services/project.service';
 import { ArtworkService } from './services/artwork.service';
 import { CategoryService } from './services/category.service';
+import { ArtworkDetailComponent } from './artworks/artwork-detail/artwork-detail.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { CategoryService } from './services/category.service';
     GaugeComponent,
     DclWrapperComponent,
     AboutComponent,
-    ArtworksComponent
+    ArtworksComponent,
+    ArtworkDetailComponent
   ],
   imports: [
     BrowserModule,

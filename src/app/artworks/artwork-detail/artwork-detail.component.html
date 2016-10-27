@@ -1,0 +1,21 @@
+<div *ngIf="artwork" class="container">
+  <div class="row artwork-detail">
+    <div class='col-xs-12 '>
+      <h1>{{artwork.title}}</h1>
+      <figure>
+        <img class='img-responsive' src="{{artwork.img}}">
+        <figcaption>
+          [{{artwork.date}}]
+        </figcaption>
+      </figure>
+    </div>
+    <div class='col-xs-12 content'>
+      <div [innerHTML]="artwork.details" class='details'>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="col-xs-4 col-sm-3">
+    <button (click)="goBack()" class="btn btn-primary">Back</button>
+  </div>
+</div>

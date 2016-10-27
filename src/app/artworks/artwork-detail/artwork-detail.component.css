@@ -1,0 +1,37 @@
+.container {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.sidebar {
+  border-right: solid 1px #eee;
+}
+.sidebar-img {
+  width: 100%;
+}
+button {
+  cursor: pointer; cursor: hand;
+  width: 90%;
+  margin: 20px auto;
+}
+.artwork-detail {
+  margin: 0 0 2em 0;
+  padding: 0;
+}
+.content {
+  padding: 20px;
+  position: relative;
+  margin-left: -1px;  /* so border lines up with border from sidebar */
+}
+.details {
+  width: 100%;
+}
+.inset {
+  width: 300px;
+  margin: 10px auto;
+  display: block;
+  clear: both;
+  padding: 0;
+}
+.inset img {
+  width: 100%;
+}
