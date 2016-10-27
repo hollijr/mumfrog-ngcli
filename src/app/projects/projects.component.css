@@ -1,0 +1,26 @@
+.container {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.sidebar {
+  border-left: solid 1px #eee;
+  margin-left: -1px;  /* so border lines up with border from sidebar */
+  padding: 0 10px;
+}
+button {
+  cursor: pointer; cursor: hand;
+  width: 90%;
+  margin: 20px auto;
+}
+.content {
+  border-right: solid 1px #eee;
+  padding: 0 10px;
+  position: relative;
+}
+.demo {
+  padding: 0 10px;
+}
+.demo-content {
+  width: 100%;
+}
+

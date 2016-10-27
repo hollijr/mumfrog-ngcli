@@ -1,3 +1,18 @@
-<p>
-  projects works!
-</p>
+<div class="container">
+  <div class="col-xs-12">
+    <h2>My Projects</h2>
+    <div class="projects clearfix">
+      <div class="row grid grid-pad">
+        <div *ngFor="let project of projects" (click)="goToDetail(project)" [class.selected]="project === selectedProject" class="col-xs-6 col-sm-4 col-md-3 project">
+          <div class="project-wrapper">
+            <div class="panel project-panel">
+              <img [src]="project.img" width="200" height="200" class="img-responsive img-rounded" alt="Generic placeholder thumbnail">
+              <h4>{{project.title}}</h4>
+              <span class="text-muted">{{project.summary}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
