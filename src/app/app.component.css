@@ -1,3 +1,98 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #000;
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #333;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.25);
+}
+
+.container-fluid {
+  margin: 0 0 40px 0;
+  background-color: transparent;
+  padding: 0;
+}
+.navbar-brand {
+  padding: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.navbar-toggle, .icon-bar {
+  z-index: 1000;
+  border: solid 1px #ccc;
+}
+.navbar-toggle {
+  float: left;
+}
+
+.masthead {
+  position: fixed;
+  background-color: #fff;
+  background-color: rgba(255,255,255,.5);
+  min-width: 100%;
+  padding: 0 10px;
+  z-index: 200;
+}
+
+.masthead-nav > li {
+  display: inline-block;
+}
+.masthead-nav > li + li {
+  margin-left: 10px;
+}
+.masthead-nav > li > a {
+  padding-right: 1em;
+  padding-left: 1em;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555; /* IE8 proofing */
+  background-color: transparent;
+}
+.masthead-nav > li > a:focus,
+.masthead-nav > li > a:hover {
+  text-shadow: 0px 0px 0.5em #b4e19e ;
+  color: #419427;
+}
+
+@media (min-width: 768px) {
+  .masthead-nav {
+    float: right;
+  }
+}
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Handle the widths */
+  .masthead {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 992px) {
+  .masthead {
+    width: 700px;
+  }
+}
+
 /* need to change the breakpoints that are set in 
    bootstrap
 */
