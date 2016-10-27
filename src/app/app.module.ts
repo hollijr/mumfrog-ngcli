@@ -9,12 +9,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { ProjectsComponent } from './projects/projects.component';
-
-import { ProjectService } from './services/project.service';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { GaugeComponent } from './projects/demo/gauge/gauge.component';
 import { DclWrapperComponent } from './common/dcl-wrapper/dcl-wrapper.component';
 import { AboutComponent } from './about/about.component';
+import { ArtworksComponent } from './artworks/artworks.component';
+
+import { ProjectService } from './services/project.service';
+import { ArtworkService } from './services/artwork.service';
+import { CategoryService } from './services/category.service';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { AboutComponent } from './about/about.component';
     ProjectDetailComponent,
     GaugeComponent,
     DclWrapperComponent,
-    AboutComponent
+    AboutComponent,
+    ArtworksComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,9 @@ import { AboutComponent } from './about/about.component';
     ROUTING
   ],
   providers: [
-    ProjectService
+    ProjectService,
+    ArtworkService,
+    CategoryService
   ],
   entryComponents: [ GaugeComponent ],
   bootstrap: [AppComponent]

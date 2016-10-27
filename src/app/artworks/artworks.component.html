@@ -1,0 +1,29 @@
+<a id="top" class="anchor"></a>
+<div class="container">  
+  <div class="col-xs-12">
+    <h2>My Artworks</h2>
+    <ul class="goto">
+      <!--<li *ngFor="let cat of categories" (click)="goToCategory(cat)">{{cat.name}}</li>-->
+      <li *ngFor="let cat of categories" class="page-nav"><a [routerLink]="['/artworks']" fragment="{{cat.anchorId}}">{{cat.name}}</a></li>
+    </ul>
+    <div class="projects clearfix">
+      <div *ngFor="let cat of categories" class="row grid grid-pad">
+        <hr>
+        <a id="{{cat.anchorId}}" class="anchor"><h3>{{cat.name}}</h3></a>
+
+        <div *ngFor="let artwork of artworks[cat.id-1]" (click)="goToDetail(artwork)" [class.selected]="artwork === selectedArtwork" class="col-xs-6 col-sm-4 col-md-3 project">
+          <div class="project-wrapper">
+            <div class="panel project-panel">
+              <img [src]="artwork.img" class="img-responsive img-rounded" alt="Generic placeholder thumbnail">
+              <h4>{{artwork.title}}</h4>
+              <span class="text-muted">{{artwork.summary}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="to-top">
+          <a [routerLink]="['/artworks']" fragment="top" class="page-nav">Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
