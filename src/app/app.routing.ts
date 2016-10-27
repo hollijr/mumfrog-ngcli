@@ -7,7 +7,7 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 //import { ArtworksComponent } from './artworks.component';
 //import { ArtworkDetailComponent } from './artwork-detail.component';
-//import { AboutComponent } from './about.component';
+import { AboutComponent } from './about/about.component';
 import { GaugeComponent } from './projects/demo/gauge/gauge.component';
 
 const appRoutes:Routes = [
@@ -39,7 +39,7 @@ const appRoutes:Routes = [
   */
   {
     path: 'about',
-    component: GaugeComponent
+    component: AboutComponent
   },
   {
     // redirect

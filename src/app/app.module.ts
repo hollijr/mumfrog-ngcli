@@ -14,6 +14,7 @@ import { ProjectService } from './services/project.service';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { GaugeComponent } from './projects/demo/gauge/gauge.component';
 import { DclWrapperComponent } from './common/dcl-wrapper/dcl-wrapper.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DclWrapperComponent } from './common/dcl-wrapper/dcl-wrapper.component'
     ProjectsComponent,
     ProjectDetailComponent,
     GaugeComponent,
-    DclWrapperComponent
+    DclWrapperComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
