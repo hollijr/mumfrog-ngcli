@@ -33,9 +33,9 @@ export class ProjectsComponent implements OnInit {
   }
 
   getPhpProjects() {
-    this.projectService.getPhpProjects()
+    this.projectService.getProjectsArray()
       .subscribe(response => {
-        this.projects = (JSON.parse(response)).projects;
+        this.projects = response;
       });
   }
 

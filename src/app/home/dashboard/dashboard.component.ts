@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.projectService.getFavorites()
-          .then(projects => this.favorites = projects);
+          .subscribe(projects => this.favorites = projects);
   }
 
   favorites:Project[] = [];

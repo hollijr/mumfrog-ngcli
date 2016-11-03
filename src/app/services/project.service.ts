@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 
 import { Project } from '../projects/project';
 import { PROJECTS } from '../api/mock-projects';
@@ -25,6 +25,8 @@ export class ProjectService {
 
   // private instance variable to hold base url
   private projectsUrl = './api/getProjects.php'; 
+  private projects;
+  private observable:Observable<any>;
 
   // custom methods
   
@@ -37,6 +39,34 @@ export class ProjectService {
       .map((res) => res.json())
       .catch((error:any) => Observable.throw('Server error'));
   }
+
+  getProjectsArray() {
+    console.log('getProjects1 called');
+    if (this.projects) {
+      console.log('projects already available');
+      return Observable.of(this.projects);
+    } else if (this.observable) {
+      console.log('request pending');
+      return this.observable;
+    } else {
+      console.log('send new request');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      this.observable = this.http.get(this.projectsUrl, { headers: headers })
+        .map(response => {
+          console.log('response arrived');
+          this.observable = null;
+          if (response.status == 400) {
+            return "FAILURE";
+          } else if (response.status == 200) {
+            this.projects = JSON.parse(response.json()).projects;
+            return this.projects;
+          }
+        })
+        .share();
+        return this.observable;
+    }
+  }
   
   getProject(id:number):Promise<Project> {
     return this.getProjects()
@@ -48,8 +78,8 @@ export class ProjectService {
                   return project;
                 });
   }
-  getFavorites():Promise<Project[]> {
-    return this.getProjects()
-                .then(projects => projects.filter(project => project.isFavorite))};
+  getFavorites() {
+    return this.getProjectsArray()
+                .map(projects => projects.filter(project => project.isFavorite))};
 
 }
