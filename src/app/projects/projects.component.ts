@@ -39,13 +39,6 @@ export class ProjectsComponent implements OnInit {
       });
   }
 
-  getProjects():void {
-    // simulate server response delay using getprojectesSlowly() instead of getprojects()
-    this.projectService.getProjects().then((response) => {
-      this.projects = response;
-    });  
-  }
-
   goToDetail(project:Project):void {
     this.onSelect(project);
     this.router.navigate(['/detail', this.selectedProject.id]);

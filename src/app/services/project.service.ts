@@ -29,17 +29,6 @@ export class ProjectService {
   private observable:Observable<any>;
 
   // custom methods
-  
-  getProjects():Promise<Project[]> {
-    return Promise.resolve(PROJECTS);
-  }
-  
-  getPhpProjects():Observable<any> {
-    return this.http.get(this.projectsUrl)
-      .map((res) => res.json())
-      .catch((error:any) => Observable.throw('Server error'));
-  }
-
   getProjectsArray() {
     console.log('getProjects1 called');
     if (this.projects) {
@@ -68,13 +57,14 @@ export class ProjectService {
     }
   }
   
-  getProject(id:number):Promise<Project> {
-    return this.getProjects()
-                .then(projects => projects.find(project => project.id === id))
-                .then((project) => {
+  getProject(id:number) {
+    return this.getProjectsArray()
+                .map(projects => projects.find(project => project.id === id))
+                .map((project) => {
                   if (project.componentName) {
                     project.component = this.componentTable[project.componentName];
                   }
+                  console.log('got project detail');
                   return project;
                 });
   }
