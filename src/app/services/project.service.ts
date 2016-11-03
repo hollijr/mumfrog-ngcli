@@ -35,29 +35,6 @@ export class ProjectService {
   getPhpProjects():Observable<any> {
     return this.http.get(this.projectsUrl)
       .map((res) => res.json())
-    /*
-      .map((responseData) => { return responseData.json(); })
-      .map((projects:Array<any>) => {
-        let result:Array<Project> = [];
-        if (projects) {
-          projects.forEach((project) => {
-            let proj = new Project();
-            proj.id = project.id;
-            proj.title = project.title;
-            proj.technology = project.technology;
-            proj.summary = project.summary;
-            proj.description = project.description;
-            proj.componentName = project.componentName;
-            proj.component = project.component;
-            proj.demo = project.demo;
-            proj.demoLink = project.demoLink;
-            proj.codeRepo = project.codeRepo;
-            proj.img = project.img;
-            proj.isFavorite = project.isFavorite;
-            result.push(proj);
-          });
-        }
-      })*/
       .catch((error:any) => Observable.throw('Server error'));
   }
   
