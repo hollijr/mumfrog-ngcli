@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import {Observable} from 'rxjs/Rx';
 
 import { Project } from '../projects/project';
 import { PROJECTS } from '../api/mock-projects';
+
+// Import RxJs required methods
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 // dynamic components
 import { GaugeComponent } from '../projects/demo/gauge/gauge.component';
@@ -14,18 +20,47 @@ export class ProjectService {
     'GaugeComponent': GaugeComponent
   };
 
-  // structural methods
-  constructor() { }
+  // Resolve HTTP using the constructor
+  constructor(private http: Http) { }
+
+  // private instance variable to hold base url
+  private projectsUrl = './api/getProjects.php'; 
 
   // custom methods
+  
   getProjects():Promise<Project[]> {
     return Promise.resolve(PROJECTS);
   }
-  getProjectsSlowly():Promise<Project[]> {
-    return new Promise<Project[]>(resolve =>
-      setTimeout(resolve, 2000)) // delay 2 seconds
-      .then(this.getProjects);
+  
+  getPhpProjects():Observable<any> {
+    return this.http.get(this.projectsUrl)
+      .map((res) => res.json())
+    /*
+      .map((responseData) => { return responseData.json(); })
+      .map((projects:Array<any>) => {
+        let result:Array<Project> = [];
+        if (projects) {
+          projects.forEach((project) => {
+            let proj = new Project();
+            proj.id = project.id;
+            proj.title = project.title;
+            proj.technology = project.technology;
+            proj.summary = project.summary;
+            proj.description = project.description;
+            proj.componentName = project.componentName;
+            proj.component = project.component;
+            proj.demo = project.demo;
+            proj.demoLink = project.demoLink;
+            proj.codeRepo = project.codeRepo;
+            proj.img = project.img;
+            proj.isFavorite = project.isFavorite;
+            result.push(proj);
+          });
+        }
+      })*/
+      .catch((error:any) => Observable.throw('Server error'));
   }
+  
   getProject(id:number):Promise<Project> {
     return this.getProjects()
                 .then(projects => projects.find(project => project.id === id))

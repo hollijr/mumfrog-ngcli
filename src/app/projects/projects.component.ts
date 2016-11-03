@@ -17,7 +17,7 @@ export class ProjectsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getProjects();
+    this.getPhpProjects();
   }
 
   selectedProject:Project;
@@ -30,6 +30,13 @@ export class ProjectsComponent implements OnInit {
 
   onSelect(project:Project): void {
     this.selectedProject = project;
+  }
+
+  getPhpProjects() {
+    this.projectService.getPhpProjects()
+      .subscribe(response => {
+        this.projects = (JSON.parse(response)).projects;
+      });
   }
 
   getProjects():void {

@@ -19,6 +19,7 @@ import { ProjectService } from './services/project.service';
 import { ArtworkService } from './services/artwork.service';
 import { CategoryService } from './services/category.service';
 import { ArtworkDetailComponent } from './artworks/artwork-detail/artwork-detail.component';
+import { ArrayifyPipe } from './common/arrayify.pipe';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ArtworkDetailComponent } from './artworks/artwork-detail/artwork-detail
     DclWrapperComponent,
     AboutComponent,
     ArtworksComponent,
-    ArtworkDetailComponent
+    ArtworkDetailComponent,
+    ArrayifyPipe
   ],
   imports: [
     BrowserModule,
