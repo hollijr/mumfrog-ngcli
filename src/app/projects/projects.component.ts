@@ -17,7 +17,9 @@ export class ProjectsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getPhpProjects();
+    //this.getPhpProjects();      // PUT THIS BACK FOR PRODUCTION
+    // save for development testing
+    this.getProjects();           // COMMENT OUT FOR PRODUCTION
   }
 
   selectedProject:Project;
@@ -43,5 +45,13 @@ export class ProjectsComponent implements OnInit {
     this.onSelect(project);
     this.router.navigate(['/detail', this.selectedProject.id]);
   }
+
+  // save for development testing
+  getProjects():void {
+     // simulate server response delay using getprojectesSlowly() instead of getprojects()
+     this.projectService.getMockProjects().then((response) => {
+       this.projects = response;
+     });  
+   }
 
 }

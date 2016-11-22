@@ -20,8 +20,11 @@ export class ProjectDetailComponent implements OnInit {
   ngOnInit():void {
     this.route.params.forEach((params:Params) => {
       let id = +params['id'];
-      this.projectService.getProject(id)
-      .subscribe(project => this.project = project);
+      //this.projectService.getProject(id)      // PUT THIS BACK FOR PRODUCTION
+      // save for development testing
+      this.projectService.getMockProject(id)       // COMMENT OUT FOR PRODUCTION
+      .then(project => this.project = project);    // COMMENT OUT FOR PRODUCTION
+      //.subscribe(project => this.project = project);      // PUT THIS BACK FOR PRODUCTION
     });
   }
 

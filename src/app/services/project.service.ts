@@ -52,7 +52,7 @@ export class ProjectService {
             return this.projects;
           }
         })
-        .share();
+        .share();  
         return this.observable;
     }
   }
@@ -71,5 +71,20 @@ export class ProjectService {
   getFavorites() {
     return this.getProjectsArray()
                 .map(projects => projects.filter(project => project.isFavorite))};
+
+  // save these for development testing
+  getMockProjects():Promise<Project[]> {
+    return Promise.resolve(PROJECTS);
+  }
+  getMockProject(id:number):Promise<Project> {
+    return this.getMockProjects()
+                .then(projects => projects.find(project => project.id === id))
+                .then((project) => {
+                  if (project.componentName) {
+                    project.component = this.componentTable[project.componentName];
+                  }
+                  return project;
+                });
+  }
 
 }
