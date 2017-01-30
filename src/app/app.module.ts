@@ -20,6 +20,7 @@ import { ArtworkService } from './services/artwork.service';
 import { CategoryService } from './services/category.service';
 import { ArtworkDetailComponent } from './artworks/artwork-detail/artwork-detail.component';
 import { ArrayifyPipe } from './common/arrayify.pipe';
+import { VisalgoComponent } from './projects/demo/visalgo/visalgo.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ArrayifyPipe } from './common/arrayify.pipe';
     AboutComponent,
     ArtworksComponent,
     ArtworkDetailComponent,
-    ArrayifyPipe
+    ArrayifyPipe,
+    VisalgoComponent
   ],
   imports: [
     BrowserModule,

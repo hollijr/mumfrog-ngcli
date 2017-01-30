@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Visualizing Sorting Algorithms</title>
+	
+	<script type="text/javascript">
+	
+	var numItems=24,gItemArray=new ItemArray(numItems),gGraphics=null,timer=null,timer2=null,compareSpeed=[200,100,50],swapSpeed=[100,50,25],flashSpeed=[300,150,75],heapSpeed=[1E3,500,250],speed=1,sortType=null,stack=null;function QuickSortObj(c,a,b){this.right=a;this.left=c;this.next=b}function StackObj(){this.top=null;this.push=function(c){this.top=c};this.pop=function(){var c=this.top;null!==this.top&&(this.top=this.top.next);return c}}window.addEventListener("load",eventWindowLoaded,!1);
+	function eventWindowLoaded(){visualizeAlgorithms()}
+	function visualizeAlgorithms(){var c=document.getElementById("canvas"),a;a=c&&c.getContext?!0:!1;a?(gGraphics=new GraphicsControl(c),c=document.getElementById("canvas1"),gGraphics.setCanvasLayer(1,c),c=document.getElementById("canvas2"),gGraphics.setCanvasLayer(2,c),gItemArray.create(),gGraphics.createBars(),document.getElementById("selectionSort").addEventListener("click",function(){gItemArray.selectionSort()}),document.getElementById("bubbleSort").addEventListener("click",function(){gItemArray.bubbleSort()}),
+	document.getElementById("insertionSort").addEventListener("click",function(){gItemArray.insertionSort()}),document.getElementById("quickSort").addEventListener("click",function(){gItemArray.quickSort()}),document.getElementById("mergeSort").addEventListener("click",function(){gItemArray.mergeSort()}),document.getElementById("heapSort").addEventListener("click",function(){gItemArray.heapSort()}),document.getElementById("resetOrder").addEventListener("click",function(){gItemArray.reset();gGraphics.reset()}),
+	document.getElementById("newValues").addEventListener("click",function(){gItemArray.create();gGraphics.reset()}),document.getElementById("speed").addEventListener("click",function(){for(var a=document.getElementsByName("speedRadio"),f=0;f<a.length;f++)!0==a[f].checked&&(speed=a[f].value)}),gGraphics.drawScreen(0)):alert("Cannot run graphics because this browser does not support the HTML5 Canvas")}
+	function ItemArray(c){this.original=[];this.elements=[];this.length=c;this.create=function(){sortType=null;this.clearTimer();this.original.length=0;for(var a=this.elements.length=0;a<this.length;a++){var b=Math.floor(Math.random()*this.length)+1;this.original.push(b);this.elements.push(b)}this.clearInfo()};this.clearTimer=function(){null!==timer&&(clearTimeout(timer),timer=null);null!==timer2&&(clearTimeout(timer2),timer2=null)};this.clearInfo=function(){document.getElementById("info").style.display="none";document.getElementById("message").innerHTML=
+	"";document.getElementById("description").innerHTML=""};this.reset=function(){sortType=null;this.clearTimer();for(var a=this.elements.length=0;a<this.length;a++)this.elements.push(this.original[a]);this.clearInfo()};this.selectionSort=function(){sortType="selection";this.clearTimer();gItemArray.reset();gGraphics.reset();document.getElementById("description").innerHTML="<p><a href='http://en.wikipedia.org/wiki/Selection_sort'>From Wikipedia: </a>A simple, in-place comparison sort with O(n^2) complexity.  Generally performs worse than insertion sort.</p><p>The algorithm divides the input list into two parts: the sublist of items already sorted, which is built up from left to right at the front (left) of the list, and the sublist of items remaining to be sorted that occupy the rest of the list. Initially, the sorted sublist is empty and the unsorted sublist is the entire input list. The algorithm proceeds by finding the smallest (or largest, depending on sorting order) element in the unsorted sublist, exchanging it with the leftmost unsorted element (putting it in sorted order), and moving the sublist boundaries one element to the right.</p>";
+	document.getElementById("message").innerHTML="Running selection sort...";document.getElementById("info").style.display="block";selSortOuter(-1,0,gItemArray.length)};this.bubbleSort=function(){sortType="bubble";this.clearTimer();gItemArray.reset();gGraphics.reset();document.getElementById("description").innerHTML='<p><a href="http://en.wikipedia.org/wiki/Bubble_sort">From Wikipedia: </a>A simple sorting algorithm that works by repeatedly stepping through the list to be sorted, comparing each pair of adjacent items and swapping them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which indicates that the list is sorted. The algorithm gets its name from the way smaller elements "bubble" to the top of the list. Because it only uses comparisons to operate on elements, it is a comparison sort with 0(n^2) complexity. Although the algorithm is simple, most of the other sorting algorithms are more efficient for large lists.</p><p> The bubble sort algorithm can be easily optimized by observing that the n-th pass finds the n-th largest element and puts it into its final place. So, the inner loop can avoid looking at the last n-1 items when running for the n-th time</p>';
+	document.getElementById("message").innerHTML="Running bubble sort...";document.getElementById("info").style.display="block";bubbleSortOuter(-1,!0,0,gItemArray.length)};this.insertionSort=function(){sortType="insertion";this.clearTimer();gItemArray.reset();gGraphics.reset();document.getElementById("description").innerHTML='<p><a href="http://en.wikipedia.org/wiki/Insertion_sort">From Wikipedia: </a>Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. Each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain.</p><p>Sorting is typically done in-place, by iterating up the array, growing the sorted list behind it. At each array-position, it checks the value there against the largest value in the sorted list (which happens to be next to it, in the previous array-position checked). If larger, it leaves the element in place and moves to the next. If smaller, it finds the correct position within the sorted list, shifts all the larger values up to make a space, and inserts into that correct position.</p><p>The resulting array after k iterations has the property where the first k + 1 entries are sorted ("+1" because the first entry is skipped). In each iteration the first remaining entry of the input is removed, and inserted into the result at the correct position, thus extending the result:</p>';
+	document.getElementById("message").innerHTML="Running insertion sort...";document.getElementById("info").style.display="block";insertionSortOuter(-1,0,gItemArray.length)};this.quickSort=function(){sortType="quick";this.clearTimer();gItemArray.reset();gGraphics.reset();document.getElementById("description").innerHTML='<p><a href="http://en.wikipedia.org/wiki/Quicksort">From Wikipedia: </a>Quicksort is a divide and conquer algorithm. Quicksort first divides a large list into two smaller sub-lists: the low elements and the high elements. Quicksort can then recursively sort the sub-lists.</p><p>The steps are:</p><ol><li>Pick an element, called a pivot, from the list.</li><li>Reorder the list so that all elements with values less than the pivot come before the pivot, while all elements with values greater than the pivot come after it (equal values can go either way). After this partitioning, the pivot is in its final position. This is called the partition operation.</li><li>Recursively apply the above steps to the sub-list of elements with smaller values and separately the sub-list of elements with greater values.</li></ol><p>The base case of the recursion are lists of size zero or one, which never need to be sorted.</p>';
+	document.getElementById("message").innerHTML="Running quicksort...";document.getElementById("info").style.display="block";stack=new StackObj;stack.push(new QuickSortObj(0,gItemArray.length-1,stack.top));quickSort()};this.mergeSort=function(){sortType="merge";this.clearTimer();gItemArray.reset();gGraphics.reset();document.getElementById("description").innerHTML='<p><a href="http://en.wikipedia.org/wiki/Merge_sort">From Wikipedia: </a>An O(n log n) comparison-based sorting algorithm. Conceptually, a merge sort works as follows:<ol><li>Divide the unsorted list into n sublists, each containing 1 element (a list of 1 element is considered sorted).</li><li>Repeatedly merge sublists to produce new sublists until there is only 1 sublist remaining. This will be the sorted list.</li></ol>This screen shows a bottom-up sort, which begins by assuming the initial array consists of 24 length-1 sublists.  It sorts and merges adjacent sublists, begining with lists that are length 1, then 2, 4, 8, ... until the final width that is the length of the entire array.</p>';
+	document.getElementById("message").innerHTML="Running Merge sort...";document.getElementById("info").style.display="block";mergeSortOuter(1,[])};this.heapSort=function(){sortType="heap";this.clearTimer();gItemArray.reset();gGraphics.reset();document.getElementById("description").innerHTML='<p><a href="http://en.wikipedia.org/wiki/Heapsort">From Wikipedia: </a>The heapsort algorithm can be divided into two parts.</p><p>In the first step, a heap is built out of the data.</p><p>In the second step, a sorted array is created by repeatedly removing the largest element from the heap, and inserting it into the array. The heap is reconstructed after each removal. Once all objects have been removed from the heap, we have a sorted array. The direction of the sorted elements can be varied by choosing a min-heap or max-heap in step one.</p><p>Heapsort can be performed in place. The array can be split into two parts, the sorted array and the heap. The storage of heaps as arrays is diagrammed here. The heap\'s invariant is preserved after each extraction, so the only cost is that of extraction.</p>';
+	document.getElementById("message").innerHTML="Running Heapsort...";document.getElementById("info").style.display="block";gGraphics.drawTree(1,gGraphics.textColor,gGraphics.activeColor,gGraphics.lineColor,0,function(){buildHeap(Math.floor((numItems-2)/2))})};return this}
+	function selSortOuter(c,a,b){c++;gGraphics.drawInPlaceSort(0,a,b,c,gGraphics.sortedColor,gGraphics.stdColor);c<b?(gGraphics.markSwapBase(0,c),timer=setTimeout(function(){selSortInner(c,c,c,a,b)},compareSpeed[speed])):(document.getElementById("message").innerHTML="Selection sort finished.",gGraphics.drawInPlaceSort(0,a,b,c,gGraphics.sortedColor,gGraphics.stdColor))}
+	function selSortInner(c,a,b,f,d){0<a&&a!=b&&gGraphics.drawStandard(0,a);gGraphics.highlightMin(0,b);a++;a<d?(gGraphics.showNextCompare(0,a),gItemArray.elements[a]<gItemArray.elements[b]&&(gGraphics.drawStandard(0,b),b=a,gGraphics.highlightMin(0,b)),timer=setTimeout(function(){selSortInner(c,a,b,f,d)},compareSpeed[speed])):c!==b?gGraphics.swapElements(0,1,c,b,"min",function(){swapValues(c,b);selSortOuter(c,f,d)}):selSortOuter(c,f,d)}
+	function bubbleSortOuter(c,a,b,f){c++;gGraphics.drawInPlaceSort(0,b,f,f-c,gGraphics.stdColor,gGraphics.sortedColor);a&&c<f?timer=setTimeout(function(){bubbleSortInner(c,-1,!1,b,f)},compareSpeed[speed]):(document.getElementById("message").innerHTML="Bubble sort finished.",gGraphics.drawInPlaceSort(0,b,f,-1,gGraphics.stdColor,gGraphics.sortedColor))}
+	function bubbleSortInner(c,a,b,f,d){a++;gGraphics.drawInPlaceSort(0,f,d,d-c,gGraphics.stdColor,gGraphics.sortedColor);a<d-c-1?(gGraphics.markSwapBase(0,a+1),gGraphics.showNextCompare(0,a),gGraphics.showNextCompare(0,a+1),gItemArray.elements[a+1]<gItemArray.elements[a]?(gGraphics.highlightMin(0,a+1),gGraphics.swapElements(0,1,a,a+1,"min",function(){swapValues(a,a+1);bubbleSortInner(c,a,!0,f,d)})):(gGraphics.highlightMin(0,a),timer=setTimeout(function(){bubbleSortInner(c,a,b,f,d)},compareSpeed[speed]))):
+	bubbleSortOuter(c,b,f,d)}function insertionSortOuter(c,a,b){c++;gGraphics.drawInPlaceSort(0,a,b,b,gGraphics.stdColor,gGraphics.sortedColor);c<b-1?timer=setTimeout(function(){insertionSortInner(c,c+1,a,b)},compareSpeed[speed]):(document.getElementById("message").innerHTML="Insertion sort finished.",gGraphics.drawInPlaceSort(0,a,b,-1,gGraphics.stdColor,gGraphics.sortedColor))}
+	function insertionSortInner(c,a,b,f){gGraphics.drawInPlaceSort(0,b,f,f,gGraphics.stdColor,gGraphics.sortedColor);a>b?(gGraphics.markSwapBase(0,a-1),gGraphics.markRange(0,a),gGraphics.showNextCompare(0,a),gGraphics.showNextCompare(0,a-1),gItemArray.elements[a]<gItemArray.elements[a-1]?(gGraphics.highlightMin(0,a),gGraphics.swapElements(0,1,a-1,a,"min",function(){swapValues(a,a-1);insertionSortInner(c,a-1,b,f)})):(gGraphics.highlightMin(0,a-1),timer=setTimeout(function(){insertionSortOuter(c,b,f)},
+	compareSpeed[speed]))):insertionSortOuter(c,b,f)}
+	function quickSort(){var c=stack.pop();if(null!==c)if(c.left<c.right){document.getElementById("message").innerHTML="Choosing new pivot within range "+c.left+" to "+c.right;var a=chooseMedian(c.left,c.left+Math.floor((c.right-c.left)/2),c.right);gGraphics.drawDivideAndConquerSort(0,c.left,c.right,a);timer=setTimeout(function(){partition(c.left,c.right,a,null)},compareSpeed[speed])}else timer=setTimeout(function(){quickSort()},compareSpeed[speed]);else document.getElementById("message").innerHTML="Quicksort finished.",
+	gGraphics.drawInPlaceSort(0,0,gItemArray.length,gItemArray.length,gGraphics.sortedColor,gGraphics.stdColor)}
+	function chooseMedian(c,a,b){return gItemArray.elements[c]<=gItemArray.elements[a]&&gItemArray.elements[a]<=gItemArray.elements[b]||gItemArray.elements[b]<=gItemArray.elements[a]&&gItemArray.elements[a]<=gItemArray.elements[c]?a:gItemArray.elements[a]<=gItemArray.elements[c]&&gItemArray.elements[c]<=gItemArray.elements[b]||gItemArray.elements[b]<=gItemArray.elements[c]&&gItemArray.elements[c]<=gItemArray.elements[a]?c:b}
+	function partition(c,a,b,f){gGraphics.markSwapBase(0,b);null==f?gGraphics.swapElements(0,1,b,a,"pivot",function(){swapValues(b,a);partition(c,a,c,c-1)}):(document.getElementById("message").innerHTML="Partitioning elements "+c+" to "+a,gGraphics.drawDivideAndConquerSort(0,c,a,a),gGraphics.markSwapBase(0,b),f++,f<a?(gGraphics.showNextCompare(0,f),gItemArray.elements[f]<gItemArray.elements[a]?gGraphics.swapElements(0,1,b,f,"min",function(){swapValues(b,f);partition(c,a,b+1,f)}):timer=setTimeout(function(){partition(c,
+	a,b,f)},compareSpeed[speed])):(document.getElementById("message").innerHTML+="...DONE",gGraphics.swapElements(0,1,b,a,"reversePivot",function(){swapValues(a,b);quickSortTail(c,a,b)})))}function quickSortTail(c,a,b){stack.push(new QuickSortObj(b+1,a,stack.top));stack.push(new QuickSortObj(c,b-1,stack.top));quickSort()}
+	function mergeSortOuter(c,a){c<gItemArray.length?mergeSortInner(c,a,0):(document.getElementById("message").innerHTML="Merge Sort finished.",gGraphics.drawInPlaceSort(0,0,gItemArray.length,gItemArray.length,gGraphics.sortedColor,gGraphics.stdColor))}
+	function mergeSortInner(c,a,b){if(b<gItemArray.length){var f=Math.min(b+c,gItemArray.length),d=Math.min(b+2*c,gItemArray.length);gGraphics.drawDivideAndConquerSort(0,b,d-1,gItemArray.length);gGraphics.hideRangeOfItems(0,b,d);b+c<numItems?(gGraphics.slideRangeOfBars(1,b,c,gGraphics.bars[b].x,gGraphics.bars[b].y,gGraphics.bars[b].x-2,0.6*gGraphics.startY,gGraphics.stdColor,1,function(){}),gGraphics.slideRangeOfBars(1,b+c,c,gGraphics.bars[b+c].x,gGraphics.bars[b+c].y,gGraphics.bars[b+c].x+2,0.6*gGraphics.startY,
+	gGraphics.stdColor,2,function(){gGraphics.markDivide(1,f);mergeSubsort(b,f,d,a,b,b,f)})):gGraphics.slideRangeOfBars(1,b,c,gGraphics.bars[b].x,gGraphics.bars[b].y,gGraphics.bars[b].x-2,0.6*gGraphics.startY,gGraphics.stdColor,1,function(){gGraphics.markDivide(1,f);mergeSubsort(b,f,d,a,b,b,f)})}else gItemArray.elements=a.slice(0),a.length=0,mergeSortOuter(2*c,a)}
+	function mergeSubsort(c,a,b,f,d,e,g){d<b?(e<a&&gGraphics.drawBar(1,gGraphics.bars[e].x,gGraphics.bars[e].y,gGraphics.bars[e].h,gGraphics.compareColor),g<b&&gGraphics.drawBar(1,gGraphics.bars[g].x,gGraphics.bars[g].y,gGraphics.bars[g].h,gGraphics.compareColor),e<a&&(gItemArray.elements[e]<=gItemArray.elements[g]||g>=b)?(f[d]=gItemArray.elements[e],gGraphics.hideBar(1,e),gGraphics.flashAndMoveBar(2,e,gGraphics.calculateX(d),gGraphics.startY,0,function(){gGraphics.sortBar(d,e);mergeSubsort(c,a,b,f,d+
+	1,e+1,g)})):(f[d]=gItemArray.elements[g],gGraphics.hideBar(1,g),gGraphics.flashAndMoveBar(2,g,gGraphics.calculateX(d),gGraphics.startY,0,function(){gGraphics.sortBar(d,g);mergeSubsort(c,a,b,f,d+1,e,g+1)}))):(gGraphics.copyBars(c,b),gGraphics.clearLayer(1),gGraphics.clearLayer(2),mergeSortInner(a-c,f,c+2*(a-c)))}
+	function buildHeap(c){document.getElementById("message").innerHTML="Building max heap...";0<=c?(gGraphics.drawNode(1,c,gGraphics.textColor,gGraphics.compareColor,gGraphics.lineColor,1),timer=setTimeout(function(){gGraphics.drawNode(1,c,gGraphics.textColor,gGraphics.activeColor,gGraphics.lineColor,1);siftDown(c,numItems-1,function(){buildHeap(c-1)})},heapSpeed[speed])):heapSort(numItems-1)}
+	function heapSort(c){document.getElementById("message").innerHTML="Sorting array from heap values...";0<c?(gGraphics.hideNode(1,0),swapValues(0,c),gGraphics.swapCoordinates(0,c),gGraphics.drawSortedItem(0,c),timer=setTimeout(function(){gGraphics.drawNode(1,0,gGraphics.textColor,gGraphics.activeColor,gGraphics.lineColor);gGraphics.hideNode(1,c);timer=setTimeout(function(){siftDown(0,c-1,function(){heapSort(c-1)})},heapSpeed[speed])},heapSpeed[speed])):(gGraphics.clearLayer(2),gGraphics.clearLayer(1),
+	document.getElementById("message").innerHTML="Heapsort finished.",gGraphics.drawInPlaceSort(0,0,gItemArray.length,gItemArray.length,gGraphics.sortedColor,gGraphics.stdColor))}
+	function siftDown(c,a,b){var f=c;2*c+1<=a&&gItemArray.elements[f]<gItemArray.elements[2*c+1]&&(f=2*c+1);2*c+2<=a&&gItemArray.elements[f]<gItemArray.elements[2*c+2]&&(f=2*c+2);f!==c?(swapValues(f,c),gGraphics.markParentChild(1,f,c,gGraphics.textColor,gGraphics.nodeHighlight,gGraphics.nodeHighlight),gGraphics.swapCoordinates(f,c),timer=setTimeout(function(){gGraphics.markParentChild(1,f,c,gGraphics.textColor,gGraphics.activeColor,gGraphics.lineColor);siftDown(f,a,b)},heapSpeed[speed])):timer=setTimeout(function(){b()},
+	heapSpeed[speed])}function swapValues(c,a){var b=gItemArray.elements[c];gItemArray.elements[c]=gItemArray.elements[a];gItemArray.elements[a]=b;b=gGraphics.bars[c];gGraphics.bars[c]=gGraphics.bars[a];gGraphics.bars[a]=b}
+	function GraphicsControl(c){this.canvas=[];this.context=[];this.canvas.push(c);c=this.canvas[0].getContext("2d");this.context.push(c);this.startX=5;this.startY=180;this.maxHeight=50;this.barWd=6;this.labelFnt="7pt Arial";this.textColor="white";this.nodeFont="6pt Arial";this.nodeHighlight="red";this.divideColor="#aaa";this.lineColor="black";this.stdColor="blue";this.sortedColor="red";this.minColor="#33ff66";this.openSpotColor=this.compareColor="#33ccff";this.pivotPtColor="#33ff66";this.pivotColor=
+	"#ff99ff";this.activeColor="blue";this.inactiveColor="#cccccc";this.backgroundColor="#ffff99";this.arrowWd=6;this.arrowHt=12;this.arrowY=6;this.bars=Array(numItems);this.sortedBars=Array(numItems);this.nodeLocations=Array(numItems);this.createBars=function(){for(var a=(this.startY-this.maxHeight)/(this.calculateLevel(numItems)+1),b=0,f=1,c=1,e=0;e<numItems;e++){this.bars[e]={x:this.calculateX(e),y:this.startY,h:this.calculateHt(e),v:gItemArray.elements[e]};e>=f&&(b++,c=Math.pow(2,b),f+=c);var g=Math.floor(this.canvas[0].width/
+	Math.pow(2,b));this.nodeLocations[e]={l:b,x:g*(e-(f-c))+0.5*g,y:0.5*a+a*b}}};this.reset=function(){this.resetBars();for(var a=0;a<this.context.length;a++)this.clearLayer(a);this.drawScreen(0)};this.resetBars=function(){for(var a=0;a<numItems;a++)this.bars[a].x=this.calculateX(a),this.bars[a].y=this.startY,this.bars[a].h=this.calculateHt(a),this.bars[a].v=gItemArray.elements[a]};this.setCanvasLayer=function(a,b){if(!isNaN(a)){this.canvas.splice(a,0,b);var f=this.canvas[a].getContext("2d");this.context.splice(a,
+	0,f)}};this.clearLayer=function(a){this.context[a].clearRect(0,0,this.canvas[a].width,this.canvas[a].height)};this.drawScreen=function(a){this.context[a].clearRect(0,0,this.canvas[a].width,this.canvas[a].height);for(var b=0;b<gItemArray.length;b++)this.drawItem(a,b,this.stdColor)};this.drawBaseline=function(a){this.context[a].beginPath();this.context[a].strokeStyle=this.lineColor;this.context[a].lineWidth=1;this.context[a].moveTo(this.startX,this.startY+1);this.context[a].lineTo(this.canvas[a].width-
+	this.startX,this.startY+1);this.context[a].stroke();this.context[a].closePath()};this.drawInPlaceSort=function(a,b,f,c,e,g){for(this.context[a].clearRect(0,0,this.canvas[a].width,this.canvas[a].height);b<f;b++){var h=g;b<c&&(h=e);this.drawItem(a,b,h)}};this.drawDivideAndConquerSort=function(a,b,f,c){this.context[a].clearRect(0,0,this.canvas[a].width,this.canvas[a].height);gGraphics.clearSwapBaseMark(0);gGraphics.markRange(0,b);gGraphics.markRange(0,f);for(var e=0;e<gItemArray.length;e++){var g=this.activeColor;
+	if(e==c)g=this.pivotColor;else if(e<b||e>f)g=this.inactiveColor;this.drawItem(a,e,g)}};this.slideRangeOfBars=function(e,b,f,g,h,c,d,k,p,l){var m=this.bars[b].x,n=this.bars[b].y;if(this.bars[b].y!==d||this.bars[b].x!==c){if(this.bars[b].y!==d){var a=5;5>Math.abs(this.bars[b].y-d)&&(a=Math.abs(this.bars[b].y-d));d<h&&(a*=-1);n+=a}this.bars[b].x!==c&&(a=1,Math.abs(c-this.bars[b].x)<a&&(a=Math.abs(c-this.bars[b].x)),c<g&&(a*=-1),m+=a);for(a=b;a<b+f&&a<numItems;a++)this.moveBar(e,a,m+2*(a-b)*this.barWd,n,k);1===p?timer=setTimeout(function(){gGraphics.slideRangeOfBars(e,b,f,g,h,c,d,k,1,l)},
+swapSpeed[speed]):timer2=setTimeout(function(){gGraphics.slideRangeOfBars(e,b,f,g,h,c,d,k,2,l)},swapSpeed[speed])}else l()};this.flashAndMoveBar=function(a,b,c,d,e,g){if(2<e)this.hideBar(a,b),this.drawBar(a,c,d,this.bars[b].h,this.stdColor),timer=setTimeout(function(){g()},compareSpeed[speed]);else{var h=this.compareColor;0==e%2&&(h=this.minColor);this.drawBar(a,this.bars[b].x,this.bars[b].y,this.bars[b].h,h);timer=setTimeout(function(){gGraphics.flashAndMoveBar(a,b,c,d,e+1,g)},flashSpeed[speed])}};this.sortBar=
+	function(a,b){this.sortedBars[a]=this.bars[b];this.sortedBars[a].x=gGraphics.calculateX(a);this.sortedBars[a].y=gGraphics.startY};this.copyBars=function(a,b){this.bars=this.bars.slice(0,a).concat(this.sortedBars.slice(a,b)).concat(this.bars.slice(b))};this.swapCoordinates=function(a,b){var c=this.bars[a].x,d=this.bars[a].y;this.bars[a].x=this.bars[b].x;this.bars[a].y=this.bars[b].y;this.bars[b].x=c;this.bars[b].y=d};this.moveBar=function(a,b,c,d,e){this.hideBar(a,b);this.bars[b].x=c;this.bars[b].y=
+	d;this.drawBar(a,this.bars[b].x,this.bars[b].y,this.bars[b].h,e)};this.hideRangeOfItems=function(a,b,c){for(;b<c;b++)this.hideItem(a,b)};this.drawItem=function(a,b,c){this.context[a].clearRect(this.bars[b].x,this.arrowHt+this.arrowY,this.barWd,this.startY);this.drawBar(a,this.bars[b].x,this.bars[b].y,this.bars[b].h,c);this.drawLabel(a,b,c);this.drawBaseline(a)};this.hideItem=function(a,b){this.context[a].clearRect(this.bars[b].x-this.barWd/2,this.arrowHt+this.arrowY,2*this.barWd,this.startY);this.drawBaseline(a)};
+	this.hideBar=function(a,b){this.context[a].clearRect(this.bars[b].x-this.barWd/4,this.bars[b].y-this.bars[b].h-2,1.5*this.barWd,this.bars[b].h+4)};this.calculateX=function(a){return this.startX+this.barWd/2+2*this.barWd*a};this.calculateHt=function(a){return this.maxHeight*(gItemArray.elements[a]/gItemArray.length)};this.calculateLevel=function(a){for(var b=0,c=1;a>=c;)b++,c+=Math.pow(2,b);return b};this.drawBar=function(a,b,c,d,e){this.context[a].beginPath();this.context[a].fillStyle=e;this.context[a].rect(b,
+	c-d,this.barWd,d);this.context[a].stroke();this.context[a].fill();this.context[a].closePath()};this.drawLabel=function(a,b,c){this.context[a].clearRect(this.bars[b].x,this.startY+1,this.barWd,this.startY);this.context[a].font=c;this.context[a].setTransform(1,0,0,1,0,0);this.context[a].translate(this.bars[b].x,this.startY+12);this.context[a].rotate(270+Math.PI/2);this.context[a].textAlign="center";this.context[a].translate(0,0);this.context[a].fillText(this.bars[b].v.toString(),0,0);this.context[a].rotate(0);
+	this.context[a].setTransform(1,0,0,1,0,0)};this.drawNode=function(a,b,c,d,e,g){var h=2.5*this.bars[b].v.toString().length;this.context[a].beginPath();this.context[a].font=this.nodeFont;this.context[a].fillStyle=d;this.context[a].strokeStyle=e;this.context[a].lineWidth=g;this.context[a].arc(this.nodeLocations[b].x,this.nodeLocations[b].y,8,0,360,!0);this.context[a].stroke();this.context[a].fill();this.context[a].fillStyle=c;this.context[a].fillText(this.bars[b].v.toString(),this.nodeLocations[b].x-
+	h,this.nodeLocations[b].y+3);this.context[a].closePath()};this.drawBranches=function(a){var b=Math.floor((numItems-2)/2);for(i=0;i<=b;i++){var c=2*i+1;if(c<numItems)this.drawBranch(a,i,c,this.lineColor);else break;if(c+1<numItems)this.drawBranch(a,i,c+1,this.lineColor);else break}};this.drawBranch=function(a,b,c,d){this.context[a].beginPath();this.context[a].strokeStyle=d;this.context[a].moveTo(this.nodeLocations[b].x,this.nodeLocations[b].y);this.context[a].lineTo(this.nodeLocations[c].x,this.nodeLocations[c].y);
+	this.context[a].stroke();this.context[a].closePath()};this.drawNodesActive=function(a){for(var b=0;b<numItems;b++)this.drawNode(a,b,this.textColor,this.activeColor,this.lineColor,1)};this.drawTree=function(a,b,c,d,e,g){e<numItems?(this.hideItem(0,e),0===e%2&&0<=(e-2)/2?this.markParentChild(a,(e-2)/2,e,b,c,d):0!==e%2&&0<=(e-1)/2?this.markParentChild(a,(e-1)/2,e,b,c,d):this.drawNode(a,e,b,c,d,1),timer=setTimeout(function(){gGraphics.drawTree(a,b,c,d,e+1,g)},heapSpeed[speed])):g()};this.markParentChild=
+	function(a,b,c,d,e,g){this.drawBranch(a,b,c,g);this.drawNode(a,b,d,e,g,1);this.drawNode(a,c,d,e,g,1)};this.hideNode=function(a,b){0<=b&&b<numItems&&(this.drawNode(a,b,this.backgroundColor,this.backgroundColor,this.backgroundColor,3),0===b%2&&0<=(b-2)/2?(this.drawBranch(a,(b-2)/2,b,this.backgroundColor),this.drawNode(a,(b-2)/2,this.textColor,this.activeColor,this.lineColor,1)):0!==b%2&&0<=(b-1)/2&&(this.drawBranch(a,(b-1)/2,b,this.backgroundColor),this.drawNode(a,(b-1)/2,this.textColor,this.activeColor,
+	this.lineColor,1)))};this.markSwapBase=function(a,b){var c=this.calculateX(b);this.drawDownArrow(a,c,this.arrowY,"black")};this.markRange=function(a,b){var c=this.calculateX(b);this.drawDownArrow(a,c,this.arrowY,this.activeColor)};this.markDivide=function(a,b){b<numItems&&(this.context[a].strokeStyle=this.divideColor,this.context[a].lineWidth=1,this.context[a].beginPath(),this.context[a].moveTo(this.bars[b].x-2-this.barWd/2,this.bars[b].y),this.context[a].lineTo(this.bars[b].x-2-this.barWd/2,this.bars[b].y-
+	this.maxHeight),this.context[a].stroke(),this.context[a].closePath())};this.clearSwapBaseMark=function(a){this.context[a].clearRect(0,0,this.canvas[a].width,this.arrowY+this.arrowHt)};this.drawSortedItem=function(a,b){this.drawItem(a,b,this.sortedColor)};this.highlightMin=function(a,b){this.drawItem(a,b,this.minColor)};this.highlightPivotPoint=function(a,b){this.drawItem(a,b,this.pivotPtColor)};this.drawStandard=function(a,b){this.drawItem(a,b,this.stdColor)};this.showNextCompare=function(a,b){this.drawItem(a,
+	b,this.compareColor)};this.drawDownArrow=function(a,b,c,d){var e=this.arrowWd/3;this.context[a].beginPath();this.context[a].fillStyle=d;this.context[a].strokeStyle=d;this.context[a].translate(b,c);this.context[a].moveTo(e,0);this.context[a].lineTo(2*e,0);this.context[a].lineTo(2*e,this.arrowHt-this.arrowWd);this.context[a].lineTo(this.arrowWd,this.arrowHt-this.arrowWd);this.context[a].lineTo(this.arrowWd/2,this.arrowHt);this.context[a].lineTo(0,this.arrowHt-this.arrowWd);this.context[a].lineTo(e,
+	this.arrowHt-this.arrowWd);this.context[a].lineTo(e,0);this.context[a].fill();this.context[a].stroke();this.context[a].translate(-b,-c);this.context[a].closePath()};this.swapElements=function(a,b,c,d,e,g){this.hideItem(a,c);this.hideItem(a,d);a=this.openSpotColor;var h=this.minColor;"pivot"==e?(a=this.pivotColor,h=this.openSpotColor):"reversePivot"==e&&(h=this.pivotColor);this.slideBars(b,"up",c,d,a,h,0,g)};this.slideBars=function(a,b,c,d,e,g,h,l){this.clearLayer(a);if("up"==b)5>h?(this.hideBar(a,
+	c),this.bars[c].y-=h,this.drawBar(a,this.bars[c].x,this.bars[c].y,this.bars[c].h,e),c!=d&&(this.hideBar(a,d),this.bars[d].y-=h,this.drawBar(a,this.bars[d].x,this.bars[d].y,this.bars[d].h,g)),timer=setTimeout(function(){gGraphics.slideBars(a,"up",c,d,e,g,h+1,l)},swapSpeed[speed])):this.slideBars(a,"side",c,d,e,g,0,l);else if("side"==b){b=d-c;var m=h<b?1:-1;h<2*b?(this.hideBar(a,c),this.hideBar(a,d),this.bars[c].x+=this.barWd,this.bars[d].x-=this.barWd,this.bars[c].y-=m,this.bars[d].y-=m,gGraphics.drawBar(a,
+	this.bars[c].x,this.bars[c].y,this.bars[c].h,e),gGraphics.drawBar(a,this.bars[d].x,this.bars[d].y,this.bars[d].h,g),timer=setTimeout(function(){gGraphics.slideBars(a,"side",c,d,e,g,h+1,l)},swapSpeed[speed])):this.slideBars(a,"down",c,d,e,g,0,l)}else"down"==b&&(5>h?(c!=d&&(this.hideBar(a,c),this.bars[c].y+=h,gGraphics.drawBar(a,this.bars[c].x,this.bars[c].y,this.bars[c].h,e)),this.hideBar(a,d),this.bars[d].y+=h,gGraphics.drawBar(a,this.bars[d].x,this.bars[d].y,this.bars[d].h,g),timer=setTimeout(function(){gGraphics.slideBars(a,
+	"down",c,d,e,g,h+1,l)},swapSpeed[speed])):(this.bars[c].y=this.startY,this.bars[d].y=this.startY,l()))};return this};
+	</script>
+	<style>
+	body {
+		width: 600px;
+		margin: 0 auto;
+		position: absolute;
+		font-family: sans-serif;
+	}
+
+	/* Canvas and legend section */
+	#canvasLayers {
+		width: 50%;
+		float: left;
+		display: inline;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		border: none;
+		padding: 0px;
+		margin: 0px;
+	}
+	#canvas {
+		position: absolute;
+		top: 25px;
+		left: 25px;
+		border: solid 1px black;
+		padding: 0px;
+		margin: 0px;
+		width: 250px;
+		height: 150px;
+		background-color: #ffff99;
+		z-index: 0;
+	}
+	#canvas1 {
+		position: absolute;
+		top: 25px;
+		left: 25px;
+		border: none;
+		padding: 0px;
+		margin: 0px;
+		width: 250px;
+		height: 150px;
+		background-color: transparent;
+		z-index: 1;
+	}
+	#canvas2 {
+		position: absolute;
+		top: 25px;
+		left: 25px;
+		border: none;
+		padding: 0px;
+		margin: 0px;
+		width: 250px;
+		height: 150px;
+		background-color: transparent;
+		z-index: 2;
+	}
+	div#legend {
+		margin-top: 180px;
+		left: 25px;
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 15px;
+		font-size: 0.6em;
+	}
+	div#legend div {
+		display: inline;
+	}
+	.box {
+		border: solid 1px black;
+		width: 10px;
+		height: 10px;
+		float: left;
+	}
+	#openSpot {
+		clear: both;
+		display: block;
+		left: 25px;
+		text-align: center;
+		line-height: 1;
+		font-size: 0.95em;
+		padding-top: 5px;
+		width: 250px;
+	}
+	#sorted {
+		background-color: red;
+	}
+	#currMin {
+		background-color: #3f6;
+	}
+	#currCompare {
+		background-color: #3cf;
+	}
+	#pivot {
+		background-color: #f9f;
+	}
+	.text {
+		width: 55px;
+		float: left;
+		padding-left: 5px;
+	}
+	#speed {
+		margin-top: 220px;
+		margin-bottom: 10px;
+		left: 25px;
+		position: absolute;
+		display: block;
+		width: 250px;
+		height: 20px;
+		font-size: 0.6em;
+		border: solid 1px #333;
+		background-color: #fcfcfc;
+		text-align: center;
+	}
+
+	/* Info section */
+	#info {
+		width: 50%;
+		border: none;
+		padding: 0px;
+		margin: 0px;
+		float: right;
+		background-color: #eee;
+		margin-top: 30px;
+		display: none;
+	}
+	#message {
+		display: block;
+		background-color: #ffff99;
+		margin: 20px;
+	}
+	#description {
+		font-size: .75em;
+		margin: 20px;
+	}
+
+	/* Buttons section */
+	.controls {
+		width: 250px;
+		position: absolute;
+		margin-top: 250px;
+		left: 25px;
+		border: none;
+	}
+	button {
+		border-radius: 10px;
+		line-height: 2;
+		text-align: center;
+		width: 100px;
+		display: inline;
+		font-family: sans-serif;
+		font-size: 12px;
+	}
+	fieldset {
+		display: block;
+		margin-bottom: 10px;
+	}
+	.sorts legend {
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<section id="canvasLayers">
+		<!-- must include width and height attributes on canvas to define coordinate system inside the element, which is
+			not the same as the width and height css attributes that define the size of the box on screen. -->
+		<canvas id="canvas" width="300" height="200">Your browser does not support HTML5 Canvas</canvas>
+		<canvas id="canvas1" width="300" height="200"></canvas>
+		<canvas id="canvas2" width="300" height="200"></canvas>
+		<div id="legend">
+			<div id="sorted" class="box"></div><div class="text">Sorted</div>
+			<div id="currMin" class="box"></div><div class="text">Lesser/Min</div>
+			<div id="currCompare" class="box"></div><div class="text">Compare</div>
+			<div id="pivot" class="box"></div><div class="text">Pivot</div>
+			<p id="openSpot">Black arrows indicate where the next sorted value goes.<br>Blue arrows indicate the range of elements being sorted.</p>
+		</div>
+		<section id="speed">
+			Animation Speed:
+			<input type="radio" name="speedRadio" value="0">Slow
+			<input type="radio" name="speedRadio" value="1" checked="checked">Medium
+			<input type="radio" name="speedRadio" value="2">Fast
+		</section>
+	</section>
+	<section id="info">
+		<div id='message'></div>
+		<section id="description"></section>
+	</section>
+	<section class="controls">
+		<fieldset class="general">
+			<button id='newValues'>New Values</button> 
+			<button id='resetOrder'>Reset Order</button>
+		</fieldset>
+		<fieldset class="sorts">
+			<legend>Types of Sorts</legend>
+			<button id='selectionSort'>Selection Sort</button>
+			<button id='bubbleSort'>Bubble Sort</button>
+			<button id='insertionSort'>Insertion Sort</button>
+			<button id='quickSort'>Quicksort</button>
+			<button id='mergeSort'>Merge Sort</button>
+			<button id='heapSort'>Heapsort</button>
+		</fieldset>
+	</section>
+	<div id='test'></div>
+</body>
+</html>

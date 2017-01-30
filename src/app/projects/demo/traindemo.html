@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Linked List Demo</title>
+	
+	<script type="text/javascript">
+	
+	window.addEventListener("load", eventWindowLoaded, false);
+
+	function eventWindowLoaded () {
+		trainDemo();
+	}
+
+	function trainDemo() {
+
+		function Train() {
+
+			// lookup table index associated with the current input level of gauge
+			this.mHead = null;
+			this.mTail = null;
+			this.mNumCars = 0;
+
+			this.size = function() {
+				return this.mNumCars;
+			}
+
+			this.isEmpty = function() {
+				return this.mNumCars === 0;
+			}
+
+			this.insert = function(loc, car) {
+				var ptr = this.mHead;
+				
+				// add to beginning
+				if (this.mHead === null) {
+					this.mHead = car;
+					this.mTail = car;
+					this.mNumCars++;
+					return;
+				}
+
+				// add to end
+				if (loc > this.mNumCars) {
+					car.mPrev = this.mTail;
+					if (this.mTail !== null) this.mTail.mNext = car;
+					this.mTail = car;
+				} else {
+					var i = 0;
+					while (ptr !== null) {
+						i++;
+						if (i == loc) {
+							car.mPrev = ptr.mPrev;
+							car.mNext = ptr;
+							if (ptr.mPrev !== null) ptr.mPrev.mNext = car;
+							else this.mHead = car;
+							ptr.mPrev = car;
+							break;
+						}
+						ptr = ptr.mNext;
+					}
+				}
+
+				this.mNumCars++;
+			}
+
+			this.add = function(car) {
+				if (this.mHead === null) this.Head = car;
+				car.mPrev = this.mTail;
+				if (this.mTail !== null) this.mTail.mNext = car;
+				this.mTail = car;
+			}
+
+			this.delete = function(car) {
+				var ptr = this.mHead;
+				while (ptr !== null) {
+					if (ptr === car) {
+						if (ptr.mPrev !== null) {
+							ptr.mPrev.mNext = ptr.mNext;
+						} else {
+							this.mHead = ptr.mNext;
+						}
+						if (ptr.mNext !== null) {
+							ptr.mNext.mPrev = ptr.mPrev;
+						} else {
+							this.mTail = ptr.mPrev;
+						}
+						this.mNumCars--;
+						return true;
+					}
+					ptr = ptr.mNext;
+				}
+				return false;
+			}
+
+			this.deleteAt = function(loc) {
+				if (loc > this.size) return;
+				var ptr = this.mHead;
+				var i = 0;
+				while (ptr !== null) {
+					i++;
+					if (i === loc) {
+						if (ptr.mPrev !== null) {
+							ptr.mPrev.mNext = ptr.mNext;
+						} else {
+							this.mHead = ptr.mNext;
+						}
+						if (ptr.mNext !== null) {
+							ptr.mNext.mPrev = ptr.mPrev;
+						} else {
+							this.mTail = ptr.mPrev;
+						}
+						this.mNumCars--;
+						return true;
+					}
+					ptr = ptr.mNext;
+				}
+				return false;
+			}
+
+			this.get = function(id)  {
+				var ptr = this.mHead;
+				while (ptr !== null) {
+					if (ptr.mId == id) {
+						return ptr;
+					}
+					ptr = ptr.mNext;
+				}
+				return null;
+			}
+
+			this.getAt = function(loc)  {
+				var ptr = this.mHead;
+				var i = 0;
+				while (ptr !== null) {
+					i++;
+					if (i == loc) {
+						return ptr;
+					}
+					ptr = ptr.mNext;
+				}
+				return null;
+			}
+
+			this.indexOf = function(id) {
+				var ptr = this.mHead;
+				var i = 0;
+				while (ptr !== null) {
+					if (i === loc) {
+						return i;
+					}
+					i++;
+					ptr = ptr.mNext;
+				}
+				return -1;
+			}
+
+			return this;
+		}
+
+		function Car(newId, inColor, inType) {
+			this.mId = newId;
+			this.mColor = inColor;
+			this.mType = inType;
+			this.mNext = null;
+			this.mPrev = null;
+			this.mScreenPos = { "x" : 0, "y": 0};
+
+			return this;
+		}
+
+		/******************** Global variables ************************/
+
+
+		var gCarId = 2;
+		var gIsRunning = false;
+		var gTimer;
+		// Thanks to http://www.k12.hi.us/~kapunaha/student_projects/Trains/traincars.htm
+		var gCarTypes = { "locomotive" : {"w": 35, "h": 15}, 
+						"hopper" : {"w": 25, "h": 10}, 
+						"flat" : {"w": 23, "h": 4}, 
+						"tank" : {"w": 25, "h": 12}, 
+						"box" : {"w": 25, "h": 10},
+						"caboose": {"w": 23, "h": 13}};
+
+		var gColors = { "black" : "#000000", 
+						"red" : "#ff0000", 
+						"blue" : "#0000ff", 
+						"green" : "#00ff00", 
+						"white" : "#ffffff",
+						"yellow" : "#ffff00"};
+		var gLocomotive = new Car(1, gColors.yellow, "locomotive");
+		var gCaboose = new Car(2, gColors.green, "caboose" );
+
+
+		var gMaxCarHeight = 15;
+
+		var gWhistle = new Audio("trainwhistle.ogg");
+		gWhistle.preload = 'auto';
+		gWhistle.load();
+
+		var gChugChug = new Audio("steamtrain.ogg");
+		gChugChug.preload = 'auto';
+		gChugChug.loop = true;
+		gChugChug.load();
+
+		function playSound(type, state) {
+			if (type == "whistle") {
+				if (state == "play") gWhistle.play();
+				else gWhistle.pause();
+			} else if (type == "train") {
+				if (state == "play") gChugChug.play();
+				else gChugChug.pause();
+			}
+			
+		}
+
+		/************************ MODEL ***********************/
+
+		var gTrain = new Train(); 
+
+		/*************************  VIEW ***********************/
+
+
+
+		var gCurrPos = {"x":0, "y":30};
+		var gTranslation = {"x":10, "y":0};
+		var gSmoke = 0;
+		var gPuffs = new Array();
+		var gSmokeTrigger = 9 - Math.floor(Math.random()*4);
+		var gCanvas = document.getElementById('canvas');
+
+		if (!canvasSupport(gCanvas)) return;
+	
+		function canvasSupport(canvas) {
+			if (!canvas || !canvas.getContext) return false;
+			return true;
+		}
+
+		// build Add type menu
+		for (var key in gCarTypes) {
+			if (key == "locomotive" || key == "caboose") continue;
+			var x = document.getElementById("addType");
+			var option = document.createElement("option");
+			option.text = key;
+			try {
+				x.add(option, x.options[null]);
+			} catch (e) {
+				x.add(option, null);
+			}
+		}
+
+		// build Add color menu
+		for (var key in gColors) {
+			var x = document.getElementById("addColor");
+			var option = document.createElement("option");
+			option.text = key;
+			try {
+				x.add(option, x.options[null]);
+			} catch (e) {
+				x.add(option, null);
+			}
+		}
+
+		function buildIdMenu(menu) {
+			var ids = new Array();
+			for (var i = 0; i < gTrain.size(); i++) {
+				var car = gTrain.getAt(i+1);
+				ids.push(car.mId);
+			}
+			ids.sort();
+			var x = document.getElementById(menu);
+			for (var i = x.length - 1; i >= 0; i--) {
+				x.remove(i);
+			}
+			var option = document.createElement("option");
+			option.text = "--select--";
+			try {
+				x.add(option, x.options[null]);
+			} catch (e) {
+				x.add(option, null);
+			}
+			for (var i = 0; i < ids.length; i++) {
+				option = document.createElement("option");
+				option.text = ids[i];
+				try {
+					x.add(option, x.options[null]);
+				} catch (e) {
+					x.add(option, null);
+				}
+			}
+		}
+
+		//buildIdMenu("remId");
+
+		function addPosition(menu, pos) {
+			var x = document.getElementById(menu);
+			var option = document.createElement("option");
+			option.text = pos;
+			try {
+				x.add(option, x.options[null]);
+			} catch (e) {
+				x.add(option, null);
+			}
+		}
+
+		function removePosition(menu) {
+			var x = document.getElementById(menu);
+			x.remove(x.length - 1);
+		}
+
+		function useArg(id) {
+			var x = document.getElementById(id);
+			var y = x.options[x.selectedIndex].text;
+
+			// if something other than "--selected--" was chosen
+			// use this value
+			if (x.selectedIndex > 0) {
+				document.getElementById("arg").value = id;
+				// undo selection on other
+				if (id == "remId" ) {
+					document.getElementById("remLoc").selectedIndex = 0;
+				} else {
+					document.getElementById("remId").selectedIndex = 0;
+				}
+			}
+		}
+
+		/*
+		document.getElementById('remId').addEventListener('change', function() {
+        		useArg('remId');}, false);
+		document.getElementById('remLoc').addEventListener('change', function() {
+        		useArg('remLoc');}, false);
+		*/
+
+		function drawScreen() {
+			var context = gCanvas.getContext("2d");
+			context.clearRect(0, 0, gCanvas.width, gCanvas.height);
+
+			gCurrPos.x = 0;
+			gCurrPos.y = 30;
+
+			drawCar(context, gLocomotive, false, true);
+			drawCars(context);
+			drawCar(context, gCaboose, true, false);
+			
+			if (gCurrPos.x + gTranslation.x <= 0) {
+				gCurrPos.x = 0;
+				gTranslation.x = gCanvas.width - 1;
+			}
+			
+		}
+
+		function calculateY(y) {
+			return gCurrPos.y + gMaxCarHeight - y;
+		}
+
+		function drawCars(context) {
+			var car = gTrain.mHead;
+			while (car !== null) {
+				drawCar(context, car, true, true);
+				car = car.mNext;
+			}
+		}
+
+		function drawCar(context, car, frontCoupling, backCoupling) {
+			drawGround(context);
+			if (frontCoupling) drawCoupling(context);
+
+			switch (car.mType) {
+				case 'locomotive':
+					drawLocomotive(context, car.mColor);
+					break;
+				case 'hopper':
+					drawHopper(context, car.mColor);
+					break;
+				case 'flat':
+					drawFlat(context, car.mColor);
+					break;
+				case 'tank':
+					drawTank(context, car.mColor);
+					break;
+				case 'box':
+					drawBox(context, car.mColor);
+					break;
+				case 'caboose':
+					drawCaboose(context, car.mColor);
+					break;
+				default: 
+					drawRect(context, gCurrPos.x, calculateY(gCarTypes[car.mType].h), 
+						gCarTypes[car.mType].w, gCarTypes[car.mType].h, 1.5, gColors.black, car.mColor);
+			}
+		
+			if (car.mType != 'locomotive') drawWheels(context, gCarTypes[car.mType].w);
+			gCurrPos.x += (gCarTypes[car.mType].w + 1.5);
+
+			if (backCoupling) drawCoupling(context);
+
+			for (var i = 0; i < gPuffs.length; i++) {
+				drawSmokePuff(context, gPuffs[i].x, gPuffs[i].y);
+			}
+		}
+
+		function drawGround(context) {
+			var y = gCurrPos.y+gMaxCarHeight+4;
+			context.beginPath();
+			doStroke(context, 1, gColors.green);
+			context.moveTo(0, y);
+			context.lineTo(gCanvas.width, y);
+			context.lineTo(gCanvas.width, gCanvas.height);
+			context.lineTo(0, gCanvas.height);
+			context.lineTo(0, y);
+			context.stroke();
+			doFill(context, gColors.green);	
+			context.closePath();
+
+			context.beginPath();
+			doStroke(context, 1.5, gColors.black);
+			context.moveTo(0, y);
+			context.lineTo(gCanvas.width, y);
+			context.stroke();
+			context.closePath();
+		}
+
+		function drawCoupling(context) {
+			drawRect(context, gCurrPos.x, calculateY(0), 1, 1, 1, gColors.black, gColors.black);
+			gCurrPos.x += 2;
+		}
+
+		function drawLocomotive(context, color) {
+			var bodyH = gCarTypes.locomotive.h*0.65;
+			var cabW = gCarTypes.locomotive.w*0.3;
+			var cabH = gCarTypes.locomotive.h*0.9;
+
+			// body
+			context.beginPath();
+			doStroke(context, 1, gColors.black);
+			context.translate(gTranslation.x, gTranslation.y);
+
+			context.moveTo(gCurrPos.x+cabW/2, calculateY(bodyH));
+			context.lineTo(gCurrPos.x+cabW, calculateY(bodyH));
+			context.lineTo(gCurrPos.x+cabW, calculateY(cabH));
+			context.lineTo(gCurrPos.x+cabW*1.5, calculateY(cabH));
+			context.lineTo(gCurrPos.x+cabW*1.5, calculateY(bodyH));
+			context.lineTo(gCurrPos.x+gCarTypes.locomotive.w-cabW/2, calculateY(bodyH));
+			context.lineTo(gCurrPos.x+gCarTypes.locomotive.w-cabW/2, calculateY(0));
+			context.lineTo(gCurrPos.x+cabW/2, calculateY(0));
+			context.lineTo(gCurrPos.x+cabW/2, calculateY(bodyH));
+			
+			context.stroke();
+			if (color !== undefined) doFill(context, color);	
+			context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+
+			drawRect(context, gCurrPos.x+cabW*0.8, calculateY(gCarTypes.locomotive.h), cabW*0.9, gCarTypes.locomotive.h-cabH, 1.5, gColors.black, color);
+
+			//cab
+			drawRect(context, gCurrPos.x+gCarTypes.locomotive.w-cabW, calculateY(cabH), cabW, cabH, 1.5, gColors.black, color);
+			// window
+			drawRect(context, gCurrPos.x+gCarTypes.locomotive.w-(cabW*0.7), calculateY(cabH*0.85), cabW*0.4, bodyH*0.3,
+				1, gColors.black, gColors.white);
+
+			context.beginPath();
+			doStroke(context, 1, gColors.black);
+			context.translate(gTranslation.x, gTranslation.y);
+
+			context.moveTo(gCurrPos.x+gCarTypes.locomotive.w-cabW-cabW*0.25, calculateY(cabH));
+			context.lineTo(gCurrPos.x+gCarTypes.locomotive.w+cabW*0.4, calculateY(cabH));
+			context.moveTo(gCurrPos.x, calculateY(-2));
+			context.lineTo(gCurrPos.x+cabW/2,calculateY(-2));
+			context.lineTo(gCurrPos.x+cabW/2, calculateY(cabW/2));
+			context.lineTo(gCurrPos.x, calculateY(-2));
+			
+			context.stroke();
+			if (color !== undefined) doFill(context, gColors.black);	
+			context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+
+			// front wheels
+			drawArc(context, gCurrPos.x+6, calculateY(-1), 2, 0, 2 * Math.PI, false, 1, gColors.black, gColors.black);
+			drawArc(context, gCurrPos.x+9, calculateY(-1), 2, 0, 2 * Math.PI, false, 1, gColors.black, gColors.black);
+			
+			// back wheels
+			drawArc(context, gCurrPos.x+gCarTypes.locomotive.w-4, calculateY(0), 3, 0, 2 * Math.PI, false, 1, gColors.black, gColors.black);
+			drawArc(context, gCurrPos.x+gCarTypes.locomotive.w-11, calculateY(0), 3, 0, 2 * Math.PI, false, 1, gColors.black, gColors.black);
+			drawArc(context, gCurrPos.x+gCarTypes.locomotive.w-18, calculateY(0), 3, 0, 2 * Math.PI, false, 1, gColors.black, gColors.black);
+
+			// add smoke puff
+			if (gSmoke == gSmokeTrigger) {
+				var x = gCurrPos.x+cabW*0.8 + gTranslation.x;
+				var y = gCurrPos.y-6 + gTranslation.y;
+				var smoke = {"x":x, "y":y};
+				gPuffs.push(smoke);
+				gSmokeTrigger = 9 - Math.floor(Math.random()*4)
+			}
+		}
+
+		function drawHopper(context, color) {
+			var minY = calculateY(gCarTypes.hopper.h);
+			var boxH = gCarTypes.hopper.h*0.55;
+			var maxX = gCurrPos.x + gCarTypes.hopper.w;
+			var chuteW = gCarTypes.hopper.w*0.25;
+			var offset = chuteW*0.25;
+			var midX = gCurrPos.x + (gCarTypes.hopper.w/ 2);
+			
+			// draw upper box
+			drawRect(context, gCurrPos.x, calculateY(gCarTypes.hopper.h), gCarTypes.hopper.w, boxH, 1.5, gColors.black, color);
+
+			// draw chute
+			context.beginPath();
+			doStroke(context, 1.5, gColors.black);
+			context.translate(gTranslation.x, gTranslation.y);
+
+			context.moveTo(gCurrPos.x, minY+boxH);
+			context.lineTo(maxX, minY+boxH);
+			context.lineTo(midX+chuteW/2, calculateY(-offset));
+			context.lineTo(midX+chuteW/2-offset, calculateY(0));
+			context.lineTo(midX-chuteW/2+offset, calculateY(0)); // top of car
+			context.lineTo(midX-chuteW/2, calculateY(-offset));
+			context.lineTo(gCurrPos.x, minY+boxH);
+
+			context.stroke();
+			if (color !== undefined) doFill(context, color);	
+			context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+
+			// draw supports
+			context.beginPath();
+			doStroke(context, 1.5, gColors.black);
+			context.translate(gTranslation.x, gTranslation.y);
+
+			context.moveTo(gCurrPos.x, minY+boxH);
+			context.lineTo(gCurrPos.x, calculateY(0));
+			context.moveTo(maxX, minY+boxH);
+			context.lineTo(maxX, calculateY(0));
+
+			context.stroke();
+			if (color !== undefined) doFill(context, color);	
+			context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+		}
+
+		function drawFlat(context, color) {
+			drawRect(context, gCurrPos.x, calculateY(gCarTypes.flat.h), gCarTypes.flat.w, gCarTypes.flat.h, 1.5, gColors.black, color);
+		}
+
+		function drawTank(context, color) {
+			context.beginPath();
+			doStroke(context, 1.5, gColors.black);
+			context.translate(gTranslation.x, gTranslation.y);
+
+			var minY = calculateY(gCarTypes.tank.h);
+			var maxX = gCurrPos.x + gCarTypes.tank.w;
+			var offset = gCarTypes.tank.w*0.15;
+			var capW = gCarTypes.tank.w*0.25;
+			var leftX = gCurrPos.x + offset;
+			var midX = gCurrPos.x + ((maxX - gCurrPos.x) / 2);
+			
+			context.moveTo(leftX, minY+offset);
+			context.lineTo(midX-capW/2, minY+offset);
+			context.lineTo(midX-capW/2, minY+offset/2);
+			context.quadraticCurveTo(midX, minY, midX + capW/2, minY + offset/2);
+			context.lineTo(midX+capW/2, minY+offset);
+			context.lineTo(maxX-offset, minY+offset); // top of car
+			context.quadraticCurveTo(maxX, minY+(gCarTypes.tank.h)/2, maxX-offset, minY+gCarTypes.tank.h);
+			context.lineTo(leftX, minY+gCarTypes.tank.h);
+			context.quadraticCurveTo(gCurrPos.x, minY+(gCarTypes.tank.h)/2, leftX, minY+offset);
+			context.moveTo(gCurrPos.x, minY+gCarTypes.tank.h);
+			context.lineTo( maxX, minY+gCarTypes.tank.h);
+
+			context.stroke();
+			if (color !== undefined) doFill(context, color);	
+			context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+		}
+
+		function drawBox(context, color) {
+			var minY = calculateY(gCarTypes.box.h);
+			var maxX = gCurrPos.x + gCarTypes.box.w;
+			var chuteW = gCarTypes.box.w*0.2;
+			var offset = chuteW*0.2;
+			var midX = gCurrPos.x + (gCarTypes.box.w/ 2);
+			
+			context.beginPath();
+			doStroke(context, 1.5, gColors.black);
+			context.translate(gTranslation.x, gTranslation.y);
+
+			context.moveTo(gCurrPos.x, minY);
+			context.lineTo(maxX, minY);
+			context.lineTo(maxX, calculateY(0));
+			context.lineTo(midX+chuteW/2, calculateY(0));
+			context.lineTo(midX+chuteW/2-offset, calculateY(-offset));
+			context.lineTo(midX-chuteW/2+offset, calculateY(-offset));
+			context.lineTo(midX-chuteW/2, calculateY(0));
+			context.lineTo(gCurrPos.x, calculateY(0));
+			context.lineTo(gCurrPos.x, minY);
+
+			context.stroke();
+			if (color !== undefined) doFill(context, color);	
+			context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+		}
+
+		function drawCaboose(context, color) {
+			context.beginPath();
+			doStroke(context, 1, gColors.black);
+			context.translate(gTranslation.x, gTranslation.y);
+
+			var minY = calculateY(gCarTypes.caboose.h);
+			var maxX = gCurrPos.x + gCarTypes.caboose.w;
+			var midX = gCurrPos.x + ((maxX - gCurrPos.x) / 2);
+			var bodyH = gCarTypes.caboose.h*0.8;
+			var bodyMinY = calculateY(bodyH);
+			var bodyW = gCarTypes.caboose.w * 0.8;
+			var capW = bodyW*0.3;
+			var leftX = gCurrPos.x + ((gCarTypes.caboose.w-bodyW)/2);
+			var capH = bodyMinY - minY;
+			
+			context.moveTo(gCurrPos.x, bodyMinY);
+			context.lineTo(midX-(capW/2), bodyMinY); 
+			context.lineTo(midX-(capW/2), bodyMinY-(capH*0.5));
+			context.lineTo(midX-(capW/2)-(capW*0.2), bodyMinY-(capH*0.5));
+			context.lineTo(midX-(capW/2)-(capW*0.2), minY);
+			context.lineTo(midX+(capW/2)+(capW*0.2), minY);
+			context.lineTo(midX+(capW/2)+(capW*0.2), bodyMinY-(capH*0.5));
+			context.lineTo(midX+(capW/2), bodyMinY-(capH*0.5));
+			context.lineTo(midX+(capW/2), bodyMinY);
+			context.lineTo(maxX, bodyMinY);
+			context.lineTo(maxX, bodyMinY*1.05);
+			context.lineTo(leftX+bodyW, bodyMinY*1.05);
+			context.lineTo(leftX+bodyW, calculateY(0)); 
+			context.lineTo(leftX, calculateY(0));
+			context.lineTo(leftX, bodyMinY*1.05); 
+			context.lineTo(gCurrPos.x, bodyMinY*1.05);
+			context.lineTo(gCurrPos.x, bodyMinY);
+
+			context.stroke();
+			if (color !== undefined) doFill(context, color);	
+			context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+
+			// windows
+			drawRect(context, midX-capW, bodyMinY*1.08, capW/2, bodyH*0.3, 1, gColors.black, gColors.white);
+			drawRect(context, midX+capW/2, bodyMinY*1.08, capW/2, bodyH*0.3, 1, gColors.black, gColors.white);
+
+			// draw front/back poles
+			context.beginPath();
+			doStroke(context, 1.5, gColors.black);
+			context.translate(gTranslation.x, gTranslation.y);
+			context.moveTo(gCurrPos.x, bodyMinY);
+			context.lineTo(gCurrPos.x, bodyMinY+bodyH);
+			context.moveTo(maxX, bodyMinY);
+			context.lineTo(maxX, bodyMinY+bodyH);
+			context.stroke();	
+			context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+
+			context.beginPath();
+			doStroke(context, 1, gColors.black);
+			context.translate(gTranslation.x, gTranslation.y);
+			context.moveTo(gCurrPos.x, bodyMinY);
+			context.lineTo(leftX, bodyMinY);
+			context.moveTo(maxX-((gCarTypes.caboose.w-bodyW)/2), bodyMinY);
+			context.lineTo(maxX, bodyMinY);
+			context.stroke();	
+			context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+		}
+
+		function drawWheels(context, width) {
+			drawArc(context, gCurrPos.x + 2, calculateY(-1), 2, 0, 2 * Math.PI, false, 1, gColors.black, gColors.black);
+			drawArc(context, gCurrPos.x + 6, calculateY(-1), 2, 0, 2 * Math.PI, false, 1, gColors.black, gColors.black);
+			drawArc(context, gCurrPos.x + width - 6, calculateY(-1), 2, 0, 2 * Math.PI, false, 1, gColors.black, gColors.black);
+			drawArc(context, gCurrPos.x + width - 2, calculateY(-1), 2, 0, 2 * Math.PI, false, 1, gColors.black, gColors.black);
+		}
+		
+		function drawSmokePuff(context, x, y) {
+			context.beginPath();
+			doStroke(context, 1, gColors.black);
+			//context.translate(gTranslation.x, gTranslation.y);
+			context.moveTo(x, y);
+			context.quadraticCurveTo(x+2, y-4, x+3, y-1);
+			context.quadraticCurveTo(x+4, y-5, x+8, y-1);
+			context.bezierCurveTo(x+9, y+2, x+7, y+4, x+6, y+2);
+			context.quadraticCurveTo(x+3, y+5, x, y+2);
+			context.quadraticCurveTo(x-1, y+2, x, y);
+			context.stroke();
+			doFill(context, "#fcfcfc");	
+			//context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+		}
+
+		function doStroke(context, lw, strokeColor) {
+			context.strokeStyle = strokeColor;
+			context.lineWidth = lw;
+		}
+
+		function doFill(context, style) {
+			context.fillStyle = style;
+			context.fill();
+		}
+
+		function drawArc(context, x, y, d, startRad, endRad, cc, lw, strokeColor, fillStyle) {
+			context.beginPath();
+			doStroke(context, lw, strokeColor);
+			context.translate(gTranslation.x, gTranslation.y);
+			context.arc(x, y, d, startRad, endRad, cc);
+			if (fillStyle !== undefined) doFill(context, fillStyle);	
+			context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+		}
+
+		function drawRect(context, x, y, w, h, lw, strokeColor, fillStyle) {
+			context.beginPath();
+			doStroke(context, lw, strokeColor);
+			context.translate(gTranslation.x, gTranslation.y);
+			context.rect(x, y, w, h);
+			context.stroke();
+			if (fillStyle !== undefined) doFill(context, fillStyle);	
+			context.translate(-gTranslation.x, -gTranslation.y);
+			context.closePath();
+		}
+
+
+		/******************** CONTROLLER ********************************/
+
+		/******************* Click on Car to Edit ***********************/
+/* TODO: 
+		gCanvas.addEventListener('click', function(evt) {
+        		var mousePos = getMousePos(this, evt);
+        		var car = -1;
+        		if ((car = clickedOnCar(mousePos)) > -1) {
+        			editCar(car);
+        		}
+        	}, false);
+
+		function getMousePos(canvas, evt) {
+        	var rect = gCanvas.getBoundingClientRect(), root = document.documentElement;
+
+       		// return relative mouse position
+        	var mouseX = evt.clientX - rect.left - root.scrollLeft;
+        	var mouseY = evt.clientY - rect.top - root.scrollTop;
+        	return {x: mouseX, y: mouseY, msg: "cx: " + evt.clientX + ", cy: " + evt.clientY + ", t: " + rect.top + ", l: " + rect.left + ", st:" + root.scrollTop + ", sl:" + root.scrollLeft};
+     	}
+
+		function clickedOnCar(mousePos) {
+			var i = -1;
+			var car = train.head;
+			for (var j = 0; j < train.numCars; j++) {
+				if (car !== null) {
+					if (car.)
+				}
+			}
+			return i;
+		}
+*/
+     	/******************** Add Car ***************************/
+
+     	document.getElementById('addCarBtn').addEventListener('click', function() {
+        		addCar();}, false);
+
+     	function addCar() {
+     		var x = document.getElementById('addType').selectedIndex;
+     		var y = document.getElementById('addType').options;
+     		var type = y[x].text;
+     		x = document.getElementById('addColor').selectedIndex;
+     		y = document.getElementById('addColor').options;
+     		var color = y[x].text;
+     		x = document.getElementById('addLoc').selectedIndex;
+     		y = document.getElementById('addLoc').options;
+     		var loc = y[x].text;
+
+     		var car = new Car(++gCarId, color, type);
+     		gTrain.insert(loc, car);
+
+     		addPosition("addLoc", gTrain.size() + 1);
+     		addPosition("remLoc", gTrain.size());
+			//buildIdMenu("remId");
+     		drawScreen();
+     	}
+
+     	/******************** Edit Car **************************/
+
+     	function editCar(car) {
+
+     	}
+
+     	/******************** Delete Car ************************/
+
+     	document.getElementById('remCarBtn').addEventListener('click', function() {
+        		deleteCar();}, false);
+
+     	function deleteCar() {
+     		//var use = document.getElementById("arg").value;
+     		var success = false;
+     		var x = document.getElementById('remLoc');
+     		var value = x.options[x.selectedIndex].text;
+
+     		//if (use == "remId") {
+     		//	x = gTrain.get(value);
+     		//} else if (use == "remLoc") {
+     			x = gTrain.getAt(value);
+     		//}
+     		if (x !== null) {
+     			success = gTrain.delete(x);
+     		}
+     		if (success) {
+     			//buildIdMenu("remId");
+     			//removePosition("remId");
+     			removePosition("remLoc");
+     		}
+     		drawScreen();
+     	}
+
+     	/******************** Run Train Button ***************************/
+
+		document.getElementById('toggleOnOff').addEventListener('click', function() {
+        		toggleTrainButton();}, false);
+
+		function toggleTrainButton() {
+			if (!gIsRunning) {
+				gIsRunning = true;
+				document.getElementById('toggleOnOff').innerHTML = "Stop Train";
+				playSound("whistle", "play");
+				playSound("train", "play");
+				gTimer = setInterval(function(){runTrain();},100);
+			} else {
+				gIsRunning = false;
+				document.getElementById('toggleOnOff').innerHTML = "Start Train";
+				playSound("whistle", "pause");
+				playSound("train", "pause");
+				clearInterval(gTimer);
+			}
+		}
+	
+		function runTrain() {
+			if (gIsRunning) {
+				gTranslation.x -= 2;
+				gSmoke = (gSmoke + 1) % 10;
+				if (gSmoke % 5 == 0) {
+					// move smoke puffs up
+					for (var i = 0; i < gPuffs.length; i++) {
+						gPuffs[i].y -= (3 + Math.random()*3);
+						if (i == 0 && gPuffs[i].y < 0) {
+							gPuffs.shift();
+							i--;
+						}
+					}
+				}
+				drawScreen();
+			}
+		}
+
+		drawScreen();
+
+	}
+
+	</script>
+	<style>
+		#toggleOnOff {
+			float: right;
+			width: 140px;
+			margin-bottom: 10px;
+		}
+		.label {
+			width: 100px;
+			text-align: right;
+			float: left;
+		}
+		fieldset {
+			margin-bottom: 2em;
+			line-height: 1.5;
+			width: 225px;
+			float: right;
+		}
+		fieldset button {
+			float: right;
+			margin-top: 10px;
+		}
+		button {
+			line-height: 1.5;
+		}
+	</style>
+</head>
+<body>
+	<div style="position:absolute;top:25px;left:25px;border:solid 1px black;">
+		<canvas id="canvas" width="250px" height="60" >
+	Your browser does not support HTML5 Canvas
+		</canvas>
+	</div>
+	<div style="position:absolute;top:150px;left:25px;width:250px;">
+		<button id="toggleOnOff" type="button">Start Train
+		</button>
+		<fieldset id="add">
+			<legend>Add New Car</legend>
+			<label for="addType" class="label">Type:&nbsp;</label>
+			<select id="addType"><select><br />
+			<label for="addColor" class="label">Color:&nbsp;</label>
+			<select id="addColor"><select><br />
+			<label for="addLoc" class="label">Position:&nbsp;</label>
+			<select id="addLoc">
+				<option>1</option>
+			<select><br />
+			<button id="addCarBtn" type="button">Add Car</button><br />
+		</fieldset>
+		<fieldset id="remove">
+			<legend>Remove a Car</legend>
+			<!--
+			<em>Select from <b>one</b> menu:</em><br/>
+			<label for="remId" class="label">Id:&nbsp;</label>
+			<select id="remId"><select> -->
+			<label for="remLoc" class="label">Position:&nbsp;</label>
+			<select id="remLoc"">
+				<option>-select-</option>
+			<select><br />
+			<button id="remCarBtn" type="button">Remove Car</button><br />
+			<input type="hidden" id="arg" value="" >
+		</fieldset>
+		
+	</div>
+</body>
+</html>

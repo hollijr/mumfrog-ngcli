@@ -1,0 +1,43 @@
+<body>
+	<section id="canvasLayers">
+		<!-- must include width and height attributes on canvas to define coordinate system inside the element, which is
+			not the same as the width and height css attributes that define the size of the box on screen. -->
+		<canvas id="canvas" width="300" height="200">Your browser does not support HTML5 Canvas</canvas>
+		<canvas id="canvas1" width="300" height="200"></canvas>
+		<canvas id="canvas2" width="300" height="200"></canvas>
+		<div id="legend">
+			<div id="sorted" class="box"></div><div class="text">Sorted</div>
+			<div id="currMin" class="box"></div><div class="text">Lesser/Min</div>
+			<div id="currCompare" class="box"></div><div class="text">Compare</div>
+			<div id="pivot" class="box"></div><div class="text">Pivot</div>
+			<p id="openSpot">Black arrows indicate where the next sorted value goes.<br>Blue arrows indicate the range of elements being sorted.</p>
+		</div>
+		<section id="speed">
+			Animation Speed:
+			<input type="radio" name="speedRadio" value="0">Slow
+			<input type="radio" name="speedRadio" value="1" checked="checked">Medium
+			<input type="radio" name="speedRadio" value="2">Fast
+		</section>
+	</section>
+	<section id="info">
+		<div id='message'></div>
+		<section id="description"></section>
+	</section>
+	<section class="controls">
+		<fieldset class="general">
+			<button id='newValues'>New Values</button> 
+			<button id='resetOrder'>Reset Order</button>
+		</fieldset>
+		<fieldset class="sorts">
+			<legend>Types of Sorts</legend>
+			<button id='selectionSort'>Selection Sort</button>
+			<button id='bubbleSort'>Bubble Sort</button>
+			<button id='insertionSort'>Insertion Sort</button>
+			<button id='quickSort'>Quicksort</button>
+			<button id='mergeSort'>Merge Sort</button>
+			<button id='heapSort'>Heapsort</button>
+		</fieldset>
+	</section>
+	<div id='test'></div>
+</body>
+</html>
