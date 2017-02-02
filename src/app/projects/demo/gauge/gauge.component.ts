@@ -9,7 +9,7 @@ import { Gauge } from './gauge';
 })
 export class GaugeComponent implements AfterViewInit {
 
-    @ViewChild("gaugeCanvas") gaugeCanvas;
+  @ViewChild("gaugeCanvas") gaugeCanvas;
   @ViewChild("sliderCanvas") sliderCanvas;
 
   // class variables
