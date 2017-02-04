@@ -4,7 +4,6 @@ import { ItemArray } from './item-array';
 export class GraphicsControl {	/* object that controls the drawing of canvas graphics */
 
 	// class variables
-	self;
 	canvas = new Array();
 	context:CanvasRenderingContext2D[] = new Array();
 
@@ -44,17 +43,16 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 		baseCanvas, 
 		midCanvas, 
 		topCanvas, 
+		private attr,
 		private heapSpeed, 
 		private speed,
-		private timer,
-		private timer2
+		private gTimer
 	) {
-		this.self = this;
-		this.canvas.push(baseCanvas);
+		this.canvas[0] = baseCanvas;
     this.context[0] = baseCanvas.getContext("2d");
-		this.canvas.push(midCanvas);
+		this.canvas[1] = midCanvas;
     this.context[1] = midCanvas.getContext("2d");
-		this.canvas.push(topCanvas.nativeElement);
+		this.canvas[2] = topCanvas.nativeElement;
     this.context[2] = topCanvas.getContext("2d");
 
 		this.bars = new Array(this.numItems);
@@ -86,7 +84,7 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 				iPerRow = Math.pow(2,level);
 				sum += iPerRow;
 			}
-			var xGap = Math.floor(this.canvas[0].width / Math.pow(2,level));
+			var xGap = Math.floor(this.attr.width / Math.pow(2,level));
 			this.nodeLocations[i] = {l: level, x: xGap*(i - (sum - iPerRow)) + 0.5*xGap, y: yGap*0.5 + yGap*level};
 			//this.bars[i] = new this.bar(this.calculateX(i), this.startY, this.calculateHt(i));
 		}
@@ -120,12 +118,12 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 
 	/* clear a layer's entire canvas */
 	clearLayer = function(layer) {
-		this.context[layer].clearRect(0, 0, this.canvas[layer].width, this.canvas[layer].height);
+		this.context[layer].clearRect(0, 0, this.attr.width, this.attr.height);
 	}
 
 	/* draw the entire array of items in base color on the baseline and with labels */
 	drawScreen = function(layer) {
-		this.context[layer].clearRect(0, 0, this.canvas[layer].width, this.canvas[layer].height);
+		this.context[layer].clearRect(0, 0, this.attr.width, this.attr.height);
 
 		// draw bars & labels
 		for (var i = 0; i < this.gItemArray.length; i++) {
@@ -139,7 +137,7 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 		this.context[layer].strokeStyle = this.lineColor;
 		this.context[layer].lineWidth = 1;
 		this.context[layer].moveTo(this.startX, this.startY+1);
-		this.context[layer].lineTo(this.canvas[layer].width - this.startX, this.startY+1);
+		this.context[layer].lineTo(this.attr.width - this.startX, this.startY+1);
 		this.context[layer].stroke();
 		this.context[layer].closePath();
 	}
@@ -148,7 +146,7 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 		remain to be sorted
 	*/
 	drawInPlaceSort = function(layer, start, end, switchPt, lowColor, hiColor) {
-		this.context[layer].clearRect(0, 0, this.canvas[layer].width, this.canvas[layer].height);
+		this.context[layer].clearRect(0, 0, this.attr.width, this.attr.height);
 
 		for (var k = start; k < end; k++) {
 			var color = hiColor;
@@ -162,7 +160,7 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 		kept in 'disabled' color.
 	*/
 	drawDivideAndConquerSort = function(layer, left, right, pivot) {
-		this.context[layer].clearRect(0, 0, this.canvas[layer].width, this.canvas[layer].height);
+		this.context[layer].clearRect(0, 0, this.attr.width, this.attr.height);
 		this.clearSwapBaseMark(0);
 		this.markRange(0, left);
 		this.markRange(0, right);
@@ -177,7 +175,7 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 
 	/* Slide a range of bars */
 /*	this.slideRangeOfBars = function(layer, left, barCt, startX, startY, currX, currY, endX, endY, color, funct)  {
-		//this.context[layer].clearRect(0, 0, this.canvas[layer].width, this.canvas[layer].height);	
+		//this.context[layer].clearRect(0, 0, this.attr.width, this.attr.height);	
 		var newX = currX;
 		var newY = currY;
 		if (currY !== endY || currX !== endX) {
@@ -225,9 +223,9 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 				this.moveBar(layer, k, newX+(k-left)*this.barWd*2, newY, color);
 			}
 			if (whichTimer === 1) 
-				this.timer = setTimeout(function() {this.self.slideRangeOfBars(layer, left, barCt, startX, startY, endX, endY, color, 1, funct);}, this.swapSpeed[this.speed]);
+				this.gTimer.setTimer(1, function() {this.self.slideRangeOfBars(layer, left, barCt, startX, startY, endX, endY, color, 1, funct);}, this.swapSpeed[this.speed]);
 			else 
-				this.timer2 = setTimeout(function() {this.self.slideRangeOfBars(layer, left, barCt, startX, startY, endX, endY, color, 2, funct);}, this.swapSpeed[this.speed]);
+				this.gTimer.setTimer(2, function() {this.self.slideRangeOfBars(layer, left, barCt, startX, startY, endX, endY, color, 2, funct);}, this.swapSpeed[this.speed]);
 		} else {
 			funct();
 		}		
@@ -238,14 +236,14 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 			// flashing complete, move
 			this.hideBar(layer, bar);
 			this.drawBar(layer, endX, endY, this.bars[bar].h, this.stdColor);
-			this.timer = setTimeout(function() {funct();}, this.compareSpeed[this.speed]);
+			this.gTimer.setTimer(1, function() {funct();}, this.compareSpeed[this.speed]);
 		} else {
 			var color = this.compareColor;
 			if (nComplete % 2 == 0) {
 				color = this.minColor;
 			} 
 			this.drawBar(layer, this.bars[bar].x, this.bars[bar].y, this.bars[bar].h, color);
-			this.timer = setTimeout(function() {this.self.flashAndMoveBar(layer, bar, endX, endY, nComplete+1, funct);}, this.flashSpeed[this.speed]);
+			this.gTimer.setTimer(1, function() {this.self.flashAndMoveBar(layer, bar, endX, endY, nComplete+1, funct);}, this.flashSpeed[this.speed]);
 		}
 	}
 
@@ -415,7 +413,7 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 				this.markParentChild(layer, (i-1)/2, i, textColor, fillColor, lineColor);
 			}
 			else this.drawNode(layer, i, textColor, fillColor, lineColor, 1);
-			this.timer = setTimeout(function() {this.self.drawTree(layer, textColor, fillColor, lineColor, i+1, funct);}, this.heapSpeed[this.speed]);
+			this.gTimer.setTimer(1, function() {this.self.drawTree(layer, textColor, fillColor, lineColor, i+1, funct);}, this.heapSpeed[this.speed]);
 		} else {
 			funct();
 		}
@@ -468,7 +466,7 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 
 	/* hide a black arrow */
 	clearSwapBaseMark = function(layer) {
-		this.context[layer].clearRect(0, 0, this.canvas[layer].width, this.arrowY+this.arrowHt);
+		this.context[layer].clearRect(0, 0, this.attr.width, this.arrowY+this.arrowHt);
 	}
 
 	/* draw a bar and its label using the color that denotes the item has already been sorted */
@@ -553,7 +551,7 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 					this.drawBar(layer, this.bars[j].x, this.bars[j].y, this.bars[j].h, jcolor);
 				}
 				
-				this.timer = setTimeout(function() {this.self.slideBars(layer, "up", i, j, icolor, jcolor, nComplete+1, funct);}, this.swapSpeed[this.speed]);
+				this.gTimer.setTimer(1, function() {this.self.slideBars(layer, "up", i, j, icolor, jcolor, nComplete+1, funct);}, this.swapSpeed[this.speed]);
 			} else {
 				this.slideBars(layer, "side", i, j, icolor, jcolor, 0, funct);
 			}
@@ -569,7 +567,7 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 				this.bars[j].y -= y;
 				this.drawBar(layer, this.bars[i].x, this.bars[i].y, this.bars[i].h, icolor);
 				this.drawBar(layer, this.bars[j].x, this.bars[j].y, this.bars[j].h, jcolor);
-				this.timer = setTimeout(function() {this.self.slideBars(layer, "side", i, j, icolor, jcolor, nComplete+1, funct);}, this.swapSpeed[this.speed]);
+				this.gTimer.setTimer(1, function() {this.self.slideBars(layer, "side", i, j, icolor, jcolor, nComplete+1, funct);}, this.swapSpeed[this.speed]);
 			} else {
 				this.slideBars(layer, "down", i, j, icolor, jcolor, 0, funct);
 			}
@@ -583,7 +581,7 @@ export class GraphicsControl {	/* object that controls the drawing of canvas gra
 				this.hideBar(layer, j);
 				this.bars[j].y += nComplete;
 				this.drawBar(layer, this.bars[j].x, this.bars[j].y, this.bars[j].h, jcolor);
-				this.timer = setTimeout(function() {this.self.slideBars(layer, "down", i, j, icolor, jcolor, nComplete+1, funct);}, this.swapSpeed[this.speed]);
+				this.gTimer.setTimer(1, function() {this.self.slideBars(layer, "down", i, j, icolor, jcolor, nComplete+1, funct);}, this.swapSpeed[this.speed]);
 			} else {
 				this.bars[i].y = this.startY;
 				this.bars[j].y = this.startY;

@@ -2,9 +2,9 @@
 	<section id="canvasLayers">
 		<!-- must include width and height attributes on canvas to define coordinate system inside the element, which is
 			not the same as the width and height css attributes that define the size of the box on screen. -->
-		<canvas #canvasLayer0 width="300" height="200">Your browser does not support HTML5 Canvas</canvas>
-		<canvas #canvasLayer1 width="300" height="200"></canvas>
-		<canvas #canvasLayer2 width="300" height="200"></canvas>
+		<canvas id="canvas" #canvasLayer0 [width]="attr.width" [height]="attr.height">Your browser does not support HTML5 Canvas</canvas>
+		<canvas id="canvas1" #canvasLayer1 [width]="attr.width" [height]="attr.height"></canvas>
+		<canvas id="canvas2" #canvasLayer2 [width]="attr.width" [height]="attr.height"></canvas>
 		<div id="legend">
 			<div id="sorted" class="box"></div><div class="text">Sorted</div>
 			<div id="currMin" class="box"></div><div class="text">Lesser/Min</div>
@@ -12,33 +12,33 @@
 			<div id="pivot" class="box"></div><div class="text">Pivot</div>
 			<p id="openSpot">Black arrows indicate where the next sorted value goes.<br>Blue arrows indicate the range of elements being sorted.</p>
 		</div>
-		<section ng-model="speeds">
+		<section id="speed" ng-model="speeds">
 			<label>Animation Speed:</label>
-			<div *ngFor="let spd of speeds">
+			<div *ngFor="let spd of speeds" class="inline">
 				<label>
 					<input type="radio" name="speedRadio" [(ngModel)]="speed" [value]="spd.value">
-					{{speed.label}}
+					{{spd.label}}
 				</label>
 			</div>
 		</section>
 	</section>
-	<section>
-		<div>{{message}}</div>
-		<section>{{desc}}</section>
+	<section id="info">
+		<div id="message">{{message}}</div>
+		<section id="description">{{desc}}</section>
 	</section>
 	<section class="controls">
 		<fieldset class="general">
-			<button id='newValues' ng-click="getNewValues()">New Values</button> 
-			<button id='resetOrder' ng-click="reset()">Reset Order</button>
+			<button class="btn-default" id='newValues' (click)="getNewValues()">New Values</button> 
+			<button class="btn-default" id='resetOrder' (click)="reset()">Reset Order</button>
 		</fieldset>
 		<fieldset class="sorts">
 			<legend>Types of Sorts</legend>
-			<button ng-click="runSort('selectionSort')">Selection Sort</button>
-			<button ng-click="runSort('bubbleSort')">Bubble Sort</button>
-			<button ng-click="runSort('insertionSort')">Insertion Sort</button>
-			<button ng-click="runSort('quickSort')">Quicksort</button>
-			<button ng-click="runSort('mergeSort')">Merge Sort</button>
-			<button ng-click="runSort('heapSort')">Heapsort</button>
+			<button class="btn-default" (click)="runSort('selectionSort')">Selection Sort</button>
+			<button class="btn-default" (click)="runSort('bubbleSort')">Bubble Sort</button>
+			<button class="btn-default" (click)="runSort('insertionSort')">Insertion Sort</button>
+			<button class="btn-default" (click)="runSort('quickSort')">Quicksort</button>
+			<button class="btn-default" (click)="runSort('mergeSort')">Merge Sort</button>
+			<button class="btn-default" (click)="runSort('heapSort')">Heapsort</button>
 		</fieldset>
 	</section>
 	<div id='test'></div>
