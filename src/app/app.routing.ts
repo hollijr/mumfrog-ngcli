@@ -9,6 +9,7 @@ import { ArtworksComponent } from './artworks/artworks.component';
 import { ArtworkDetailComponent } from './artworks/artwork-detail/artwork-detail.component';
 import { AboutComponent } from './about/about.component';
 import { GaugeComponent } from './projects/demo/gauge/gauge.component';
+import { VisalgoComponent } from './projects/demo/visalgo/visalgo.component';
 
 const appRoutes:Routes = [
   {
@@ -38,6 +39,10 @@ const appRoutes:Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'visalgo',
+    component: VisalgoComponent
   },
   {
     // redirect

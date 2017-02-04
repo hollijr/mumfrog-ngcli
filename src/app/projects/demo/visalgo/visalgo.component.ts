@@ -29,6 +29,7 @@ export class VisalgoComponent implements AfterViewInit {
     { value: 1, label: 'Medium' },
     { value: 2, label: 'Fast' }
   ];
+	heapSpeed = [1000,500,250];
 
   // sort info
   desc:String;
@@ -53,7 +54,16 @@ export class VisalgoComponent implements AfterViewInit {
 		this.gItemArray.create();
 
     // create a graphics object for the canvas
-		this.gGraphics = new GraphicsControl(this.numItems, this.gItemArray, this.baseCanvas, this.midCanvas, this.topCanvas);
+		this.gGraphics = new GraphicsControl(
+			this.numItems, 
+			this.gItemArray, 
+			this.baseCanvas, 
+			this.midCanvas, 
+			this.topCanvas, 
+			this.heapSpeed,
+			this.speed,
+			this.timer,
+			this.timer2);
 		this.gGraphics.createBars();
     this.gGraphics.drawScreen(0);
   }
