@@ -315,17 +315,13 @@ export class VisalgoComponent implements AfterViewInit {
 	/*************************************** QuickSort ***********************************/
 	quickSortOuter() {
 		var obj = this.stack.pop();
-		console.log("obj: left=" + obj.left + ", right=" + obj.right);
 		if (obj !== null) {
-			console.log("object not null");
 			if (obj.left < obj.right) {
-				console.log("left < right");
 				this.message = 'Choosing new pivot within range ' + obj.left + ' to ' + obj.right;
 				var pivot = this.chooseMedian(obj.left, obj.left + Math.floor((obj.right-obj.left)/2), obj.right);
 				this.drawDivideAndConquerSort(0, obj.left, obj.right, pivot);
 				this.timer = setTimeout( ()=>{this.partition(obj.left, obj.right, pivot, null);}, this.compareSpeed[this.speed]);
 			} else {
-				console.log("left !< right");
 				this.timer = setTimeout( ()=>{this.quickSortOuter();}, this.compareSpeed[this.speed]);
 			}
 		} else {
@@ -335,25 +331,20 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	chooseMedian(first, middle, last) {
-		console.log("in choosemedian: " + first + ", " + middle + ", " + last);
 		if ((this.gItemArray.compare(first, middle) !== 1 && this.gItemArray.compare(middle, last) !== 1) ||
 		(this.gItemArray.compare(last, middle) !== 1 && this.gItemArray.compare(middle, first) !== 1)) {
-			console.log("return middle");
 			return middle;
 		} else if ((this.gItemArray.compare(middle, first) !== 1 
 		&& this.gItemArray.compare(first, last) !== 1) ||
 					(this.gItemArray.compare(last, first) !== 1 
 						&& this.gItemArray.compare(first, middle) !== 1)) {
-			console.log("return first");
 			return first;
 		} else {
-			console.log("return last");
 			return last;
 		}
 	}
 
 	partition(left, right, pivot, i) {
-		console.log("in partition: " + left + ", " + right + ", " + pivot + ", " + i);
 		this.markSwapBase(0, pivot);
 		if (i == null) {
 			// pass the function that should be called after the swap animation is complete
@@ -379,7 +370,6 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	quickSortTail(left, right, pivot) {
-		console.log("in quickSortTail");
 		/* though the sort is optimized by partitioning the smaller subarray first,
 			it's less intuitive to watch the sort "jump around" during animation
 			so will always partition the lower subarray first */
