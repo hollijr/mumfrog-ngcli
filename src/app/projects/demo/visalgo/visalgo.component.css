@@ -114,6 +114,9 @@ div#legend div {
 
 /* Info section */
 #info {
+  position: absolute;
+  top: 25px;
+  right: 25px;
   width: 50%;
   border: none;
   padding: 0px;
@@ -121,7 +124,7 @@ div#legend div {
   float: right;
   background-color: #eee;
   margin-top: 30px;
-  display: none;
+  display: block;
 }
 #message {
   display: block;
