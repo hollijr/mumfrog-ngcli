@@ -23,8 +23,8 @@
 		</section>
 	</section>
 	<section id="info">
-		<div id="message">{{message}}</div>
-		<section id="description">{{desc}}</section>
+		<div id="message" [innerHTML]="message"></div>
+		<section id="description" [innerHTML]="desc"></section>
 	</section>
 	<section class="controls">
 		<fieldset class="general">
