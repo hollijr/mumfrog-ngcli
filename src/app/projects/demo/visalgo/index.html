@@ -815,7 +815,8 @@
 				// instead of creating an object (above), just pass a map object.  Both ways work; this
 				// is just less code.
 				// x = x coordinate of bar, y = y coordinate of bar, h = height of bar, v = value of element
-				this.bars[i] = {x: this.calculateX(i), y: this.startY, h: this.calculateHt(i), v: gItemArray.elements[i]};
+				let ht = this.calculateHt(i);
+				this.bars[i] = {x: this.calculateX(i), y: this.startY, h: ht, v: gItemArray.elements[i]};
 				
 				// store the level in a binary tree where this index's node is displayed
 				if (i >= sum) {
@@ -1056,7 +1057,8 @@
 
 		/* calculate the height of a bar based on its value */
 		this.calculateHt = function(i) {
-			return this.maxHeight * (gItemArray.elements[i] / gItemArray.length);
+			let ht = this.maxHeight * (gItemArray.elements[i] / gItemArray.length);
+			return ht;
 		}
 
 		/* calculate the level in the tree at which an element's node should be displayed based on the index of the element in the array */

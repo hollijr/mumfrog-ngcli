@@ -59,6 +59,8 @@ export class VisalgoComponent implements AfterViewInit {
 	nodeHighlight = "red";
 	divideColor = "#aaa";
 	lineColor = "black";
+	lineWidth = 1;
+	thickLineWidth = 3;
 	stdColor = "blue";
 	sortedColor = "red";
 	minColor = "#33ff66";
@@ -76,7 +78,7 @@ export class VisalgoComponent implements AfterViewInit {
 	sortedBars;
 	nodeLocations;
 
-	clearTimer = function() {
+	clearTimer() {
 		if (this.timer !== null) {
 			clearTimeout(this.timer);
 			this.timer = null;
@@ -143,7 +145,7 @@ export class VisalgoComponent implements AfterViewInit {
     this.clearTimer();
     this.gItemArray.reset();
     this.graphicsReset();
-    this.setInfo = this.sortInfo[this.sortType];
+    this.setInfo();
   }
     
   runSort(type) {
@@ -174,7 +176,7 @@ export class VisalgoComponent implements AfterViewInit {
   }
 
   heapSort() {			
-    this.drawTree(1, this. textColor, this.activeColor, this.lineColor, 0, function() {
+    this.drawTree(1, this. textColor, this.activeColor, this.lineColor, 0, ()=> {
       this.buildHeap(Math.floor((this.numItems-2)/2));
     });
         
@@ -196,21 +198,6 @@ export class VisalgoComponent implements AfterViewInit {
   make it work, no further statements are included in the current function path after a 'setTimeout' call.  */
 
 	/*************************************** Selection Sort ***********************************/
-	/* Selection Sort -- refactored into separate 'outer' and 'inner' functions 
-		called using setTimeout) */
-	/*	function selectionSortOuter() {
-		for (var i = 0; i < this.gItemArray.length - 1; i++) {
-			var min = i;
-			for (var j = i+1; j < this.gItemArray.length; j++) {
-				if (this.gItemArray.elements[j] < this.gItemArray.elements[min]) {
-					min = j;
-				}
-			}
-			swapValues(i, min);
-		}
-		this.drawScreen(0);
-	} */
-
 	selSortOuter(i, start, end) {
 		i++;
 		this.drawInPlaceSort(0, start, end, i, this.sortedColor, this.stdColor);
@@ -256,27 +243,11 @@ export class VisalgoComponent implements AfterViewInit {
 	/**************************** End Selection Sort *****************************************/
 
 	/*************************************** Bubble Sort ***********************************/
-	/* Bubble Sort -- refactor using setTimeouts to allow for animation to be viewed */
-	/*function bubbleSortOuter() {
-		var swap = false;
-		for (var i = 0; i < this.gItemArray.length; i++) {
-			for (var j = 0; j < this.gItemArray.length - 1; j++) {
-				if (this.gItemArray.elements[j+1] < this.gItemArray.elements[j]) {
-					swapValues(j, j+1);
-					swap = true;
-				}
-			}
-			if (!swap) break;
-		}
-		this.drawScreen(0);
-	}*/
-
-	/* Bubble Sort */
 	bubbleSortOuter(i, swap, start, end) {
 		i++;
 		this.drawInPlaceSort(0, start, end, end - i, this.stdColor, this.sortedColor);
 		if (swap && i < end) {
-			this.timer = setTimeout( function(){this.bubbleSortInner(i, -1, false, start, end);}, this.compareSpeed[this.speed]);
+			this.timer = setTimeout( ()=>{this.bubbleSortInner(i, -1, false, start, end);}, this.compareSpeed[this.speed]);
 		} else {
 			this.message = 'Bubble sort finished.';
 			this.drawInPlaceSort(0, start, end, -1, this.stdColor, this.sortedColor);
@@ -293,10 +264,10 @@ export class VisalgoComponent implements AfterViewInit {
 			if (this.gItemArray.compare(j+1, j) === -1) {
 				this.highlightMin(0, j+1);
 				// pass the function that should be called after the swap animation is complete
-				this.swapElements(0, 1, j, j+1, 'min', function() {this.swapValues(j, j+1);this.bubbleSortInner(i, j, true, start, end);});
+				this.swapElements(0, 1, j, j+1, 'min', ()=> {this.swapValues(j, j+1);this.bubbleSortInner(i, j, true, start, end);});
 			} else {
 				this.highlightMin(0, j);
-				this.timer = setTimeout( function(){this.bubbleSortInner(i, j, swap, start, end);}, this.compareSpeed[this.speed]);
+				this.timer = setTimeout( ()=>{this.bubbleSortInner(i, j, swap, start, end);}, this.compareSpeed[this.speed]);
 			}
 		} else {
 			this.bubbleSortOuter(i, swap, start, end);
@@ -306,23 +277,11 @@ export class VisalgoComponent implements AfterViewInit {
 	/**************************** End Bubble Sort *****************************************/
 
 	/*************************************** Insertion Sort ***********************************/
-	/* Insertion sort -- refactor using setTimeouts to allow for animation to be viewed */
-	/*
-	function insertionSortOuter() {
-		for (var i = 0; i < this.gItemArray.length - 1; i++) {
-			for (var j = i + 1; j > 0; j--) {
-				if (this.gItemArray.elements[j] >= this.gItemArray.elements[j-1]) break;
-				swapValues(j, j-1);
-			}
-		}
-		this.drawScreen(0);
-	} */
-
 	insertionSortOuter(i, start, end) {
 		i++;
 		this.drawInPlaceSort(0, start, end, end, this.stdColor, this.sortedColor);
 		if (i < end - 1) {
-			this.timer = setTimeout( function(){this.insertionSortInner(i, i + 1, start, end);}, this.compareSpeed[this.speed]);
+			this.timer = setTimeout( ()=>{this.insertionSortInner(i, i + 1, start, end);}, this.compareSpeed[this.speed]);
 		} else {
 			this.message = 'Insertion sort finished.';
 			this.drawInPlaceSort(0, start, end, -1, this.stdColor, this.sortedColor);
@@ -339,10 +298,10 @@ export class VisalgoComponent implements AfterViewInit {
 			if (this.gItemArray.compare(j, j-1) === -1) {
 				this.highlightMin(0, j);
 				// pass the function that should be called after the swap animation is complete
-				this.swapElements(0, 1, j-1, j, 'min', function() {this.swapValues(j, j-1);this.insertionSortInner(i, j-1, start, end);});
+				this.swapElements(0, 1, j-1, j, 'min', ()=> {this.swapValues(j, j-1);this.insertionSortInner(i, j-1, start, end);});
 			} else {
 				this.highlightMin(0, j-1);
-				this.timer = setTimeout( function(){this.insertionSortOuter(i, start, end);}, this.compareSpeed[this.speed]);
+				this.timer = setTimeout( ()=>{this.insertionSortOuter(i, start, end);}, this.compareSpeed[this.speed]);
 			}
 		} else {
 			this.insertionSortOuter(i, start, end);
@@ -352,55 +311,6 @@ export class VisalgoComponent implements AfterViewInit {
 	/**************************** End Insertion Sort *****************************************/
 
 	/*************************************** QuickSort ***********************************/
-	/* Quick sort -- refactor using setTimeouts to allow for animation to be viewed */
-	/*
-	function quickSort(left, right) { 
-		if (left < right) {
-			var pivot = chooseMedian(left, left + Math.floor((right-left)/2), right);
-			pivot = partition(left, right, pivot);
-			if (pivot - left < this.gItemArray.length - right) {
-				quickSort(left, pivot-1);
-				quickSort(pivot+1, right);
-			} else {
-				quickSort(pivot+1, right);
-				quickSort(left, pivot-1);
-			}
-		}
-		this.drawScreen(0);
-	} 
-
-	function chooseMedian(first, middle, last) {
-		if ((this.gItemArray.elements[first] <= this.gItemArray.elements[middle] && this.gItemArray.elements[middle] <= this.gItemArray.elements[last]) ||
-			(this.gItemArray.elements[last] <= this.gItemArray.elements[middle] && this.gItemArray.elements[middle] <= this.gItemArray.elements[first])) {
-			return middle;
-		} else if ((this.gItemArray.elements[middle] <= this.gItemArray.elements[first] 
-						&& this.gItemArray.elements[first] <= this.gItemArray.elements[last]) ||
-					(this.gItemArray.elements[last] <= this.gItemArray.elements[first] 
-						&& this.gItemArray.elements[first] <= this.gItemArray.elements[middle])) {
-			return first;
-		} else {
-			return last;
-		}
-	}
-
-	function partition(left, right, pivot) {
-		swapValues(pivot, right);
-		pivot = left;
-		for (var i = left; i < right; i++) {
-			if (this.gItemArray.elements[i] < this.gItemArray.elements[right]) {
-				swapValues(pivot, i);
-				pivot++;
-			}
-		}
-		swapValues(right, pivot);
-		return pivot;
-	}
-	*/
-
-	/* Need to use stack to simulate recursion.  Can't use actual recursion because need to use setTimeout for
-		animation, which means calls have to be sequential.
-	*/
-
 	quickSortOuter() {
 		var obj = this.stack.pop();
 		if (obj !== null) {
@@ -408,9 +318,9 @@ export class VisalgoComponent implements AfterViewInit {
 				this.message = 'Choosing new pivot within range ' + obj.left + ' to ' + obj.right;
 				var pivot = this.chooseMedian(obj.left, obj.left + Math.floor((obj.right-obj.left)/2), obj.right);
 				this.drawDivideAndConquerSort(0, obj.left, obj.right, pivot);
-				this.timer = setTimeout( function(){this.partition(obj.left, obj.right, pivot, null);}, this.compareSpeed[this.speed]);
+				this.timer = setTimeout( ()=>{this.partition(obj.left, obj.right, pivot, null);}, this.compareSpeed[this.speed]);
 			} else {
-				this.timer = setTimeout( function(){this.quickSortOuter();}, this.compareSpeed[this.speed]);
+				this.timer = setTimeout( ()=>{this.quickSortOuter();}, this.compareSpeed[this.speed]);
 			}
 		} else {
 			this.message = 'Quicksort finished.';
@@ -436,7 +346,7 @@ export class VisalgoComponent implements AfterViewInit {
 		this.markSwapBase(0, pivot);
 		if (i == null) {
 			// pass the function that should be called after the swap animation is complete
-			this.swapElements(0, 1, pivot, right, 'pivot', function() {this.swapValues(pivot, right);this.partition(left, right, left, left-1);});
+			this.swapElements(0, 1, pivot, right, 'pivot', ()=> {this.swapValues(pivot, right);this.partition(left, right, left, left-1);});
 		} 
 		else {
 			this.message = 'Partitioning elements ' + left + ' to ' + right;
@@ -446,13 +356,13 @@ export class VisalgoComponent implements AfterViewInit {
 			if (i < right) {
 				this.showNextCompare(0, i);
 				if (this.gItemArray.compare(i, right) === -1) {	
-					this.swapElements(0, 1, pivot, i, 'min', function() {this.swapValues(pivot, i);this.partition(left, right, pivot+1, i);});
+					this.swapElements(0, 1, pivot, i, 'min', ()=> {this.swapValues(pivot, i);this.partition(left, right, pivot+1, i);});
 				} else {
-					this.timer = setTimeout( function(){this.partition(left, right, pivot, i);}, this.compareSpeed[this.speed]);
+					this.timer = setTimeout( ()=>{this.partition(left, right, pivot, i);}, this.compareSpeed[this.speed]);
 				}
 			} else {
 				this.message += '...DONE';		
-				this.swapElements(0, 1, pivot, right, 'reversePivot', function() {this.swapValues(right, pivot);this.quickSortTail(left, right, pivot);});
+				this.swapElements(0, 1, pivot, right, 'reversePivot', ()=> {this.swapValues(right, pivot);this.quickSortTail(left, right, pivot);});
 			}
 		}
 	}
@@ -537,12 +447,12 @@ export class VisalgoComponent implements AfterViewInit {
 				// before calling 'mergeSubSort' that indicates whether both halves of the sublist have reached their destination points.
 
 				// slide the right half of the active range up
-				this.slideRangeOfBars(1, i, width, this.bars[i].x, this.bars[i].y, this.bars[i].x-2, this.startY*0.6, this.stdColor, 1, function(){});
+				this.slideRangeOfBars(1, i, width, this.bars[i].x, this.bars[i].y, this.bars[i].x-2, this.startY*0.6, this.stdColor, 1, ()=>{});
 				// slide the left half of the active range up
-				this.slideRangeOfBars(1, i+width, width, this.bars[i+width].x, this.bars[i+width].y, this.bars[i+width].x+2, this.startY*0.6, this.stdColor, 2, function(){this.markDivide(1, right); this.mergeSubsort(i, right, end, sorted, i, i, right);});
+				this.slideRangeOfBars(1, i+width, width, this.bars[i+width].x, this.bars[i+width].y, this.bars[i+width].x+2, this.startY*0.6, this.stdColor, 2, ()=>{this.markDivide(1, right); this.mergeSubsort(i, right, end, sorted, i, i, right);});
 			} else {
 				// slide the right half of the active range up
-				this.slideRangeOfBars(1, i, width, this.bars[i].x, this.bars[i].y, this.bars[i].x-2, this.startY*0.6, this.stdColor, 1,  function(){this.markDivide(1, right); this.mergeSubsort(i, right, end, sorted, i, i, right);});
+				this.slideRangeOfBars(1, i, width, this.bars[i].x, this.bars[i].y, this.bars[i].x-2, this.startY*0.6, this.stdColor, 1,  ()=>{this.markDivide(1, right); this.mergeSubsort(i, right, end, sorted, i, i, right);});
 			}
 			
 		} else {
@@ -562,13 +472,13 @@ export class VisalgoComponent implements AfterViewInit {
 			if (lptr < right && (this.gItemArray.compare(lptr, rptr) !== 1 || rptr >= end)) {
 				sorted[i] = this.gItemArray.get(lptr);
 				this.hideBar(1, lptr);
-				this.flashAndMoveBar(2, lptr, this.calculateX(i), this.startY, 0, function(){this.sortBar(i, lptr); this.mergeSubsort(left, right, end, sorted, i+1, lptr+1, rptr);});
-				//timer = setTimeout(function() {mergeSubsort(left, right, end, sorted, i+1, lptr+1, rptr);}, compareSpeed[speed]);
+				this.flashAndMoveBar(2, lptr, this.calculateX(i), this.startY, 0, ()=>{this.sortBar(i, lptr); this.mergeSubsort(left, right, end, sorted, i+1, lptr+1, rptr);});
+				//timer = setTimeout(()=> {mergeSubsort(left, right, end, sorted, i+1, lptr+1, rptr);}, compareSpeed[speed]);
 			} else {
 				sorted[i] = this.gItemArray.get(rptr);	
 				this.hideBar(1, rptr);
-				this.flashAndMoveBar(2, rptr, this.calculateX(i), this.startY, 0, function(){this.sortBar(i, rptr); this.mergeSubsort(left, right, end, sorted, i+1, lptr, rptr+1);});
-				//timer = setTimeout(function() {mergeSubsort(left, right, end, sorted, i+1, lptr, rptr+1);}, compareSpeed[speed]);
+				this.flashAndMoveBar(2, rptr, this.calculateX(i), this.startY, 0, ()=>{this.sortBar(i, rptr); this.mergeSubsort(left, right, end, sorted, i+1, lptr, rptr+1);});
+				//timer = setTimeout(()=> {mergeSubsort(left, right, end, sorted, i+1, lptr, rptr+1);}, compareSpeed[speed]);
 			}
 		} else {
 			this.copyBars(left, end);
@@ -582,53 +492,16 @@ export class VisalgoComponent implements AfterViewInit {
 	/**************************** End MergeSort *****************************************/
 
 	/*************************************** HeapSort ***********************************/
-	/* Heapsort -- refactor using setTimeouts to allow for animation to be viewed */
-	/*
-	function heapSort() { 
-
-		// build heap
-		for (var i = Math.floor((numItems-2)/2); i >= 0; i--) {
-			siftDown(i, numItems-1);
-		}
-
-		// reorder array
-		// swap first element with one less than last sorted element (or
-		// last element if first pass) then sift down first element
-		for (var i = numItems-1; i > 0; i--) {
-			swapValues(0, i);
-			this.swapCoordinates(0, i);
-			siftDown(0, i-1);
-		}
-		document.getElementById('message').innerHTML = 'Heapsort finished.';
-		this.drawInPlaceSort(0, 0, this.gItemArray.length, this.gItemArray.length, this.sortedColor, this.stdColor);
-	} 
-
-	function siftDown(start, end) {
-		// end is last element
-		var swap = start;
-		if (2*start + 1 <= end && this.gItemArray.elements[swap] < this.gItemArray.elements[2*start + 1]) {
-			swap =  2*start + 1;
-		}
-		if (2*start + 2 <= end && this.gItemArray.elements[swap] < this.gItemArray.elements[2*start + 2]) {
-			swap =  2*start + 2;
-		}
-
-		if (swap !== start) {
-			swapValues(swap, start);
-			this.swapCoordinates(swap, start);
-			siftDown(swap, end);
-		} else {
-			// placeholder
-		}
-	} 
-	*/
 	
 	/* Reorders array as max heap */
 	buildHeap(i) {
 		this.message = 'Building max heap...';
 		if (i >= 0) {
-			this.drawNode(1, i, this.textColor, this.compareColor, this.lineColor, 1)
-			this.timer = setTimeout( function(){this.drawNode(1, i, this.textColor, this.activeColor, this.lineColor, 1);this.siftDown(i, this.numItems-1, function(){this.buildHeap(i-1);})}, this.heapSpeed[this.speed]);
+			this.drawNode(1, i, this.textColor, this.compareColor, this.lineColor, this.lineWidth)
+			this.timer = setTimeout( ()=>{
+				this.drawNode(1, i, this.textColor, this.activeColor, this.lineColor, this.lineWidth);
+				this.siftDown(i, this.numItems-1, ()=>{this.buildHeap(i-1);})
+			}, this.heapSpeed[this.speed]);
 		} else {
 			this.heapSortOuter(this.numItems-1);
 		}
@@ -644,10 +517,10 @@ export class VisalgoComponent implements AfterViewInit {
 			this.swapValues(0, i);
 			this.swapCoordinates(0, i);
 			this.drawSortedItem(0, i);
-			this.timer = setTimeout( function(){
-				this.drawNode(1, 0, this.textColor, this.activeColor, this.lineColor);
+			this.timer = setTimeout( ()=>{
+				this.drawNode(1, 0, this.textColor, this.activeColor, this.lineColor, this.lineWidth);
 				this.hideNode(1, i);
-				this.timer = setTimeout(function() {this.siftDown(0, i-1, function(){this.heapSort(i-1);});}, this.heapSpeed[this.speed]);
+				this.timer = setTimeout(()=> {this.siftDown(0, i-1, ()=>{this.heapSortOuter(i-1);});}, this.heapSpeed[this.speed]);
 			}, this.heapSpeed[this.speed]);	
 		} else {
 			this.clearLayer(2);
@@ -671,10 +544,10 @@ export class VisalgoComponent implements AfterViewInit {
 			this.swapValues(swap, start);
 			this.markParentChild(1, swap, start, this.textColor, this.nodeHighlight, this.nodeHighlight);
 			this.swapCoordinates(swap, start);
-			this.timer = setTimeout( function(){this.markParentChild(1, swap, start, this.textColor, this.activeColor, this.lineColor); this.siftDown(swap, end, funct);}, this.heapSpeed[this.speed]);
+			this.timer = setTimeout( ()=>{this.markParentChild(1, swap, start, this.textColor, this.activeColor, this.lineColor); this.siftDown(swap, end, funct);}, this.heapSpeed[this.speed]);
 		} else {
 			// placeholder
-			this.timer = setTimeout( function(){funct();}, this.heapSpeed[this.speed]);
+			this.timer = setTimeout( ()=>{funct();}, this.heapSpeed[this.speed]);
 		}
 	}
 
@@ -682,13 +555,6 @@ export class VisalgoComponent implements AfterViewInit {
 
 	/************************ Graphics Functions ****************************/
 	
-	/* a bar object 
-	this.bar = function(x, y, z) {
-		this.x = x;
-		this.y = y;
-		this.h = z;
-	}*/
-
 	/* load bars array */
 	createBars():void {
 		var yGap = (this.startY-this.maxHeight) / (this.calculateLevel(this.numItems) + 1);
@@ -712,7 +578,7 @@ export class VisalgoComponent implements AfterViewInit {
 		}
 	}
 
-	graphicsReset = function() {
+	graphicsReset() {
 		this.resetBars();
 		for (var i = 0; i < this.context.length; i++) {
 			this.clearLayer(i);
@@ -720,7 +586,7 @@ export class VisalgoComponent implements AfterViewInit {
 		this.drawScreen(0);
 	}
 
-	resetBars = function() {
+	resetBars() {
 		for (var i = 0; i < this.numItems; i++) {
 			this.bars[i].x = this.calculateX(i);
 			this.bars[i].y = this.startY;
@@ -730,7 +596,7 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* store a canvas and context for a layer */
-	setCanvasLayer = function(layerNo, canvasId) {
+	setCanvasLayer(layerNo, canvasId) {
 		if (!isNaN(layerNo)) {
 			this.canvas.splice(layerNo, 0, canvasId);
 			var cxt = this.canvas[layerNo].getContext('2d');
@@ -739,25 +605,25 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* clear a layer's entire canvas */
-	clearLayer = function(layer) {
+	clearLayer(layer) {
 		this.context[layer].clearRect(0, 0, this.attr.width, this.attr.height);
 	}
 
 	/* draw the entire array of items in base color on the baseline and with labels */
-	drawScreen = function(layer) {
+	drawScreen(layer) {
 		this.context[layer].clearRect(0, 0, this.attr.width, this.attr.height);
 
 		// draw bars & labels
-		for (var i = 0; i < this.gItemArray.length; i++) {
+		for (var i = 0; i < this.numItems; i++) {
 			this.drawItem(layer, i, this.stdColor);
 		}
 	}
 
 	/* draw the horizontal line on which the item bars sit */
-	drawBaseline = function(layer) {
+	drawBaseline(layer) {
 		this.context[layer].beginPath();
 		this.context[layer].strokeStyle = this.lineColor;
-		this.context[layer].lineWidth = 1;
+		this.context[layer].lineWidth = this.lineWidth;
 		this.context[layer].moveTo(this.startX, this.startY+1);
 		this.context[layer].lineTo(this.attr.width - this.startX, this.startY+1);
 		this.context[layer].stroke();
@@ -767,7 +633,7 @@ export class VisalgoComponent implements AfterViewInit {
 	/* draw the item bars, coloring them according to which are already sorted and which
 		remain to be sorted
 	*/
-	drawInPlaceSort = function(layer, start, end, switchPt, lowColor, hiColor) {
+	drawInPlaceSort(layer, start, end, switchPt, lowColor, hiColor) {
 		this.context[layer].clearRect(0, 0, this.attr.width, this.attr.height);
 
 		for (var k = start; k < end; k++) {
@@ -781,13 +647,13 @@ export class VisalgoComponent implements AfterViewInit {
 		current subset of array being processed is highlighted while rest of array is
 		kept in 'disabled' color.
 	*/
-	drawDivideAndConquerSort = function(layer, left, right, pivot) {
+	drawDivideAndConquerSort(layer, left, right, pivot) {
 		this.context[layer].clearRect(0, 0, this.attr.width, this.attr.height);
 		this.clearSwapBaseMark(0);
 		this.markRange(0, left);
 		this.markRange(0, right);
 
-		for (var k = 0; k < this.gItemArray.length; k++) {
+		for (var k = 0; k < this.numItems; k++) {
 			var color = this.activeColor;
 			if (k == pivot) color = this.pivotColor;
 			else if (k < left || k > right) color = this.inactiveColor;
@@ -796,7 +662,7 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* Slide a range of bars */
-/*	this.slideRangeOfBars = function(layer, left, barCt, startX, startY, currX, currY, endX, endY, color, funct)  {
+/*	this.slideRangeOfBars(layer, left, barCt, startX, startY, currX, currY, endX, endY, color, funct)  {
 		//this.context[layer].clearRect(0, 0, this.attr.width, this.attr.height);	
 		var newX = currX;
 		var newY = currY;
@@ -823,7 +689,7 @@ export class VisalgoComponent implements AfterViewInit {
 		}		
 	} */
 
-	slideRangeOfBars = function(layer, left, barCt, startX, startY, endX, endY, color, whichTimer, funct)  {
+	slideRangeOfBars(layer, left, barCt, startX, startY, endX, endY, color, whichTimer, funct)  {
 		
 		var newX = this.bars[left].x;
 		var newY = this.bars[left].y;
@@ -845,43 +711,43 @@ export class VisalgoComponent implements AfterViewInit {
 				this.moveBar(layer, k, newX+(k-left)*this.barWd*2, newY, color);
 			}
 			if (whichTimer === 1) 
-				this.timer = setTimeout(function() {this.self.slideRangeOfBars(layer, left, barCt, startX, startY, endX, endY, color, 1, funct);}, this.swapSpeed[this.speed]);
+				this.timer = setTimeout(()=> {this.slideRangeOfBars(layer, left, barCt, startX, startY, endX, endY, color, 1, funct);}, this.swapSpeed[this.speed]);
 			else 
-				this.timer2 = setTimeout(function() {this.self.slideRangeOfBars(layer, left, barCt, startX, startY, endX, endY, color, 2, funct);}, this.swapSpeed[this.speed]);
+				this.timer2 = setTimeout(()=> {this.slideRangeOfBars(layer, left, barCt, startX, startY, endX, endY, color, 2, funct);}, this.swapSpeed[this.speed]);
 		} else {
 			funct();
 		}		
 	}
 
-	flashAndMoveBar = function(layer, bar, endX, endY, nComplete, funct) {
+	flashAndMoveBar(layer, bar, endX, endY, nComplete, funct) {
 		if (nComplete > 2) {
 			// flashing complete, move
 			this.hideBar(layer, bar);
 			this.drawBar(layer, endX, endY, this.bars[bar].h, this.stdColor);
-			this.timer = setTimeout(function() {funct();}, this.compareSpeed[this.speed]);
+			this.timer = setTimeout(()=> {funct();}, this.compareSpeed[this.speed]);
 		} else {
 			var color = this.compareColor;
 			if (nComplete % 2 == 0) {
 				color = this.minColor;
 			} 
 			this.drawBar(layer, this.bars[bar].x, this.bars[bar].y, this.bars[bar].h, color);
-			this.timer = setTimeout(function() {this.self.flashAndMoveBar(layer, bar, endX, endY, nComplete+1, funct);}, this.flashSpeed[this.speed]);
+			this.timer = setTimeout(()=> {this.flashAndMoveBar(layer, bar, endX, endY, nComplete+1, funct);}, this.flashSpeed[this.speed]);
 		}
 	}
 
-	sortBar = function(i, old) {
+	sortBar(i, old) {
 		this.sortedBars[i] = this.bars[old];
 		this.sortedBars[i].x = this.calculateX(i);
 		this.sortedBars[i].y = this.startY;
 	}
 
-	copyBars = function(left, end) {
+	copyBars(left, end) {
 		var temp = this.bars.slice(0, left).concat(this.sortedBars.slice(left, end)).concat(this.bars.slice(end));
 		this.bars = temp;
 	}
 
 	/* swap the coordinates of two bars */
-	swapCoordinates = function(i, j) {
+	swapCoordinates(i, j) {
 		var tempX = this.bars[i].x;
 		var tempY = this.bars[i].y;
 		this.bars[i].x = this.bars[j].x;
@@ -891,7 +757,7 @@ export class VisalgoComponent implements AfterViewInit {
 	}		
 
 	/* move a bar from its current coordinates to new coordinates */
-	moveBar = function(layer, idx, newX, newY, color) {
+	moveBar(layer, idx, newX, newY, color) {
 		//var ht = this.calculateHt(idx);
 		this.hideBar(layer, idx);
 		this.bars[idx].x = newX;
@@ -900,22 +766,15 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* hide a range of bars */
-	hideRangeOfItems = function(layer, start, end) {
+	hideRangeOfItems(layer, start, end) {
 		for (var i = start; i < end; i++) {
 			this.hideItem(layer, i);
 		}
 	}
 
-	/* (re)draw a bar, its label, and the baseline on which it sits */
-	/*
-	this.drawItem = function(layer, i, color) {
-		this.drawBar(layer, this.calculateX(i), this.startY, this.calculateHt(i), color);
-		this.drawLabel(layer, i, color);
-		this.drawBaseline(layer);
-	}*/
 
 	/* (re)draw a bar, its label, and the baseline on which it sits */
-	drawItem = function(layer, i, color) {
+	drawItem(layer, i, color) {
 		this.context[layer].clearRect(this.bars[i].x, this.arrowHt + this.arrowY, this.barWd, this.startY);
 		this.drawBar(layer, this.bars[i].x, this.bars[i].y, this.bars[i].h, color);
 		this.drawLabel(layer, i, color);
@@ -923,27 +782,27 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* hide the bars, usually in the base layer, that are going to be moving in an animation */
-	hideItem = function(layer, i) {
+	hideItem(layer, i) {
 		this.context[layer].clearRect(this.bars[i].x-this.barWd/2, this.arrowHt + this.arrowY, this.barWd*2, this.startY);
 		this.drawBaseline(layer);
 	}
 
-	hideBar = function(layer, idx) {
+	hideBar(layer, idx) {
 		this.context[layer].clearRect(this.bars[idx].x-this.barWd/4, this.bars[idx].y-this.bars[idx].h-2, this.barWd*1.5, this.bars[idx].h+4);
 	}
 
 	/* calculate the lower left X position of a bar based on its index in the array */
-	calculateX = function(i) {
+	calculateX(i) {
 		return this.startX + this.barWd/2 + (this.barWd * 2 * i);
 	}
 
 	/* calculate the height of a bar based on its value */
-	calculateHt = function(i) {
-		return this.maxHeight * (this.gItemArray.elements[i] / this.gItemArray.length);
+	calculateHt(i) {
+		return this.maxHeight * (this.gItemArray.get[i] / this.numItems);
 	}
 
 	/* calculate the level in the tree at which an element's node should be displayed based on the index of the element in the array */
-	calculateLevel = function(idx) {
+	calculateLevel(idx) {
 		var level = 0, sum = 1;
 		while (idx >= sum)  {
 			level++;
@@ -953,7 +812,7 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* draw a bar */
-	drawBar = function(layer, x, y, ht, color) {
+	drawBar(layer, x, y, ht, color) {
 		//this.context[layer].clearRect(x, this.arrowHt + this.arrowY, this.barWd, this.startY);
 		this.context[layer].beginPath();
 		this.context[layer].fillStyle = color;
@@ -964,7 +823,7 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* draw a bar's label */
-	drawLabel = function(layer, i, color) {
+	drawLabel(layer, i, color) {
 		//var x = this.startX + this.barWd/4 + (this.barWd * 2 * i);
 		this.context[layer].clearRect(this.bars[i].x, this.startY + 1, this.barWd, this.startY);
 		this.context[layer].font = color;
@@ -979,13 +838,13 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* draw a node in a tree */
-	drawNode = function(layer, i, textColor, fillColor, lineColor, lineWidth) {
+	drawNode(layer, i, textColor, fillColor, lineColor, lineWd) {
 		var offset = this.bars[i].v.toString().length*2.5;
 		this.context[layer].beginPath();
 		this.context[layer].font = this.nodeFont;
 		this.context[layer].fillStyle = fillColor;
 		this.context[layer].strokeStyle = lineColor;
-		this.context[layer].lineWidth = lineWidth;
+		this.context[layer].lineWidth = lineWd;
 		this.context[layer].arc(this.nodeLocations[i].x, this.nodeLocations[i].y, 8, 0, 360, true);
 		this.context[layer].stroke();
 		this.context[layer].fill();
@@ -995,7 +854,7 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* draw all tree branches */
- 	drawBranches = function(layer) {
+ 	drawBranches(layer) {
 		var lastParent = Math.floor((this.numItems-2)/2);
 		for (var i = 0; i <= lastParent; i++) {
 			var child = 2*i + 1;
@@ -1009,7 +868,7 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* draw a single branch line */
-	drawBranch = function(layer, parent, child, color) {
+	drawBranch(layer, parent, child, color) {
 		this.context[layer].beginPath();
 		this.context[layer].strokeStyle = color;
 		this.context[layer].moveTo(this.nodeLocations[parent].x, this.nodeLocations[parent].y);
@@ -1019,14 +878,14 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* draw all nodes in the active color */
-	drawNodesActive = function(layer) {
+	drawNodesActive(layer) {
 		for (var i = 0; i < this.numItems; i++) {
-			this.drawNode(layer, i, this.textColor, this.activeColor, this.lineColor, 1);
+			this.drawNode(layer, i, this.textColor, this.activeColor, this.lineColor, this.lineWidth);
 		}
 	}
 
 	/* draw the tree, one node at a time */
-	drawTree = function(layer, textColor, fillColor, lineColor, i, funct) {
+	drawTree(layer, textColor, fillColor, lineColor, i, funct) {
 		if (i < this.numItems) {
 			this.hideItem(0, i);
 			if (i%2 === 0 && (i-2)/2 >= 0) {
@@ -1034,49 +893,49 @@ export class VisalgoComponent implements AfterViewInit {
 			} else if (i%2 !== 0 && (i-1)/2 >= 0) {
 				this.markParentChild(layer, (i-1)/2, i, textColor, fillColor, lineColor);
 			}
-			else this.drawNode(layer, i, textColor, fillColor, lineColor, 1);
-			this.timer = setTimeout(function() {this.self.drawTree(layer, textColor, fillColor, lineColor, i+1, funct);}, this.heapSpeed[this.speed]);
+			else this.drawNode(layer, i, textColor, fillColor, lineColor, this.lineWidth);
+			this.timer = setTimeout(()=> {this.drawTree(layer, textColor, fillColor, lineColor, i+1, funct);}, this.heapSpeed[this.speed]);
 		} else {
 			funct();
 		}
 	}
 
 	/* color a parent-child relationship */
-	markParentChild = function(layer, parent, child, textColor, fillColor, lineColor) {
+	markParentChild(layer, parent, child, textColor, fillColor, lineColor) {
 		this.drawBranch(layer, parent, child, lineColor);
-		this.drawNode(layer, parent, textColor, fillColor, lineColor, 1);
-		this.drawNode(layer, child, textColor, fillColor, lineColor, 1);	
+		this.drawNode(layer, parent, textColor, fillColor, lineColor, this.lineWidth);
+		this.drawNode(layer, child, textColor, fillColor, lineColor, this.lineWidth);	
 	}
 
 	/* Hide a node and branch to it */
-	hideNode = function(layer, node) {
+	hideNode(layer, node) {
 		if (node >= 0 && node < this.numItems) {
-			this.drawNode(layer, node, this.backgroundColor, this.backgroundColor, this.backgroundColor, 3);
+			this.drawNode(layer, node, this.backgroundColor, this.backgroundColor, this.backgroundColor, this.thickLineWidth);
 			if (node%2 === 0 && (node-2)/2 >= 0) {
 				this.drawBranch(layer, (node-2)/2, node, this.backgroundColor);
-				this.drawNode(layer, (node-2)/2, this.textColor, this.activeColor, this.lineColor, 1);
+				this.drawNode(layer, (node-2)/2, this.textColor, this.activeColor, this.lineColor, this.lineWidth);
 			} else if (node%2 !== 0 && (node-1)/2 >= 0) {
 				this.drawBranch(layer, (node-1)/2, node, this.backgroundColor);
-				this.drawNode(layer, (node-1)/2, this.textColor, this.activeColor, this.lineColor, 1);
+				this.drawNode(layer, (node-1)/2, this.textColor, this.activeColor, this.lineColor, this.lineWidth);
 			}
 		}
 	}
 
 	/* draw a black arrow pointing to a bar that is being compared and/or swapped */
-	markSwapBase = function(layer, i) {
+	markSwapBase(layer, i) {
 		var x = this.calculateX(i);
 		this.drawDownArrow(layer, x, this.arrowY, "black");
 	}
 
-	markRange = function(layer, i) {
+	markRange(layer, i) {
 		var x = this.calculateX(i);
 		this.drawDownArrow(layer, x, this.arrowY, this.activeColor);
 	}
 
-	markDivide = function(layer, r) {
+	markDivide(layer, r) {
 		if (r < this.numItems) {
 			this.context[layer].strokeStyle = this.divideColor;
-			this.context[layer].lineWidth = 1;
+			this.context[layer].lineWidth = this.lineWidth;
 			this.context[layer].beginPath();
 			this.context[layer].moveTo(this.bars[r].x-2-this.barWd/2, this.bars[r].y);
 			this.context[layer].lineTo(this.bars[r].x-2-this.barWd/2, this.bars[r].y-this.maxHeight);
@@ -1087,37 +946,37 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* hide a black arrow */
-	clearSwapBaseMark = function(layer) {
+	clearSwapBaseMark(layer) {
 		this.context[layer].clearRect(0, 0, this.attr.width, this.arrowY+this.arrowHt);
 	}
 
 	/* draw a bar and its label using the color that denotes the item has already been sorted */
-	drawSortedItem = function(layer, i) {
+	drawSortedItem(layer, i) {
 		this.drawItem(layer, i, this.sortedColor);
 	}
 
 	/* draw a bar and its label using the color that denotes it is the current minimum value */
-	highlightMin = function(layer, min) {
+	highlightMin(layer, min) {
 		this.drawItem(layer, min, this.minColor);
 	}
 
 	/* draw a bar and its label using the color that denotes it is the current minimum value */
-	highlightPivotPoint = function(layer, pivot) {
+	highlightPivotPoint(layer, pivot) {
 		this.drawItem(layer, pivot, this.pivotPtColor);
 	}
 
 	/* draw a bar and its label using the base (unsorted) color */
-	drawStandard = function(layer, i) {
+	drawStandard(layer, i) {
 		this.drawItem(layer, i, this.stdColor);
 	}
 
 	/* draw and bar and its label using the color that denotes it is part of the current comparison */
-	showNextCompare = function(layer, i) {
+	showNextCompare(layer, i) {
 		this.drawItem(layer, i, this.compareColor);
 	}
 
 	/* draw a black arrow that points downward */
-	drawDownArrow = function(layer, x,y,color) {
+	drawDownArrow(layer, x,y,color) {
 		var third = this.arrowWd / 3;
 		this.context[layer].beginPath();
 		this.context[layer].fillStyle = color;
@@ -1138,7 +997,7 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* animate the swapping of two bars */
-	swapElements = function(baseLayer, swapLayer, i, j, type, funct) {
+	swapElements(baseLayer, swapLayer, i, j, type, funct) {
 
 		// hide bars being switched in base layer
 		this.hideItem(baseLayer, i);
@@ -1158,7 +1017,7 @@ export class VisalgoComponent implements AfterViewInit {
 	}
 
 	/* helper function that moves the two bars being swapped */
-	slideBars = function(layer, dir, i, j, icolor, jcolor, nComplete, funct) {
+	slideBars(layer, dir, i, j, icolor, jcolor, nComplete, funct) {
 		this.clearLayer(layer);
 
 		if (dir == "up") {
