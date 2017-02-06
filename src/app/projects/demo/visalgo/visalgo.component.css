@@ -10,9 +10,9 @@ body {
   width: 50%;
   float: left;
   display: inline;
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  position: relative;
+  xtop: 0px;
+  xleft: 0px;
   border: none;
   padding: 0px;
   margin: 0px;
@@ -114,7 +114,7 @@ div#legend div {
 
 /* Info section */
 #info {
-  position: absolute;
+  position: relative;
   top: 25px;
   right: 25px;
   width: 50%;
@@ -139,8 +139,9 @@ div#legend div {
 /* Buttons section */
 .controls {
   width: 250px;
-  position: absolute;
+  position: relative;
   margin-top: 250px;
+  float: left;
   left: 25px;
   border: none;
 }

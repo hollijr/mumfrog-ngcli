@@ -11,13 +11,15 @@ import 'rxjs/add/operator/catch';
 
 // dynamic components
 import { GaugeComponent } from '../projects/demo/gauge/gauge.component';
+import { VisalgoComponent } from '../projects/demo/visalgo/visalgo.component';
 
 @Injectable()
 export class ProjectService {
 
   // properties
   componentTable = {
-    'GaugeComponent': GaugeComponent
+    'GaugeComponent': GaugeComponent,
+    'VisalgoComponent': VisalgoComponent
   };
 
   // Resolve HTTP using the constructor

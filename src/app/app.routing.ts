@@ -41,10 +41,6 @@ const appRoutes:Routes = [
     component: AboutComponent
   },
   {
-    path: 'visalgo',
-    component: VisalgoComponent
-  },
-  {
     // redirect
     path: '',
     redirectTo: '/home',

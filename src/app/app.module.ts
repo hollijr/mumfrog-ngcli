@@ -49,7 +49,7 @@ import { VisalgoComponent } from './projects/demo/visalgo/visalgo.component';
     ArtworkService,
     CategoryService
   ],
-  entryComponents: [ GaugeComponent ],
+  entryComponents: [ GaugeComponent, VisalgoComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
