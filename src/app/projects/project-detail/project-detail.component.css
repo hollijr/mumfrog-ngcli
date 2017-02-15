@@ -18,9 +18,12 @@ button {
   position: relative;
 }
 .demo {
-  padding: 0 10px;
+  padding: 0 1em;
 }
 .demo-content {
   width: 100%;
   max-width: 800px;
+}
+.space-bottom {
+  margin-bottom: 1em;
 }

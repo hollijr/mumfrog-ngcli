@@ -16,8 +16,8 @@
   </div>
   <hr>
   <div class='row demo'>
-    <div *ngIf="project.demoLink">
-      <a [href]="project.demoLink" target="_blank">View Demo</a>
+    <div *ngIf="project.demoLink" class="space-bottom">
+      <a [href]="project.demoLink" target="_blank">Go To Project</a>
     </div>
     <div *ngIf="project.demo">
       <div [innerHTML]="project.demo" class="demo-content"></div>
