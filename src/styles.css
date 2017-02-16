@@ -57,7 +57,7 @@ img {
   padding: 0;
 }
 .demo img, .caption {
-  width: 80%;
+  max-width: 80%;
   margin: 1em auto;
   display: block;
 }
@@ -68,4 +68,10 @@ img {
 .demo td {
   border: 1px solid #333333;
   padding: 1em;
+}
+.bottom-spacer {
+  height: 2em;
+}
+.half-size {
+  max-width: 50%;
 }
