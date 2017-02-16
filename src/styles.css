@@ -75,3 +75,6 @@ img {
 .half-size {
   max-width: 50%;
 }
+.borderless {
+  borders: none;
+}
