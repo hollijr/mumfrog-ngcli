@@ -23,7 +23,6 @@ import { ArrayifyPipe } from './common/arrayify.pipe';
 import { VisalgoComponent } from './projects/demo/visalgo/visalgo.component';
 import { PythonSamplesComponent } from './projects/demo/python-samples/python-samples.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

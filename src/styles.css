@@ -56,7 +56,16 @@ img {
   clear: both;
   padding: 0;
 }
-.demo img {
-  margin-bottom: 20px;
-  width: 100%;
+.demo img, .caption {
+  width: 80%;
+  margin: 1em auto;
+  display: block;
+}
+.full-width {
+  clear: both;
+  display: block;
+}
+.demo td {
+  border: 1px solid #333333;
+  padding: 1em;
 }
