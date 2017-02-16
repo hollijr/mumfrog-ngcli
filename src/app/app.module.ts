@@ -22,6 +22,7 @@ import { ArtworkDetailComponent } from './artworks/artwork-detail/artwork-detail
 import { ArrayifyPipe } from './common/arrayify.pipe';
 import { VisalgoComponent } from './projects/demo/visalgo/visalgo.component';
 import { PythonSamplesComponent } from './projects/demo/python-samples/python-samples.component';
+import { LlTrainComponent } from './projects/demo/ll-train/ll-train.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PythonSamplesComponent } from './projects/demo/python-samples/python-sa
     ArtworkDetailComponent,
     ArrayifyPipe,
     VisalgoComponent,
-    PythonSamplesComponent
+    PythonSamplesComponent,
+    LlTrainComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,7 @@ import { PythonSamplesComponent } from './projects/demo/python-samples/python-sa
     ArtworkService,
     CategoryService
   ],
-  entryComponents: [ GaugeComponent, VisalgoComponent, PythonSamplesComponent ],
+  entryComponents: [ GaugeComponent, VisalgoComponent, PythonSamplesComponent, LlTrainComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,7 +2,8 @@
   <div class="row project-detail"> 
     <div class='col-xs-12 col-sm-8 content'>
       <h1>{{project.title}}</h1>
-      <div [innerHTML]="project.description" class='desc'></div>
+      <div [innerHTML]="project.description" class='desc space-bottom'></div>
+      <div *ngIf="project.codeRepo"><a [href]="project.codeRepo" target="_blank">Github Repository</a></div>
     </div>
     <div class='col-xs-12 col-sm-4 sidebar'>
       <div>
