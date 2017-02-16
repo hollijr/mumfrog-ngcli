@@ -1,0 +1,9 @@
+<div>
+  <label>Python Program</label>
+  <select name="program" (change)="onChange($event.target.value)">
+    <option *ngFor="let program of programs" [value]="program.value">
+      {{program.display}}
+    </option>
+  </select>
+</div>
+<pre><code>{{prog}}</code></pre>

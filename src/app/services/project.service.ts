@@ -12,6 +12,7 @@ import 'rxjs/add/operator/catch';
 // dynamic components
 import { GaugeComponent } from '../projects/demo/gauge/gauge.component';
 import { VisalgoComponent } from '../projects/demo/visalgo/visalgo.component';
+import { PythonSamplesComponent } from '../projects/demo/python-samples/python-samples.component';
 
 @Injectable()
 export class ProjectService {
@@ -19,7 +20,8 @@ export class ProjectService {
   // properties
   componentTable = {
     'GaugeComponent': GaugeComponent,
-    'VisalgoComponent': VisalgoComponent
+    'VisalgoComponent': VisalgoComponent,
+    'PythonSamplesComponent': PythonSamplesComponent
   };
 
   // Resolve HTTP using the constructor
