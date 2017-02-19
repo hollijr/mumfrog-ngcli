@@ -40,6 +40,7 @@ body {
 .inner {
   padding: 30px;
   padding-right: 0;
+  position: relative;
 }
 
 
@@ -48,15 +49,13 @@ body {
  */
 .masthead-brand {
   z-index: 100;
-  position: relative;
-  margin-bottom: -50px;
-
+  margin: -40px auto 0px auto;
 }
 
 
 @media (min-width: 768px) {
   .masthead-brand {
-    float: left;
+    xfloat: left;
   }
 }
 

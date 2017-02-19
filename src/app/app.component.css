@@ -73,6 +73,9 @@ body {
   .masthead-nav {
     float: right;
   }
+  .masthead-nav .left {
+    float: left;
+  }
 }
 
 
