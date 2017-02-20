@@ -44,44 +44,25 @@ body {
 }
 
 
-/*
- * Header
- */
+/* Header */
 .masthead-brand {
   z-index: 100;
-  margin: -40px auto 0px auto;
+  margin: -50px auto 0px auto;
 }
 
-
-@media (min-width: 768px) {
-  .masthead-brand {
-    xfloat: left;
-  }
-}
-
-/*
- * Cover
- */
-
+/* Cover */
 .cover {
   padding: 0 20px;
   text-align: center;
 }
 
-
-/*
- * Footer
- */
-
+/* Footer */
 .mastfoot {
   color: #999; /* IE8 proofing */
   color: rgba(255,255,255,.5);
 }
 
-
-/*
- * Affix and center
- */
+/* Affix and center */
 
 @media (min-width: 768px) {
   /* Pull out the header and footer */
