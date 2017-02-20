@@ -2,12 +2,12 @@
   <div class="row artwork-detail">
     <div class='col-xs-12 '>
       <h1>{{artwork.title}}</h1>
-      <figure>
-        <img class='img-responsive' src="{{artwork.img}}">
-        <figcaption>
-          [{{artwork.date}}]
-        </figcaption>
-      </figure>
+      <em>{{artwork.date}}</em>
+      <div *ngIf="artwork.desc" class="content" [innerHTML]="artwork.desc"></div>
+      <div *ngFor="let item of artwork.content" class='col-xs-12 content'>
+        <img *ngIf="item.img" class='thumbnail img-responsive' src="{{item.img}}">
+        <div *ngIf="item.desc" [innerHTML]="item.desc"></div>
+      </div>
     </div>
     <div class='col-xs-12 content'>
       <div [innerHTML]="artwork.details" class='details'>

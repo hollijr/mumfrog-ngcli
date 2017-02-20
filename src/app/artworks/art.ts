@@ -3,7 +3,8 @@ export class Art {
   title:string;
   category:string;
   summary:string;
-  details:string;
-  img:string;
+  desc:string;
   date:string;
+  coverImg:string;
+  content:[{img:string,desc:string}];
 }
