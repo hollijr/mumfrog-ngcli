@@ -53,10 +53,242 @@ export const ARTWORK:[Art[]] = [
       summary: 'A simple but pretty layer cake',
       coverImg: 'assets/images/appleblossoms.jpg',
       desc: '',
-      date: '2011',
+      date: '18 Dec 2012',
       content: [
         {img:'assets/images/appleblossoms.jpg', 
          desc: '<p>This cake design came from Wilton\'s gallery.</p>'}
+      ]
+    },
+    { id: 2000001, 
+      title: 'Baseball Team Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'Star-covered cake for season\'s end celebration',
+      coverImg: 'assets/images/artwork/cakes/Baseball_sides.jpg',
+      desc: '',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/Baseball_sides.jpg', 
+         desc: '<p>Large sheet cake I made for my son\'s baseball team.</p>'}
+      ]
+    },
+    { id: 2000002, 
+      title: 'Basket of Roses Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'Sweet pink roses in a pink basket',
+      coverImg: 'assets/images/artwork/cakes/basketofroses.jpg',
+      desc: '',
+      date: '18 Dec 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/basketofroses.jpg', 
+         desc: '<p>Another Wilton cake design...</p>'}
+      ]
+    },
+    { id: 2000003, 
+      title: 'Bavarian Chapel Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'A Bavaria-themed anniversary cake',
+      coverImg: 'assets/images/artwork/cakes/bavarianChapel.jpg',
+      desc: '',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/bavarianChapel.jpg', 
+         desc: '<p>I made this cake for a friend\'s parents who were celebrating their 50th wedding anniversary. &nbsp;They were married in Bavaria so my friend wanted a cake that would remind them of their wedding.</p>'}
+      ]
+    },
+    { id: 2000004, 
+      title: 'Blossoms & Butterflies Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'Brightly colored cake with royal icing flowers and butterflies',
+      coverImg: 'assets/images/artwork/cakes/blossombutterflies.jpg',
+      desc: '',
+      date: '15 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/blossombutterflies.jpg', 
+         desc: '<p>Here is a tiered cake that I made for the annual auction at my kids\' school. &nbsp;I called it \'Butterflies and Blossoms\'. &nbsp;It is a white chocolate cake with raspberry filling, iced in buttercream. &nbsp;The flowers (roses, apple blossoms and individual petals) are made from royal icing and were heavily inspired by a cake called "Flower Tower" that I found in&nbsp;</span><a href="http://www.amazon.com/Wilton-902-1108-Tiered-Cakes/dp/B000FH0RRO/ref=sr_1_1?ie=UTF8&amp;qid=1350158477&amp;sr=8-1&amp;keywords=wilton+tiered+cakes+book" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; line-height: normal;">Wilton Tiered Cakes</a><span style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; line-height: normal;">. &nbsp;The butterfly wings were made by outlining the shapes then flooding the inside with liquid royal icing. &nbsp;The butterflies (patterned from Peggy Porchen\'s&nbsp;</span><a href="http://www.amazon.com/Pretty-Party-Cakes-Stylish-Occasions/dp/0307337073/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1350158587&amp;sr=1-1&amp;keywords=pretty+party+cakes" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; line-height: normal;">Pretty Party Cakes</a><span style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; line-height: normal;">&nbsp;book) were constructed after the wings were fully dried using stiff royal icing for their bodies. &nbsp;</span></p>'},
+        {img:'assets/images/artwork/cakes/butterfliesblossoms.jpg', 
+         desc: '<p>Here\'s another version of the cake made two years after the first. &nbsp;I added a fence to the top and the flower colors were darker. &nbsp;(I prefer the ligher colors.)</p>'}
+      ]
+    },
+    { id: 2000005, 
+      title: 'Chocolate Lace Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'Chocolate through and through: cake, buttercream and candy scrolls',
+      coverImg: 'assets/images/artwork/cakes/chocolatelace.jpg',
+      desc: '',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/chocolatelace.jpg', 
+         desc: '<p>This is a chocolate cake filled and iced with chocolate buttercream  The lace scrolls were piped from melted chocolate.  The pattern for the scrolls came from a Wilton book I have along with the cake inspiration.</p>'}
+      ]
+    },
+    { id: 2000006, 
+      title: 'Chocolate Malted Milk Ball Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'Chocoate cake with a crunch!',
+      coverImg: 'assets/images/artwork/cakes/maltedmilkballcake.jpg',
+      desc: '',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/maltedmilkballcake.jpg', 
+         desc: '<p>Malted milk balls and chocolate cake are each yummy on their own so they must be doubly good together, right?  Right!</p>'}
+      ]
+    },
+    { id: 2000007, 
+      title: 'Daisies and Mums Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'Royal icing flowers on a basic white cake',
+      coverImg: 'assets/images/artwork/cakes/DaisiesMumsBasket.jpg',
+      desc: '',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/DaisiesMumsBasket.jpg', 
+         desc: '<p>Made this cake to use up some practice daisies and chrysanthemums I piped in royal.</p>'}
+      ]
+    },
+    { id: 2000008, 
+      title: 'Dilbert and Dogbert Copier Fun Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'Office celebration cake featuring Dilbert and Dogbert',
+      coverImg: 'assets/images/artwork/cakes/dilbert2.jpg',
+      desc: '',
+      date: '18 Dec 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/dilbert2.jpg', 
+         desc: '<p>My husband asked me to make this cake for a colleague who was moving on to a new job. &nbsp;He wanted it to look like the Dilbert and Dogbert cartoon where they are playing on the copier machine.</p>'}
+      ]
+    },
+    { id: 2000009, 
+      title: 'Hungry Caterpillar Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'A very hungry caterpillar encircles a red apple',
+      coverImg: 'assets/images/artwork/cakes/HungryCaterpillar.jpg',
+      desc: '',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/HungryCaterpillar.jpg', 
+         desc: '<p>I loved this cake! &nbsp;It was for my youngest son\'s birthday. &nbsp;The caterpillar is made of cupcakes that were dipped in green melted candy in lieu of paper baking cups. &nbsp;The apple was made from Wilton\'s ball mold. The caterpillar and apple sit on a buttercream-grass-topped cake base.</p>'}
+      ]
+    },
+    { id: 20000010, 
+      title: 'Penny Black Kitty Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'A rubber-stamp inspired cake',
+      coverImg: 'assets/images/artwork/cakes/kittycake.jpg',
+      desc: '<p>My daughter wanted a kitty cake for her birthday so I borrowed the design for the cake from a Penny Black rubber stamp.&nbsp;.</p>',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/kittytop.jpg', 
+         desc: ''},
+         {img:'assets/images/artwork/cakes/kittycake.jpg', 
+         desc: ''}
+      ]
+    },
+    { id: 20000011, 
+      title: 'Pikachu Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'A birthday cake for Pika lovers',
+      coverImg: 'assets/images/artwork/cakes/pikachu.jpg',
+      desc: '',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/pikachu.jpg', 
+         desc: '<p>A Pikachu birthday cake I made many years ago.</p>'}
+      ]
+    },
+    { id: 20000012, 
+      title: 'Pokemon Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'A Pokemon daycare cake',
+      coverImg: 'assets/images/artwork/cakes/pokemoncake.jpg',
+      desc: '',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/pokemoncake.jpg', 
+         desc: '<p>Another pokemon birthday theme. &nbsp;This time, the pokemon (made from marshmellow fondant) are in their habitat -- grass pokemon in the grass, water pokemon in the pond, etc. &nbsp;:)</p>'}
+      ]
+    },
+    { id: 20000013, 
+      title: 'Pokemon Cupcakes', 
+      category: 'Decorated Cakes', 
+      summary: 'A tower of starter Pokemon',
+      coverImg: 'assets/images/artwork/cakes/pokemoncupcakes.jpg',
+      desc: '',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/pokemoncupcakes.jpg', 
+         desc: '<p>My sons loved pokemon so for several years, I made pokemon cakes. &nbsp;Here\'s one with cupcakes. &nbsp;The pokemon are made from marshmallow fondant.</p>'}
+      ]
+    },
+    { id: 20000014, 
+      title: 'Sitting Monkies Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'A large monkey cake and mini, take-home monkey cakes',
+      coverImg: 'assets/images/artwork/cakes/monkeys.jpg',
+      desc: '',
+      date: '6 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/monkeys.jpg', 
+         desc: '<p>The monkeys were made using the large and small bear forms by Wilton.</p>'}
+      ]
+    },
+    { id: 20000015, 
+      title: 'Sweatheart Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'Fondant hearts, bows and flowers for a little girl\'s birthday',
+      coverImg: 'assets/images/artwork/cakes/Melanie.jpg',
+      desc: '',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/Melanie.jpg', 
+         desc: '<p>I made this cake for the birthday of a friend\'s daughter. &nbsp;The heart-shaped cake is iced with off-white buttercream on top and pink buttercream on the sides. &nbsp;The white hearts along the top edge were cut from white fondant. &nbsp;The bows and flowers are also fondant.</p>'}
+      ]
+    },
+    { id: 20000016, 
+      title: 'Tiered Rose Wedding Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'A just-for-practice white, multi-tier cake',
+      coverImg: 'assets/images/artwork/cakes/AngelsSing.jpg',
+      desc: '',
+      date: '5 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/AngelsSing.jpg', 
+         desc: '<p>This was a practice wedding cake I made, inspired by a Wilton cake called Angels Sing.</p>'}
+      ]
+    },
+    { id: 20000017, 
+      title: 'Volleyball Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'A volleyball-theme cake with cookie players and candy stars',
+      coverImg: 'assets/images/artwork/cakes/vballcake.jpg',
+      desc: '',
+      date: '6 Nov 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/vballcake.jpg', 
+         desc: '<p>This cake was for my daughter\'s volleyball team. &nbsp;The volleyball was made from one half of Wilton\'s ball form. &nbsp;The stars are made from yellow candy melts. &nbsp;The volleyball players are sugar cookies cut with a gingerbread man cutter and iced in royal.</p>'}
+      ]
+    },
+    { id: 20000018, 
+      title: 'Wilton Course 2 Final Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'A cake that features beginning royal icing flowers and figures',
+      coverImg: 'assets/images/artwork/cakes/Course2c.jpg',
+      desc: '',
+      date: '18 Dec 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/Course2c.jpg', 
+         desc: '<p>If you took the second Wilton cake decorating class, you probably recognize this cake... it\'s from the final session of the class.</p>'}
+      ]
+    },
+    { id: 20000019, 
+      title: 'Wilton Course 3 Final Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'The final project for the final cake decorating course',
+      coverImg: 'assets/images/artwork/cakes/course3.jpg',
+      desc: '',
+      date: '18 Dec 2012',
+      content: [
+        {img:'assets/images/artwork/cakes/course3.jpg', 
+         desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     }
   ],
@@ -91,7 +323,7 @@ export const ARTWORK:[Art[]] = [
       title: 'Apple Blossom Cane', 
       category: 'Polymer Clay', 
       summary: 'Glass candlesticks covered in cane slices',
-      coverImg: 'assets/images/candlesticks.jpg',
+      coverImg: 'assets/images/artwork/clay/appleblossom/appblossm21.jpg',
       desc: '<p>These instructions are for the auction project.</p><p>Materials:&nbsp;</p><p style="margin-bottom: 0.0001pt;"><span style="font-size: 8.5pt; font-family: Verdana, sans-serif;">1 - 1" ball for inner petals<br /> 1 - 1/2" x 2" outer vein strip<br /> 1 - 1/2" x 1" inner vein strip<br /> 1 - 9" x 1" flat Skinner blend for outer petals<br /> 1 - 4" x 1" flat outline strip<br /> 1 - 3/8" ball for center</span></p><ol>',
       date: '19 Jan 2013',
       content: [
