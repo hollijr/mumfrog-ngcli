@@ -4,13 +4,9 @@
       <h1>{{artwork.title}}</h1>
       <em>{{artwork.date}}</em>
       <div *ngIf="artwork.desc" class="content" [innerHTML]="artwork.desc"></div>
-      <div *ngFor="let item of artwork.content" class='col-xs-12 content'>
+      <div *ngFor="let item of artwork.content" class='col-xs-12'>
         <img *ngIf="item.img" class='thumbnail img-responsive' src="{{item.img}}">
-        <div *ngIf="item.desc" [innerHTML]="item.desc"></div>
-      </div>
-    </div>
-    <div class='col-xs-12 content'>
-      <div [innerHTML]="artwork.details" class='details'>
+        <div *ngIf="item.desc" [innerHTML]="item.desc" class=""></div>
       </div>
     </div>
   </div>
