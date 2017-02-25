@@ -2,25 +2,13 @@ import { Art } from '../artworks/art';
 
 export const ARTWORK:[Art[]] = [
   [
-    { id: 1000000, 
-      title: 'Cheerleader Cookie Bouquet', 
-      category: 'Cookies', 
-      summary: 'A bouquet of decorated cheerleader sugar cookies',
-      coverImg: 'assets/images/cheer.jpg',
-      desc: '',
-      date: '2011',
-      content: [
-        {img:'assets/images/cheer.jpg', 
-         desc: '<p>I made this bouqet for my daughter to take to her cheerleading squad\'s Christmas party</p>'}
-      ],
-    },
     { id: 1000001, 
-      title: 'Iced Decorated Christmas Cookies', 
+      title: 'Christmas 2008', 
       category: 'Cookies', 
       summary: 'Christmas-theme sugar cookies iced with royal icing', 
       coverImg: 'assets/images/redWhiteChristmas.jpg',
       desc: '<p>I love making brightly colored cookies for Christmas!</p>',
-      date: '2011',
+      date: '2008',
       content: [
         {img:'assets/images/redWhiteChristmas.jpg', 
          desc: ''},
@@ -33,31 +21,390 @@ export const ARTWORK:[Art[]] = [
       ],
     },
     { id: 1000002, 
-      title: 'Animal Ideas', 
+      title: 'Lots of Animal Ideas', 
       category: 'Cookies', 
       summary: 'Rough ideas for decorating animal cookies', 
       coverImg: 'assets/images/artwork/cookies/animals.jpg',
       desc: '<p>So these are not my best work.  Rather, they are cookies I made up and decorated quickly in order to get ideas for how to decorate these cutter shapes in the future.  I was also experimenting with different types of royal icing to see which had the best flavor and best consistency.</p>',
       date: '16 Oct 2012',
       content: [
-        {img:'assets/images/artwork/cookies/animals.jpg', desc: ''},
         {img: 'assets/images/artwork/cookies/greencreatures.jpg', desc: "" },
-        {img: 'assets/images/artwork/cookies/yellowbirds.jpg', desc: "" }
+        {img: 'assets/images/artwork/cookies/yellowbirds.jpg', desc: "" },
+        {img: 'assets/images/artwork/cookies/graycreatures.jpg', desc: "" },
+        {img:'assets/images/artwork/cookies/wildAnimals.jpg', desc: ''},
+        {img: 'assets/images/artwork/cookies/bugs.jpg', desc: "" },
+        {img: 'assets/images/artwork/cookies/farmAnimals.jpg', desc: "" },
+        {img: 'assets/images/artwork/cookies/tanAnimals.jpg', desc: "" }
       ],
     },
     { id: 1000003, 
       title: 'Christmas Cookie Bouquets', 
       category: 'Cookies', 
-      summary: 'Rough ideas for decorating animal cookies', 
-      coverImg: 'assets/images/artwork/cookies/animals.jpg',
-      desc: '<p>So these are not my best work.  Rather, they are cookies I made up and decorated quickly in order to get ideas for how to decorate these cutter shapes in the future.  I was also experimenting with different types of royal icing to see which had the best flavor and best consistency.</p>',
+      summary: 'A sweet Christmas gift', 
+      coverImg: 'assets/images/artwork/cookies/christmasbouquets.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: 'Dec 2007',
+      content: [
+        {img:'assets/images/artwork/cookies/christmasbouquets.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/christmasbouquets1.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/christmasbouquets2.jpg', desc: ''}
+      ],
+    },
+    { id: 1000004, 
+      title: 'Flower Bouquet', 
+      category: 'Cookies', 
+      summary: 'A spring-time bouquet', 
+      coverImg: 'assets/images/artwork/cookies/flower_bouquet.jpg',
+      desc: '<p>A couple of sugar cookies flower bouquets I made for a dessert auction.</p>',
+      date: 'March 2006',
+      content: [
+        {img:'assets/images/artwork/cookies/flower_bouquet.jpg', desc: ''},
+        {img: 'assets/images/artwork/cookies/FlowerBouquet.jpg', desc: "" }
+      ],
+    },
+    { id: 1000005, 
+      title: 'Penguin Sandwich Cookies', 
+      category: 'Cookies', 
+      summary: 'Sugar cookie outside, buttercream inside!', 
+      coverImg: 'assets/images/artwork/cookies/penguins.jpg',
+      desc: '<p>These sugar cookies are iced in royal and filled with buttercream.</p>',
+      date: 'June 2007',
+      content: [
+        {img:'assets/images/artwork/cookies/penguins.jpg', desc: ''}
+      ],
+    },
+    { id: 1000006, 
+      title: 'Royal Icing Stacked Flowers', 
+      category: 'Cookies', 
+      summary: 'Icing flowers ready to add to cookie top', 
+      coverImg: 'assets/images/artwork/cookies/stackedFlowers0.jpg',
+      desc: '<p>Had some leftover royal icing so decided to make cookie toppers.</p>',
+      date: '24 June 2016',
+      content: [
+        {img:'assets/images/artwork/cookies/stackedFlowers0.jpg', desc: ''},
+        {img: 'assets/images/artwork/cookies/stackedFlowers.jpg', desc: "" }
+      ],
+    },
+    { id: 1000007, 
+      title: 'Butterfly Wings', 
+      category: 'Cookies', 
+      summary: 'Wings to add to butterfly cookie', 
+      coverImg: 'assets/images/artwork/cookies/butterflywings.jpg',
+      desc: '<p>These butterfly wings could be used to add a 3D butterfly to a flower cookie or cake.  They can also be added to the wing portion of a butterfly-shaped cookie</p>',
+      date: '24 June 2016',
+      content: [
+        {img:'assets/images/artwork/cookies/butterflywings.jpg', desc: ''}
+      ],
+    },
+    { id: 1000008, 
+      title: 'Sweet Angel', 
+      category: 'Cookies', 
+      summary: '', 
+      coverImg: 'assets/images/artwork/cookies/angel.jpg',
+      desc: '<p></p>',
       date: '16 Oct 2012',
       content: [
-        {img:'assets/images/artwork/cookies/animals.jpg', desc: ''},
-        {img: 'assets/images/artwork/cookies/greencreatures.jpg', desc: "" },
-        {img: 'assets/images/artwork/cookies/yellowbirds.jpg', desc: "" }
+        {img:'assets/images/artwork/cookies/angel.jpg', desc: ''}
       ],
-    }
+    },
+    { id: 1000009, 
+      title: 'Bunch of Apples', 
+      category: 'Cookies', 
+      summary: '', 
+      coverImg: 'assets/images/artwork/cookies/apples.jpg',
+      desc: '<p></p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/apples.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/apples2.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/apples3.jpg', desc: ''}
+      ],
+    },
+    { id: 1000010, 
+      title: 'Christmas Birds & DIY Cutters', 
+      category: 'Cookies', 
+      summary: '', 
+      coverImg: 'assets/images/artwork/cookies/birds.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: 'Dec 2016',
+      content: [
+        {img:'assets/images/artwork/cookies/birds.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/birdcutters.jpg', desc: ''}
+      ],
+    },
+    { id: 1000011, 
+      title: 'Gingerbread Men Seconds', 
+      category: 'Cookies', 
+      summary: 'Once bitten, twice shy!', 
+      coverImg: 'assets/images/artwork/cookies/bittengingermen.jpg',
+      desc: '<p>These gingerbread men aren\'t very hapy... they were made to look like someone has already taken a bite out of them.</p>',
+      date: 'Dec 2015',
+      content: [
+        {img:'assets/images/artwork/cookies/bittengingermen.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/bittengingermen2.jpg', desc: ''}
+      ],
+    },
+    { id: 1000012, 
+      title: 'Kids, Drinks, Flowers, Etc.', 
+      category: 'Cookies', 
+      summary: 'Testing out ideas', 
+      coverImg: 'assets/images/artwork/cookies/kids.jpg',
+      desc: '<p></p>',
+      date: 'Dec 2016',
+      content: [
+        {img:'assets/images/artwork/cookies/kids.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/drinks.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/bootacorn.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/winter.jpg', desc: ''}
+      ],
+    },
+    { id: 1000013, 
+      title: 'Christmas Cheer Bouquet', 
+      category: 'Cookies', 
+      summary: 'For the cheerleader Christmas party', 
+      coverImg: 'assets/images/artwork/cookies/cheer.jpg',
+      desc: '<p>/p>',
+      date: 'Dec 2007',
+      content: [
+        {img:'assets/images/artwork/cookies/cheer.jpg', desc: ''}
+      ],
+    },
+    { id: 1000014, 
+      title: 'Christmas 2015', 
+      category: 'Cookies', 
+      summary: 'Trees, snowmen and angels', 
+      coverImg: 'assets/images/artwork/cookies/christmas2015.jpg',
+      desc: '<p></p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/christmas2015.jpg', desc: ''}
+    },
+    { id: 1000015, 
+      title: 'Christmas 2016', 
+      category: 'Cookies', 
+      summary: 'Wreaths, lights and candy', 
+      coverImg: 'assets/images/artwork/cookies/christmas2016.jpg',
+      desc: '<p></p>',
+      date: 'Dec 2016',
+      content: [
+        {img:'assets/images/artwork/cookies/christmas2016.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/christmas20162.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/christmas20163.jpg', desc: ''}
+      ],
+    },
+    { id: 1000016, 
+      title: 'Christmas Ideas', 
+      category: 'Cookies', 
+      summary: 'Birds, treats, trees, and more', 
+      coverImg: 'assets/images/artwork/cookies/christmas2016birds.jpg',
+      desc: '<p></p>',
+      date: 'Dec 2016',
+      content: [
+        {img:'assets/images/artwork/cookies/christmas2016birds.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/christmas2016treats.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/christmas2016tree.jpg', desc: ''}
+      ],
+    },
+    { id: 1000017, 
+      title: 'Go Dawgs!', 
+      category: 'Cookies', 
+      summary: 'UW Husky Paw Print', 
+      coverImg: 'assets/images/artwork/cookies/dawgs.jpg',
+      desc: '<p></p>',
+      date: 'Dec 2016',
+      content: [
+        {img:'assets/images/artwork/cookies/dawgs.jpg', desc: ''}
+      ],
+    },
+    { id: 1000019, 
+      title: 'Christmas Elves', 
+      category: 'Cookies', 
+      summary: '', 
+      coverImg: 'assets/images/artwork/cookies/elves.jpg',
+      desc: '',
+      date: 'Dec 2015',
+      content: [
+        {img:'assets/images/artwork/cookies/elves.jpg', desc: ''}
+      ],
+    },
+    { id: 1000020, 
+      title: 'Autumn Leaves & Flowers', 
+      category: 'Cookies', 
+      summary: '', 
+      coverImg: 'assets/images/artwork/cookies/fallLeavesFlowers.jpg',
+      desc: '<p></p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/fallLeavesFlowers.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/fallLeavesFlowers2.jpg', desc: ''}
+      ],
+    },
+    { id: 1000022, 
+      title: 'Flower Ideas', 
+      category: 'Cookies', 
+      summary: '', 
+      coverImg: 'assets/images/artwork/cookies/flowers.jpg',
+      desc: '<p></p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/flowers.jpg', desc: ''}
+      ],
+    },
+    { id: 1000023, 
+      title: 'Pretty Woman', 
+      category: 'Cookies', 
+      summary: 'Dress, Hat, Shoes & Purse', 
+      coverImg: 'assets/images/artwork/cookies/ladiesDress.jpg',
+      desc: '<p></p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/ladiesDress.jpg', desc: ''}
+      ],
+    },
+    { id: 1000024, 
+      title: 'Winter Birds', 
+      category: 'Cookies', 
+      summary: 'Royal icing ideas', 
+      coverImg: 'assets/images/artwork/cookies/lotsofbirds.jpg',
+      desc: '<p></p>',
+      date: 'Dec 2016',
+      content: [
+        {img:'assets/images/artwork/cookies/lotsofbirds.jpg', desc: ''}
+      ],
+    },
+    { id: 1000025, 
+      title: 'Gingerbread Mob', 
+      category: 'Cookies', 
+      summary: 'Christmas ', 
+      coverImg: 'assets/images/artwork/cookies/gingerbreadmen2016.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: 'Dec 2016',
+      content: [
+        {img:'assets/images/artwork/cookies/gingerbreadmen2016.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/lotsofgingers.jpg', desc: ''}
+      ],
+    },
+    { id: 1000026, 
+      title: 'Nativity Scene', 
+      category: 'Cookies', 
+      summary: '', 
+      coverImg: 'assets/images/artwork/cookies/nativity.jpg',
+      desc: '<p></p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/nativity.jpg', desc: ''}
+      ],
+    },
+    { id: 1000027, 
+      title: 'Christmas Cookie Bouquets', 
+      category: 'Cookies', 
+      summary: 'A sweet Christmas gift', 
+      coverImg: 'assets/images/artwork/cookies/ornamittonhouse.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: 'Dec 2006',
+      content: [
+        {img:'assets/images/artwork/cookies/ornamittonhouse.jpg', desc: ''}
+      ],
+    },
+    { id: 1000028, 
+      title: 'Christmas Cookie Bouquets', 
+      category: 'Cookies', 
+      summary: 'A sweet Christmas gift', 
+      coverImg: 'assets/images/artwork/cookies/ponies.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: 'Jan 2017',
+      content: [
+        {img:'assets/images/artwork/cookies/pony0.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/ponies.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/ponies2.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/ponies3.jpg', desc: ''}
+      ],
+    },
+    { id: 1000029, 
+      title: 'Christmas Cookie Bouquets', 
+      category: 'Cookies', 
+      summary: 'A sweet Christmas gift', 
+      coverImg: 'assets/images/artwork/cookies/scrollBird.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/scrollBird.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/scrollBirds.jpg', desc: ''}
+      ],
+    },
+    { id: 1000030, 
+      title: 'Christmas Cookie Bouquets', 
+      category: 'Cookies', 
+      summary: 'A sweet Christmas gift', 
+      coverImg: 'assets/images/artwork/cookies/seaCreatures.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/seaCreatures.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/whale.jpg', desc: ''}
+      ],
+    },
+    { id: 1000031, 
+      title: 'Christmas Cookie Bouquets', 
+      category: 'Cookies', 
+      summary: 'A sweet Christmas gift', 
+      coverImg: 'assets/images/artwork/cookies/sheep.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/sheep.jpg', desc: ''}
+      ],
+    },
+    { id: 1000032, 
+      title: 'Christmas Cookie Bouquets', 
+      category: 'Cookies', 
+      summary: 'A sweet Christmas gift', 
+      coverImg: 'assets/images/artwork/cookies/simpleFlowers.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/simpleFlowers.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/simpleFlowers2.jpg', desc: ''}
+      ],
+    },
+    { id: 1000033, 
+      title: 'Christmas Cookie Bouquets', 
+      category: 'Cookies', 
+      summary: 'A sweet Christmas gift', 
+      coverImg: 'assets/images/artwork/cookies/snowmen.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/snowmen.jpg', desc: ''}
+      ],
+    },
+    { id: 1000034, 
+      title: 'Christmas Cookie Bouquets', 
+      category: 'Cookies', 
+      summary: 'A sweet Christmas gift', 
+      coverImg: 'assets/images/artwork/cookies/tweetingBirds.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: '16 Oct 2012',
+      content: [
+        {img:'assets/images/artwork/cookies/tweetingBirds.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/tweetingbirds1.jpg', desc: ''}
+      ],
+    },
+    { id: 1000035, 
+      title: 'Christmas Cookie Bouquets', 
+      category: 'Cookies', 
+      summary: 'A sweet Christmas gift', 
+      coverImg: 'assets/images/artwork/cookies/waterlily.jpg',
+      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      date: 'Jan 2017',
+      content: [
+        {img:'assets/images/artwork/cookies/waterlily.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/window.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/makeshiftProjector.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/makeshiftProjector2.jpg', desc: ''},
+        
+      ],
+    },
   ],
   [
     { id: 2000000, 
@@ -66,7 +413,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A simple but pretty layer cake',
       coverImg: 'assets/images/appleblossoms.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'March 2004',
       content: [
         {img:'assets/images/appleblossoms.jpg', 
          desc: '<p>This cake design came from Wilton\'s gallery.</p>'}
@@ -78,7 +425,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Star-covered cake for season\'s end celebration',
       coverImg: 'assets/images/artwork/cakes/Baseball_sides.jpg',
       desc: '',
-      date: '5 Nov 2012',
+      date: 'June 2005',
       content: [
         {img:'assets/images/artwork/cakes/Baseball_sides.jpg', 
          desc: '<p>Large sheet cake I made for my son\'s baseball team.</p>'}
@@ -90,7 +437,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Sweet pink roses in a pink basket',
       coverImg: 'assets/images/artwork/cakes/basketofroses.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'April 2004',
       content: [
         {img:'assets/images/artwork/cakes/basketofroses.jpg', 
          desc: '<p>Another Wilton cake design...</p>'}
@@ -102,7 +449,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A Bavaria-themed anniversary cake',
       coverImg: 'assets/images/artwork/cakes/bavarianChapel.jpg',
       desc: '',
-      date: '5 Nov 2012',
+      date: 'Sep 2007',
       content: [
         {img:'assets/images/artwork/cakes/bavarianChapel.jpg', 
          desc: '<p>I made this cake for a friend\'s parents who were celebrating their 50th wedding anniversary. &nbsp;They were married in Bavaria so my friend wanted a cake that would remind them of their wedding.</p>'}
@@ -114,7 +461,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Brightly colored cake with royal icing flowers and butterflies',
       coverImg: 'assets/images/artwork/cakes/blossombutterflies.jpg',
       desc: '',
-      date: '15 Oct 2012',
+      date: 'April 2008',
       content: [
         {img:'assets/images/artwork/cakes/blossombutterflies.jpg', 
          desc: '<p>Here is a tiered cake that I made for the annual auction at my kids\' school. &nbsp;I called it \'Butterflies and Blossoms\'. &nbsp;It is a white chocolate cake with raspberry filling, iced in buttercream. &nbsp;The flowers (roses, apple blossoms and individual petals) are made from royal icing and were heavily inspired by a cake called "Flower Tower" that I found in&nbsp;</span><a href="http://www.amazon.com/Wilton-902-1108-Tiered-Cakes/dp/B000FH0RRO/ref=sr_1_1?ie=UTF8&amp;qid=1350158477&amp;sr=8-1&amp;keywords=wilton+tiered+cakes+book" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; line-height: normal;">Wilton Tiered Cakes</a><span style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; line-height: normal;">. &nbsp;The butterfly wings were made by outlining the shapes then flooding the inside with liquid royal icing. &nbsp;The butterflies (patterned from Peggy Porchen\'s&nbsp;</span><a href="http://www.amazon.com/Pretty-Party-Cakes-Stylish-Occasions/dp/0307337073/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1350158587&amp;sr=1-1&amp;keywords=pretty+party+cakes" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; line-height: normal;">Pretty Party Cakes</a><span style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; line-height: normal;">&nbsp;book) were constructed after the wings were fully dried using stiff royal icing for their bodies. &nbsp;</span></p>'},
@@ -128,7 +475,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Chocolate through and through: cake, buttercream and candy scrolls',
       coverImg: 'assets/images/artwork/cakes/chocolatelace.jpg',
       desc: '',
-      date: '5 Nov 2012',
+      date: 'Nov 2004',
       content: [
         {img:'assets/images/artwork/cakes/chocolatelace.jpg', 
          desc: '<p>This is a chocolate cake filled and iced with chocolate buttercream  The lace scrolls were piped from melted chocolate.  The pattern for the scrolls came from a Wilton book I have along with the cake inspiration.</p>'}
@@ -140,7 +487,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Chocoate cake with a crunch!',
       coverImg: 'assets/images/artwork/cakes/maltedmilkballcake.jpg',
       desc: '',
-      date: '5 Nov 2012',
+      date: 'April 2005',
       content: [
         {img:'assets/images/artwork/cakes/maltedmilkballcake.jpg', 
          desc: '<p>Malted milk balls and chocolate cake are each yummy on their own so they must be doubly good together, right?  Right!</p>'}
@@ -152,7 +499,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Royal icing flowers on a basic white cake',
       coverImg: 'assets/images/artwork/cakes/DaisiesMumsBasket.jpg',
       desc: '',
-      date: '5 Nov 2012',
+      date: 'Nov 2003',
       content: [
         {img:'assets/images/artwork/cakes/DaisiesMumsBasket.jpg', 
          desc: '<p>Made this cake to use up some practice daisies and chrysanthemums I piped in royal.</p>'}
@@ -164,7 +511,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Office celebration cake featuring Dilbert and Dogbert',
       coverImg: 'assets/images/artwork/cakes/dilbert2.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'Aug 2006',
       content: [
         {img:'assets/images/artwork/cakes/dilbert2.jpg', 
          desc: '<p>My husband asked me to make this cake for a colleague who was moving on to a new job. &nbsp;He wanted it to look like the Dilbert and Dogbert cartoon where they are playing on the copier machine.</p>'}
@@ -176,7 +523,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A very hungry caterpillar encircles a red apple',
       coverImg: 'assets/images/artwork/cakes/HungryCaterpillar.jpg',
       desc: '',
-      date: '5 Nov 2012',
+      date: 'July 2006',
       content: [
         {img:'assets/images/artwork/cakes/HungryCaterpillar.jpg', 
          desc: '<p>I loved this cake! &nbsp;It was for my youngest son\'s birthday. &nbsp;The caterpillar is made of cupcakes that were dipped in green melted candy in lieu of paper baking cups. &nbsp;The apple was made from Wilton\'s ball mold. The caterpillar and apple sit on a buttercream-grass-topped cake base.</p>'}
@@ -188,7 +535,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A rubber-stamp inspired cake',
       coverImg: 'assets/images/artwork/cakes/kittycake.jpg',
       desc: '<p>My daughter wanted a kitty cake for her birthday so I borrowed the design for the cake from a Penny Black rubber stamp.&nbsp;.</p>',
-      date: '5 Nov 2012',
+      date: 'May 2005',
       content: [
         {img:'assets/images/artwork/cakes/kittytop.jpg', 
          desc: ''},
@@ -202,7 +549,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A birthday cake for Pika lovers',
       coverImg: 'assets/images/artwork/cakes/pikachu.jpg',
       desc: '',
-      date: '5 Nov 2012',
+      date: 'July 2004',
       content: [
         {img:'assets/images/artwork/cakes/pikachu.jpg', 
          desc: '<p>A Pikachu birthday cake I made many years ago.</p>'}
@@ -214,7 +561,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A Pokemon daycare cake',
       coverImg: 'assets/images/artwork/cakes/pokemoncake.jpg',
       desc: '',
-      date: '5 Nov 2012',
+      date: 'July 2008',
       content: [
         {img:'assets/images/artwork/cakes/pokemoncake.jpg', 
          desc: '<p>Another pokemon birthday theme. &nbsp;This time, the pokemon (made from marshmellow fondant) are in their habitat -- grass pokemon in the grass, water pokemon in the pond, etc. &nbsp;:)</p>'}
@@ -226,7 +573,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A tower of starter Pokemon',
       coverImg: 'assets/images/artwork/cakes/pokemoncupcakes.jpg',
       desc: '',
-      date: '5 Nov 2012',
+      date: 'Aug 2007',
       content: [
         {img:'assets/images/artwork/cakes/pokemoncupcakes.jpg', 
          desc: '<p>My sons loved pokemon so for several years, I made pokemon cakes. &nbsp;Here\'s one with cupcakes. &nbsp;The pokemon are made from marshmallow fondant.</p>'}
@@ -238,7 +585,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A large monkey cake and mini, take-home monkey cakes',
       coverImg: 'assets/images/artwork/cakes/monkeys.jpg',
       desc: '',
-      date: '6 Nov 2012',
+      date: 'Aug 2006',
       content: [
         {img:'assets/images/artwork/cakes/monkeys.jpg', 
          desc: '<p>The monkeys were made using the large and small bear forms by Wilton.</p>'}
@@ -250,7 +597,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Fondant hearts, bows and flowers for a little girl\'s birthday',
       coverImg: 'assets/images/artwork/cakes/Melanie.jpg',
       desc: '',
-      date: '5 Nov 2012',
+      date: 'Oct 2004',
       content: [
         {img:'assets/images/artwork/cakes/Melanie.jpg', 
          desc: '<p>I made this cake for the birthday of a friend\'s daughter. &nbsp;The heart-shaped cake is iced with off-white buttercream on top and pink buttercream on the sides. &nbsp;The white hearts along the top edge were cut from white fondant. &nbsp;The bows and flowers are also fondant.</p>'}
@@ -262,7 +609,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A just-for-practice white, multi-tier cake',
       coverImg: 'assets/images/artwork/cakes/AngelsSing.jpg',
       desc: '',
-      date: '5 Nov 2012',
+      date: 'July 2004',
       content: [
         {img:'assets/images/artwork/cakes/AngelsSing.jpg', 
          desc: '<p>This was a practice wedding cake I made, inspired by a Wilton cake called Angels Sing.</p>'}
@@ -274,7 +621,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A volleyball-theme cake with cookie players and candy stars',
       coverImg: 'assets/images/artwork/cakes/vballcake.jpg',
       desc: '',
-      date: '6 Nov 2012',
+      date: 'Dec 2005',
       content: [
         {img:'assets/images/artwork/cakes/vballcake.jpg', 
          desc: '<p>This cake was for my daughter\'s volleyball team. &nbsp;The volleyball was made from one half of Wilton\'s ball form. &nbsp;The stars are made from yellow candy melts. &nbsp;The volleyball players are sugar cookies cut with a gingerbread man cutter and iced in royal.</p>'}
@@ -286,7 +633,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Demonstrates buttercream icing smoothing and piping techniques',
       coverImg: 'assets/images/artwork/cakes/course1.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'June 2003',
       content: [
         {img:'assets/images/artwork/cakes/course1.jpg', 
          desc: '<p>This was the final cake from the first Wilton cake decorating class. &nbsp;It was a fun class where we learned to make different consistencies of buttercream for icing, piping and roses.</p>'}
@@ -298,7 +645,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A cake that features beginning royal icing flowers and figures',
       coverImg: 'assets/images/artwork/cakes/Course2c.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'July 2003',
       content: [
         {img:'assets/images/artwork/cakes/Course2c.jpg', 
          desc: '<p>If you took the second Wilton cake decorating class, you probably recognize this cake... it\'s from the final session of the class.</p>'}
@@ -310,7 +657,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/course3.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'March 2004',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
@@ -322,7 +669,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/dogcake.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'May 2004',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
@@ -334,7 +681,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/fondantcar.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'Feb 2004',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
@@ -346,7 +693,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/fondantleaves.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'Jan 2004',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
@@ -370,7 +717,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/ForCarol.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'March 2004',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
@@ -382,7 +729,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/guitar.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'Sep 2004',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
@@ -394,7 +741,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/Hheart.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'Oct 2004',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
@@ -418,7 +765,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/LaceExtension.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'Feb 2005',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
@@ -442,7 +789,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/snowflakecake.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'Jan 2005',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
@@ -454,7 +801,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/soccerBall.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'Jun 2005',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
@@ -466,7 +813,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/spongebob.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'Aug 2004',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
@@ -476,11 +823,47 @@ export const ARTWORK:[Art[]] = [
       title: 'Thomas the Tank Engine Cake', 
       category: 'Decorated Cakes', 
       summary: 'The final project for the final cake decorating course',
-      coverImg: 'assets/images/artwork/cakes/thomas .jpg',
+      coverImg: 'assets/images/artwork/cakes/thomas.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'Aug 2003',
       content: [
         {img:'assets/images/artwork/cakes/course3.jpg', 
+         desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
+      ]
+    },
+    { id: 20000034, 
+      title: 'Mini Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'The final project for the final cake decorating course',
+      coverImg: 'assets/images/artwork/cakes/thomas.jpg',
+      desc: '',
+      date: 'Dec 2006',
+      content: [
+        {img:'assets/images/artwork/cakes/course3.jpg', 
+         desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
+      ]
+    },
+    { id: 20000035, 
+      title: 'Pig Cake', 
+      category: 'Decorated Cakes', 
+      summary: 'The final project for the final cake decorating course',
+      coverImg: 'assets/images/artwork/cakes/pig.jpg',
+      desc: '',
+      date: 'May 2004',
+      content: [
+        {img:'assets/images/artwork/cakes/pig.jpg', 
+         desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
+      ]
+    },
+    { id: 20000036, 
+      title: 'All White Cake', 
+      category: 'Decorated Cakes', 
+      summary: '',
+      coverImg: 'assets/images/artwork/cakes/allwhite.jpg',
+      desc: '',
+      date: 'Oct 2008',
+      content: [
+        {img:'assets/images/artwork/cakes/allwhite.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     }
@@ -1076,7 +1459,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Submission for Wilton Competition', 
       coverImg: 'assets/images/artwork/misc/gingerbreadhouse.jpg',
       desc: '',
-      date: '2011',
+      date: 'Dec 2006',
       content: [
         {img:'assets/images/artwork/misc/gingerbreadhouse.jpg',
          desc: '<p>I made this gingerbread house for a Wilton competition several years ago.</p>       <p>The structure is made of gingerbread that is connected with brown royal icing.  Before the gingerbread panels were connected, the window openings were carved out and filled with yellow royal icing and then covered in hot melted sugar that hardened as it cooled to form a glassy look.</p>  <p>The roof is made from wafer cookies.  The porch posts are candy canes and the railing is made from royal icing that was piped to the shape on wax paper and allowed to dry. The garland is green licorice strands and the bows are piped from red royal icing.  The porch base and front steps are made from graham crackers.  The lights along the gutter line are candy pieces and the front fascia above the second story balcony is covered in smarties candy pieces.  The evergreen trees are made from sugar cookies cut in variously-size star shapes and stacked from largest to smallest, connected with royal icing.  The shrubs are gum drops overpiped with green royal icing using a star tip.  The window trim and wreaths were also piped using royal icing.</p> <p>Santa, the snowman and the lamppost were made from fondant.  The bricks of the chimney surrounding Santa are made from Chicklets gum pieces.  Snowman\'s scarf is a piece of fruit rollup.</p>  <p>The house is approximately 12\" x 12\" x 12\".</p>'}
@@ -1100,7 +1483,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'A Christmas gift for a teacher', 
       coverImg: 'assets/images/artwork/misc/ornaments.jpg',
       desc: '<p>I decorated this glass Christmas ornament for a teacher\'s gift.  It is stamped with four tiny angels in permanent ink.  I colored the angels using paint pens then wrote \'Hark! the herald angels sing, "Glory to the newborn King"!\' </p>',
-      date: '6 Nov 2012',
+      date: 'Dec 2002',
       content: [
         {img:'assets/images/artwork/misc/ornaments.jpg',
          desc: '<p></p>'}
