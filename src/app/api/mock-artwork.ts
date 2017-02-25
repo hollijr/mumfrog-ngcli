@@ -8,7 +8,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Christmas-theme sugar cookies iced with royal icing', 
       coverImg: 'assets/images/redWhiteChristmas.jpg',
       desc: '<p>I love making brightly colored cookies for Christmas!</p>',
-      date: '2008',
+      date: 'Dec 2008',
       content: [
         {img:'assets/images/redWhiteChristmas.jpg', 
          desc: ''},
@@ -26,7 +26,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Rough ideas for decorating animal cookies', 
       coverImg: 'assets/images/artwork/cookies/animals.jpg',
       desc: '<p>So these are not my best work.  Rather, they are cookies I made up and decorated quickly in order to get ideas for how to decorate these cutter shapes in the future.  I was also experimenting with different types of royal icing to see which had the best flavor and best consistency.</p>',
-      date: '16 Oct 2012',
+      date: '',
       content: [
         {img: 'assets/images/artwork/cookies/greencreatures.jpg', desc: "" },
         {img: 'assets/images/artwork/cookies/yellowbirds.jpg', desc: "" },
@@ -102,7 +102,7 @@ export const ARTWORK:[Art[]] = [
       summary: '', 
       coverImg: 'assets/images/artwork/cookies/angel.jpg',
       desc: '<p></p>',
-      date: '16 Oct 2012',
+      date: 'Dec 2016',
       content: [
         {img:'assets/images/artwork/cookies/angel.jpg', desc: ''}
       ],
@@ -113,7 +113,7 @@ export const ARTWORK:[Art[]] = [
       summary: '', 
       coverImg: 'assets/images/artwork/cookies/apples.jpg',
       desc: '<p></p>',
-      date: '16 Oct 2012',
+      date: '',
       content: [
         {img:'assets/images/artwork/cookies/apples.jpg', desc: ''},
         {img:'assets/images/artwork/cookies/apples2.jpg', desc: ''},
@@ -175,9 +175,10 @@ export const ARTWORK:[Art[]] = [
       summary: 'Trees, snowmen and angels', 
       coverImg: 'assets/images/artwork/cookies/christmas2015.jpg',
       desc: '<p></p>',
-      date: '16 Oct 2012',
+      date: 'Dec 2015',
       content: [
         {img:'assets/images/artwork/cookies/christmas2015.jpg', desc: ''}
+      ]
     },
     { id: 1000015, 
       title: 'Christmas 2016', 
@@ -233,7 +234,7 @@ export const ARTWORK:[Art[]] = [
       summary: '', 
       coverImg: 'assets/images/artwork/cookies/fallLeavesFlowers.jpg',
       desc: '<p></p>',
-      date: '16 Oct 2012',
+      date: '',
       content: [
         {img:'assets/images/artwork/cookies/fallLeavesFlowers.jpg', desc: ''},
         {img:'assets/images/artwork/cookies/fallLeavesFlowers2.jpg', desc: ''}
@@ -245,7 +246,7 @@ export const ARTWORK:[Art[]] = [
       summary: '', 
       coverImg: 'assets/images/artwork/cookies/flowers.jpg',
       desc: '<p></p>',
-      date: '16 Oct 2012',
+      date: '',
       content: [
         {img:'assets/images/artwork/cookies/flowers.jpg', desc: ''}
       ],
@@ -256,7 +257,7 @@ export const ARTWORK:[Art[]] = [
       summary: 'Dress, Hat, Shoes & Purse', 
       coverImg: 'assets/images/artwork/cookies/ladiesDress.jpg',
       desc: '<p></p>',
-      date: '16 Oct 2012',
+      date: '',
       content: [
         {img:'assets/images/artwork/cookies/ladiesDress.jpg', desc: ''}
       ],
@@ -290,28 +291,30 @@ export const ARTWORK:[Art[]] = [
       summary: '', 
       coverImg: 'assets/images/artwork/cookies/nativity.jpg',
       desc: '<p></p>',
-      date: '16 Oct 2012',
+      date: '',
       content: [
         {img:'assets/images/artwork/cookies/nativity.jpg', desc: ''}
       ],
     },
     { id: 1000027, 
-      title: 'Christmas Cookie Bouquets', 
+      title: 'Christmas 2006', 
       category: 'Cookies', 
-      summary: 'A sweet Christmas gift', 
+      summary: '', 
       coverImg: 'assets/images/artwork/cookies/ornamittonhouse.jpg',
-      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      desc: '<p></p>',
       date: 'Dec 2006',
       content: [
-        {img:'assets/images/artwork/cookies/ornamittonhouse.jpg', desc: ''}
+        {img:'assets/images/artwork/cookies/ornamittonhouse.jpg', desc: ''},
+        {img:'assets/images/artwork/cookies/poinsettia.jpg', desc: ''}
+        {img:'assets/images/artwork/cookies/snowmenmittens.jpg', desc: ''
       ],
     },
     { id: 1000028, 
-      title: 'Christmas Cookie Bouquets', 
+      title: 'My Little Ponies', 
       category: 'Cookies', 
-      summary: 'A sweet Christmas gift', 
+      summary: 'Rainbow Dash, Pinkie Pie, Rarity, Apple Jack & Spitfire', 
       coverImg: 'assets/images/artwork/cookies/ponies.jpg',
-      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      desc: '<p></p>',
       date: 'Jan 2017',
       content: [
         {img:'assets/images/artwork/cookies/pony0.jpg', desc: ''},
@@ -321,81 +324,81 @@ export const ARTWORK:[Art[]] = [
       ],
     },
     { id: 1000029, 
-      title: 'Christmas Cookie Bouquets', 
+      title: 'Scrolled Bird', 
       category: 'Cookies', 
-      summary: 'A sweet Christmas gift', 
+      summary: '', 
       coverImg: 'assets/images/artwork/cookies/scrollBird.jpg',
-      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
-      date: '16 Oct 2012',
+      desc: '<p></p>',
+      date: '',
       content: [
         {img:'assets/images/artwork/cookies/scrollBird.jpg', desc: ''},
         {img:'assets/images/artwork/cookies/scrollBirds.jpg', desc: ''}
       ],
     },
     { id: 1000030, 
-      title: 'Christmas Cookie Bouquets', 
+      title: 'Sea Creatures', 
       category: 'Cookies', 
-      summary: 'A sweet Christmas gift', 
+      summary: '', 
       coverImg: 'assets/images/artwork/cookies/seaCreatures.jpg',
-      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
-      date: '16 Oct 2012',
+      desc: '<p></p>',
+      date: '',
       content: [
         {img:'assets/images/artwork/cookies/seaCreatures.jpg', desc: ''},
         {img:'assets/images/artwork/cookies/whale.jpg', desc: ''}
       ],
     },
     { id: 1000031, 
-      title: 'Christmas Cookie Bouquets', 
+      title: 'Sheep', 
       category: 'Cookies', 
-      summary: 'A sweet Christmas gift', 
+      summary: '', 
       coverImg: 'assets/images/artwork/cookies/sheep.jpg',
-      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
-      date: '16 Oct 2012',
+      desc: '<p></p>',
+      date: 'Dec 2016',
       content: [
         {img:'assets/images/artwork/cookies/sheep.jpg', desc: ''}
       ],
     },
     { id: 1000032, 
-      title: 'Christmas Cookie Bouquets', 
+      title: 'Simple and Pretty Flowers', 
       category: 'Cookies', 
-      summary: 'A sweet Christmas gift', 
+      summary: '', 
       coverImg: 'assets/images/artwork/cookies/simpleFlowers.jpg',
-      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
-      date: '16 Oct 2012',
+      desc: '<p></p>',
+      date: 'Feb 2017',
       content: [
         {img:'assets/images/artwork/cookies/simpleFlowers.jpg', desc: ''},
         {img:'assets/images/artwork/cookies/simpleFlowers2.jpg', desc: ''}
       ],
     },
     { id: 1000033, 
-      title: 'Christmas Cookie Bouquets', 
+      title: 'Sporty Snowmen', 
       category: 'Cookies', 
-      summary: 'A sweet Christmas gift', 
+      summary: '', 
       coverImg: 'assets/images/artwork/cookies/snowmen.jpg',
-      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
-      date: '16 Oct 2012',
+      desc: '<p></p>',
+      date: '',
       content: [
         {img:'assets/images/artwork/cookies/snowmen.jpg', desc: ''}
       ],
     },
     { id: 1000034, 
-      title: 'Christmas Cookie Bouquets', 
+      title: 'Tweeting Birds', 
       category: 'Cookies', 
-      summary: 'A sweet Christmas gift', 
+      summary: '', 
       coverImg: 'assets/images/artwork/cookies/tweetingBirds.jpg',
-      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
-      date: '16 Oct 2012',
+      desc: '<p></p>',
+      date: 'June 2016',
       content: [
         {img:'assets/images/artwork/cookies/tweetingBirds.jpg', desc: ''},
         {img:'assets/images/artwork/cookies/tweetingbirds1.jpg', desc: ''}
       ],
     },
     { id: 1000035, 
-      title: 'Christmas Cookie Bouquets', 
+      title: 'Giant Water Lily', 
       category: 'Cookies', 
-      summary: 'A sweet Christmas gift', 
+      summary: '', 
       coverImg: 'assets/images/artwork/cookies/waterlily.jpg',
-      desc: '<p>Made these cookie bouquets for teacher Christmas gifts.</p>',
+      desc: '<p></p>',
       date: 'Jan 2017',
       content: [
         {img:'assets/images/artwork/cookies/waterlily.jpg', desc: ''},
@@ -671,7 +674,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: 'May 2004',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/dogcake.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -683,7 +686,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: 'Feb 2004',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/fondantcar.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -695,7 +698,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: 'Jan 2004',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/fondantleaves.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -707,7 +710,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: '18 Dec 2012',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/FondantTreasureBox.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -719,7 +722,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: 'March 2004',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/ForCarol.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -731,7 +734,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: 'Sep 2004',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/guitar.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -743,7 +746,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: 'Oct 2004',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/Hheart.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -755,7 +758,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: '18 Dec 2012',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/hotwheels.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -767,7 +770,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: 'Feb 2005',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/LaceExtension.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -777,9 +780,9 @@ export const ARTWORK:[Art[]] = [
       summary: 'The final project for the final cake decorating course',
       coverImg: 'assets/images/artwork/cakes/sackboy1.jpg',
       desc: '',
-      date: '18 Dec 2012',
+      date: 'June 2009',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/sackboy1.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -791,7 +794,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: 'Jan 2005',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/snowflakecake.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -803,7 +806,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: 'Jun 2005',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/soccerBall.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -815,7 +818,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: 'Aug 2004',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/spongebob.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -827,7 +830,7 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: 'Aug 2003',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/thomas.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -835,11 +838,11 @@ export const ARTWORK:[Art[]] = [
       title: 'Mini Cake', 
       category: 'Decorated Cakes', 
       summary: 'The final project for the final cake decorating course',
-      coverImg: 'assets/images/artwork/cakes/thomas.jpg',
+      coverImg: 'assets/images/artwork/cakes/minicake.jpg',
       desc: '',
       date: 'Dec 2006',
       content: [
-        {img:'assets/images/artwork/cakes/course3.jpg', 
+        {img:'assets/images/artwork/cakes/minicake.jpg', 
          desc: '<p>This was the final cake from the third Wilton cake decorating class. &nbsp;It was the first tiered cake I ever made and I had a little problem getting the columns in plumb! &nbsp;</p>'}
       ]
     },
@@ -1441,7 +1444,7 @@ export const ARTWORK:[Art[]] = [
       summary: '',
       coverImg: 'assets/images/artwork/clay/dessertBowl/dessertBowl1.jpg',
       desc: "<p></p>",
-      date: '9 Jun 2016',
+      date: 'March 2016',
       content: [
         {img:"assets/images/artwork/clay/dessertBowl/dessertBowl1b.jpg",
          desc: '<p>I added small cane slices (~3/8" diameter) to this is simple dessert bowl to make it look like the flowers are growing up the sides of the bowl.</p>'},
