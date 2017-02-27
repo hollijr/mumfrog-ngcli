@@ -2033,7 +2033,10 @@ export const ARTWORK:[Art[]] = [
       desc: '',
       date: '',
       content: [
-        {img:'assets/images/artwork/cards/space.jpg', desc: '</p>'}
+        {img:'assets/images/artwork/cards/space.jpg', desc: '</p>'},
+        {img:'assets/images/artwork/cards/space2.jpg', desc: '</p>'},
+        {img:'assets/images/artwork/cards/space3.jpg', desc: '</p>'},
+        {img:'assets/images/artwork/cards/space4.jpg', desc: '</p>'}
       ]
     },
     { id: 3000096, 
@@ -2228,7 +2231,7 @@ export const ARTWORK:[Art[]] = [
          desc: '</p>'}
       ]
     },
-    { id: 3000106, 
+    { id: 3000111, 
       title: 'Hang In There Card', 
       category: 'Handmade Cards', 
       summary: '', 
