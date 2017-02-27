@@ -42,7 +42,7 @@ export class ArtworksComponent implements OnInit {
   fragment:string;
 
   onResize(event) {
-    event.target.innerWith;
+    event.target.innerWidth;
   }
 
   onSelect(artwork:Art): void {

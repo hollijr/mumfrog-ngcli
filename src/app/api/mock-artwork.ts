@@ -2232,12 +2232,12 @@ export const ARTWORK:[Art[]] = [
       title: 'Hang In There Card', 
       category: 'Handmade Cards', 
       summary: '', 
-      coverImg: 'assets/images/artwork/cards/hanginthere.jpg',
+      coverImg: 'assets/images/artwork/cards/hanginthere1.jpg',
       desc: '',
       date: '',
       content: [
-        {img:'assets/images/artwork/cards/hanginthere.jpg', desc: '</p>'},
-        {img:'assets/images/artwork/cards/hanginthere1.jpg', desc: '</p>'}
+        {img:'assets/images/artwork/cards/hanginthere1.jpg', desc: '</p>'},
+        {img:'assets/images/artwork/cards/hanginthere2.jpg', desc: '</p>'}
       ]
     }
   ],
