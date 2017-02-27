@@ -66,7 +66,7 @@ export class ArtworksComponent implements OnInit {
 */
   goToDetail(artwork:Art):void {
     this.onSelect(artwork);
-    this.router.navigate(['/artwork', this.selectedArtwork.id]);
+    this.router.navigate(['/artworks', this.selectedArtwork.id]);
   }
 
 }

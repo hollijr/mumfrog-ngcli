@@ -22,19 +22,17 @@ const appRoutes:Routes = [
   },
   {
     path: 'projects',
-    component: ProjectsComponent
-  },
-  {
-    path: 'detail/:id',
-    component: ProjectDetailComponent
+    children: [
+      { path: '', component: ProjectsComponent },
+      { path: ':id', component: ProjectDetailComponent }
+    ]
   },
   {
     path: 'artworks',
-    component: ArtworksComponent
-  },
-  {
-    path: 'artwork/:id',
-    component: ArtworkDetailComponent
+    children: [
+      { path: '', component: ArtworksComponent },
+      { path: ':id', component: ArtworkDetailComponent }
+    ]
   },
   {
     path: 'about',

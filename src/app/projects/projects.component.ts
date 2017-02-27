@@ -43,7 +43,7 @@ export class ProjectsComponent implements OnInit {
 
   goToDetail(project:Project):void {
     this.onSelect(project);
-    this.router.navigate(['/detail', this.selectedProject.id]);
+    this.router.navigate(['/projects', this.selectedProject.id]);
   }
 
   // save for development testing
