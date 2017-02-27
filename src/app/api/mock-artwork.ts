@@ -897,7 +897,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000001, 
-      title: ' Card', 
+      title: 'Hot-Emboss & Stamp Dragonfly Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/dragonfly2.jpg',
@@ -909,7 +909,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000002, 
-      title: ' Card', 
+      title: 'Fairies Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/fairies.jpg',
@@ -921,7 +921,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000003, 
-      title: ' Card', 
+      title: 'Give Thanks Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/fall.jpg',
@@ -933,7 +933,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000004, 
-      title: ' Card', 
+      title: 'Fat Cat Birthday Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/fatcatbday.jpg',
@@ -945,7 +945,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000005, 
-      title: ' Card', 
+      title: 'A Happy Hello Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/flower.jpg',
@@ -957,7 +957,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000006, 
-      title: ' Card', 
+      title: 'Flowers in Jar Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/flowerjar.jpg',
@@ -969,7 +969,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000007, 
-      title: ' Card', 
+      title: 'Happy Birthday FlowerPot Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/flowerpot.jpg',
@@ -981,7 +981,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000008, 
-      title: ' Card', 
+      title: 'Thanks a Bunch Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/flowerpots.jpg',
@@ -993,7 +993,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000009, 
-      title: ' Card', 
+      title: 'Flowers Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/flowers.jpg',
@@ -1005,7 +1005,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000010, 
-      title: ' Card', 
+      title: 'Wags Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/wags.jpg',
@@ -1017,7 +1017,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000011, 
-      title: ' Card', 
+      title: 'Flowers for You Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/flowersforyou.jpg',
@@ -1029,7 +1029,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000012, 
-      title: ' Card', 
+      title: 'Fruit Thanks Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/fruit.jpg',
@@ -1041,7 +1041,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000013, 
-      title: ' Card', 
+      title: 'Fruit Jars Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/fruitjars.jpg',
@@ -1053,7 +1053,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000014, 
-      title: ' Card', 
+      title: 'Gardening Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/garden.jpg',
@@ -1065,7 +1065,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000015, 
-      title: ' Card', 
+      title: 'Get Well Noodles Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/getwellcupnoodles.jpg',
@@ -1077,7 +1077,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000016, 
-      title: ' Card', 
+      title: 'Gingerbread House Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/gingerbread.jpg',
@@ -1089,7 +1089,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000017, 
-      title: ' Card', 
+      title: 'Grape Celebrate Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/grapecelebrate.jpg',
@@ -1101,7 +1101,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000018, 
-      title: ' Card', 
+      title: 'Grapes Thanks  Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/grapes.jpg',
@@ -1113,7 +1113,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000019, 
-      title: ' Card', 
+      title: 'Happiness Is Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/happiness.jpg',
@@ -1125,7 +1125,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000020, 
-      title: ' Card', 
+      title: 'Harvest Basket Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/harvestbasket.jpg',
@@ -1137,7 +1137,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000021, 
-      title: ' Card', 
+      title: 'From the Heart Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/heartkey.jpg',
@@ -1149,7 +1149,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000022, 
-      title: ' Card', 
+      title: 'Hedgehog Flowers Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/hedgehogflowers.jpg',
@@ -1161,7 +1161,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000023, 
-      title: ' Card', 
+      title: 'Herb Character Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/herbs.jpg',
@@ -1173,7 +1173,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000024, 
-      title: ' Card', 
+      title: 'Three Horses Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/horses.jpg',
@@ -1185,7 +1185,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000025, 
-      title: ' Card', 
+      title: 'How Do I Love Thee Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/howdoilovethee.jpg',
@@ -1197,7 +1197,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000026, 
-      title: ' Card', 
+      title: 'Musical Strings Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/instruments.jpg',
@@ -1209,7 +1209,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000027, 
-      title: ' Card', 
+      title: 'Jolly Rancher Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/jollyrancherpop.jpg',
@@ -1221,7 +1221,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000028, 
-      title: ' Card', 
+      title: 'Key to My Heart Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/keytomyheart.jpg',
@@ -1233,7 +1233,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000029, 
-      title: ' Card', 
+      title: 'Hello Sunshine Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/kiddiepool.jpg',
@@ -1245,7 +1245,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000030, 
-      title: ' Card', 
+      title: 'Make It Merry Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/kidsonsled.jpg',
@@ -1257,7 +1257,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000031, 
-      title: ' Card', 
+      title: 'Leaf Lines Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/leafskeletons.jpg',
@@ -1269,7 +1269,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000032, 
-      title: ' Card', 
+      title: 'Bleached Ferns Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/leavesinbrown.jpg',
@@ -1281,7 +1281,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000033, 
-      title: ' Card', 
+      title: 'Gold & Bleach Leaves Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/leavesingreen.jpg',
@@ -1293,7 +1293,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000034, 
-      title: ' Card', 
+      title: 'Liberty Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/liberty.jpg',
@@ -1305,7 +1305,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000035, 
-      title: ' Card', 
+      title: 'Just for You Bunnies Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/bunnies.jpg',
@@ -1317,7 +1317,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000036, 
-      title: ' Card', 
+      title: 'Birthday Moose Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/moose.jpg',
@@ -1329,7 +1329,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000037, 
-      title: ' Card', 
+      title: 'Rose Mosaic Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/mosiacrose.jpg',
@@ -1341,7 +1341,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000038, 
-      title: ' Card', 
+      title: 'Moth Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/moths.jpg',
@@ -1353,7 +1353,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000039, 
-      title: ' Card', 
+      title: 'Nativity Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/nativity.jpg',
@@ -1365,7 +1365,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000040, 
-      title: ' Card', 
+      title: 'Parrot Birthday Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/parrot.jpg',
@@ -1377,7 +1377,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000041, 
-      title: ' Card', 
+      title: 'Sewing Mice Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/pbsewing.jpg',
@@ -1389,7 +1389,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000042, 
-      title: ' Card', 
+      title: ' Pears Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/pears.jpg',
@@ -1401,7 +1401,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000043, 
-      title: ' Card', 
+      title: 'Get Well Penguin Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/penguin.jpg',
@@ -1413,7 +1413,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000044, 
-      title: ' Card', 
+      title: 'Chalk Flower Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/chalkflower.jpg',
@@ -1425,7 +1425,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000045, 
-      title: ' Card', 
+      title: 'Chill of Winter Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/chillofwinter.jpg',
@@ -1437,7 +1437,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000046, 
-      title: ' Card', 
+      title: 'Cala Lily Thank You Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/calalily.jpg',
@@ -1449,7 +1449,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000047, 
-      title: ' Card', 
+      title: 'Butterfly Thank You Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/butterlythanks.jpg',
@@ -1461,7 +1461,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000048, 
-      title: ' Card', 
+      title: 'Butterfly on Acetate Overlay Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/butterflyladybug.jpg',
@@ -1473,7 +1473,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000049, 
-      title: ' Card', 
+      title: 'Butterfly Birthday Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/butterfly.jpg',
@@ -1485,7 +1485,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000050, 
-      title: ' Card', 
+      title: 'Butterfly Smile Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/butterfliesswirls.jpg',
@@ -1497,7 +1497,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000051, 
-      title: ' Card', 
+      title: 'Bit-O-Honey Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/bitohoney.jpg',
@@ -1509,7 +1509,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000052, 
-      title: ' Card', 
+      title: 'Cala Lillies Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/calalillies.jpg',
@@ -1521,7 +1521,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000053, 
-      title: ' Card', 
+      title: 'Pixie Stix Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/pixiestix.jpg',
@@ -1533,7 +1533,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000054, 
-      title: ' Card', 
+      title: 'Precious Moments Girl & Friends Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/pmgirlgoose.jpg',
@@ -1545,7 +1545,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000055, 
-      title: ' Card', 
+      title: 'Winnie the Pooh Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/pooh.jpg',
@@ -1557,7 +1557,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000056, 
-      title: ' Card', 
+      title: 'Purple Daisy Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/purpledaisy.jpg',
@@ -1569,7 +1569,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000057, 
-      title: ' Card', 
+      title: 'Bird on Terra Cotta Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/bird.jpg',
@@ -1581,7 +1581,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000058, 
-      title: ' Card', 
+      title: 'Bird Houses Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/birdhouses.jpg',
@@ -1593,7 +1593,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000059, 
-      title: ' Card', 
+      title: 'Bird Nest Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/birdnest.jpg',
@@ -1605,7 +1605,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000060, 
-      title: ' Card', 
+      title: 'Roosters Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/rooster.jpg',
@@ -1617,7 +1617,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000061, 
-      title: ' Card', 
+      title: 'Good Friend Daisies Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/daisies.jpg',
@@ -1629,7 +1629,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000062, 
-      title: ' Card', 
+      title: 'Cocoa Mug Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/cocoamug.jpg',
@@ -1641,7 +1641,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000063, 
-      title: ' Card', 
+      title: 'Happy Bee-Day Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/beeday1.jpg',
@@ -1653,7 +1653,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000064, 
-      title: ' Card', 
+      title: 'Big Ben Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/bigben.jpg',
@@ -1665,7 +1665,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000065, 
-      title: ' Card', 
+      title: 'Formula 1 Car Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/f1car.jpg',
@@ -1677,7 +1677,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000066, 
-      title: ' Card', 
+      title: 'Fall Swag Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/fallswag.jpg',
@@ -1689,7 +1689,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000067, 
-      title: ' Card', 
+      title: 'Fall Thanks Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/falltree.jpg',
@@ -1701,7 +1701,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000068, 
-      title: ' Card', 
+      title: 'Joy Fan Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/fan.jpg',
@@ -1713,7 +1713,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000069, 
-      title: ' Card', 
+      title: 'Rose Gingham Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/rosevine.jpg',
@@ -1725,19 +1725,19 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000070, 
-      title: ' Card', 
+      title: 'Happy Scarecrow Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/scarecrow.jpg',
       desc: '',
       date: '',
       content: [
-        {img:'assets/images/artwork/cards/scarecrow.jpg', 
-         desc: '</p>'}
+        {img:'assets/images/artwork/cards/scarecrow.jpg', desc: '</p>'},
+        {img:'assets/images/artwork/cards/scarecrow2.jpg', desc: '</p>'}
       ]
     },
     { id: 3000071, 
-      title: ' Card', 
+      title: 'Autumn Scarecrow Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/scarecrowivy.jpg',
@@ -1749,7 +1749,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000072, 
-      title: ' Card', 
+      title: 'Balloon Kitty Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/backofkitty.jpg',
@@ -1761,7 +1761,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000073, 
-      title: ' Card', 
+      title: 'Pasture Birthday Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/barnyard.jpg',
@@ -1773,7 +1773,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000074, 
-      title: ' Card', 
+      title: 'Ballerina Teddy Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/balletteddy.jpg',
@@ -1785,7 +1785,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000075, 
-      title: ' Card', 
+      title: 'Pocket Bear Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/bearpocket.jpg',
@@ -1797,7 +1797,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000076, 
-      title: ' Card', 
+      title: 'Schooner Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/schooner.jpg',
@@ -1809,7 +1809,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000077, 
-      title: ' Card', 
+      title: 'Galleon Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/ship.jpg',
@@ -1821,7 +1821,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000078, 
-      title: ' Card', 
+      title: 'Thinking of You Rose Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/singlerose.jpg',
@@ -1833,7 +1833,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000079, 
-      title: ' Card', 
+      title: 'Apple of My Eye Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/appleofmyeye.jpg',
@@ -1845,7 +1845,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000080, 
-      title: ' Card', 
+      title: 'Far East Crane Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/asiancranes.jpg',
@@ -1857,7 +1857,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000081, 
-      title: ' Card', 
+      title: 'Baby Feet Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/babyfeet.jpg',
@@ -1869,7 +1869,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000082, 
-      title: ' Card', 
+      title: 'Smiley Birthday Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/smiley1.jpg',
@@ -1882,7 +1882,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000083, 
-      title: ' Card', 
+      title: 'Acorns & Leaves Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/acornsleaves.jpg',
@@ -1894,7 +1894,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000084, 
-      title: ' Card', 
+      title: 'Dragonflies Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/dragonflies.jpg',
@@ -1906,7 +1906,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000085, 
-      title: ' Card', 
+      title: 'Dinosaur Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/dinosaur.jpg',
@@ -1918,7 +1918,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000086, 
-      title: ' Card', 
+      title: 'Apple Cider Mug Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/applecidercup.jpg',
@@ -1930,7 +1930,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000087, 
-      title: ' Card', 
+      title: 'Apple Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/apple.jpg',
@@ -1942,7 +1942,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000088, 
-      title: ' Card', 
+      title: 'Snail-riding Mouse Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/snailmouse.jpg',
@@ -1954,7 +1954,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000089, 
-      title: ' Card', 
+      title: 'Snails Belated Birthday Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/snails.jpg',
@@ -1966,7 +1966,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000090, 
-      title: ' Card', 
+      title: 'Snowflake Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/snow.jpg',
@@ -1978,7 +1978,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000091, 
-      title: ' Card', 
+      title: 'Snow Angel Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/snowangel.jpg',
@@ -1990,7 +1990,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 30000092, 
-      title: ' Card', 
+      title: 'Snow Family Cards', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/snowmanfamily.jpg',
@@ -2002,7 +2002,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000093, 
-      title: ' Card', 
+      title: 'Snowmas Hugs Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/snowmankid.jpg',
@@ -2014,7 +2014,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000094, 
-      title: ' Card', 
+      title: 'Snowy Tree Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/snowtree.jpg',
@@ -2026,7 +2026,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000095, 
-      title: ' Card', 
+      title: 'Space Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/space.jpg',
@@ -2037,7 +2037,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000096, 
-      title: ' Card', 
+      title: 'Laffy Taffy Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/specialtreat.jpg',
@@ -2049,7 +2049,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000097, 
-      title: ' Card', 
+      title: 'Spiral Flowers Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/spiralflower.jpg',
@@ -2061,19 +2061,19 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000098, 
-      title: ' Card', 
+      title: 'Three Flower Pots Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/springflowers.jpg',
       desc: '',
       date: '',
       content: [
-        {img:'assets/images/artwork/cards/springflowers.jpg', 
-         desc: '</p>'}
+        {img:'assets/images/artwork/cards/springflowers.jpg', desc: '</p>'},
+        {img:'assets/images/artwork/cards/threeflowerpots.jpg', desc: '</p>'}
       ]
     },
     { id: 3000099, 
-      title: ' Card', 
+      title: 'Stitched Flower Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/stitchedflower.jpg',
@@ -2085,7 +2085,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000100, 
-      title: ' Card', 
+      title: 'Stitched Sheep Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/stitchedsheep.jpg',
@@ -2097,7 +2097,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000101, 
-      title: ' Card', 
+      title: 'Strung Corners Butterfly Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/strungcorners.jpg',
@@ -2109,7 +2109,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000102, 
-      title: ' Card', 
+      title: 'Dragonfly Present Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/tackyemboss.jpg',
@@ -2121,7 +2121,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000103, 
-      title: ' Card', 
+      title: 'Teapots Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/teapots.jpg',
@@ -2133,7 +2133,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000104, 
-      title: ' Card', 
+      title: 'Thanks Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/thanks.jpg',
@@ -2145,7 +2145,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000105, 
-      title: ' Card', 
+      title: 'Just Buzzin\' By Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/thanksIN.jpg',
@@ -2157,19 +2157,19 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000106, 
-      title: ' Card', 
+      title: 'Latte Thanks Card', 
       category: 'Handmade Cards', 
       summary: '', 
-      coverImg: 'assets/images/artwork/cards/threeflowepots.jpg',
+      coverImg: 'assets/images/artwork/cards/thanksLatte.jpg',
       desc: '',
       date: '',
       content: [
-        {img:'assets/images/artwork/cards/threeflowepots.jpg', 
+        {img:'assets/images/artwork/cards/thanksLatte.jpg', 
          desc: '</p>'}
       ]
     },
     { id: 3000107, 
-      title: ' Card', 
+      title: 'Velvet Winter Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/velvet.jpg',
@@ -2181,7 +2181,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000108, 
-      title: ' Card', 
+      title: 'Angel Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/angel.jpg',
@@ -2193,7 +2193,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000109, 
-      title: ' Card', 
+      title: 'Single Flower Pot Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/singleflowerpot.jpg',
@@ -2205,7 +2205,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000110, 
-      title: ' Card', 
+      title: 'Stained Glass Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/3Dpainted.jpg',
@@ -2217,7 +2217,7 @@ export const ARTWORK:[Art[]] = [
       ]
     },
     { id: 3000110, 
-      title: ' Card', 
+      title: 'Little Penguin Birthday Card', 
       category: 'Handmade Cards', 
       summary: '', 
       coverImg: 'assets/images/artwork/cards/littlepenguin.jpg',
@@ -2226,6 +2226,18 @@ export const ARTWORK:[Art[]] = [
       content: [
         {img:'assets/images/artwork/cards/littlepenguin.jpg', 
          desc: '</p>'}
+      ]
+    },
+    { id: 3000106, 
+      title: 'Hang In There Card', 
+      category: 'Handmade Cards', 
+      summary: '', 
+      coverImg: 'assets/images/artwork/cards/hanginthere.jpg',
+      desc: '',
+      date: '',
+      content: [
+        {img:'assets/images/artwork/cards/hanginthere.jpg', desc: '</p>'},
+        {img:'assets/images/artwork/cards/hanginthere1.jpg', desc: '</p>'}
       ]
     }
   ],
